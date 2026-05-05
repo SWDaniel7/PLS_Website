@@ -31,7 +31,7 @@ export default function Footer() {
             >
               <Image
                 src="/images/pls-logo.png"
-                alt="PLS - Phillips Academy of Little Scholars"
+                alt="PLS영재교육 - Phillips Academy of Little Scholars"
                 width={180}
                 height={45}
                 className="h-9 w-auto"

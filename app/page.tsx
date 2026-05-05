@@ -9,9 +9,10 @@ import RIIEFrameworkSection from "@/components/RIIEFrameworkSection";
 import RIIEMappingSection from "@/components/RIIEMappingSection";
 import CaseStudySection from "@/components/CaseStudySection";
 import PLSApproachSection from "@/components/PLSApproachSection";
-import Features from "@/components/Features";
-import HowItWorks from "@/components/HowItWorks";
-import CTA from "@/components/CTA";
+import DataDrivenExpertiseSection from "@/components/DataDrivenExpertiseSection";
+import ClosingQuoteSection from "@/components/ClosingQuoteSection";
+import FacultySection from "@/components/FacultySection";
+import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -28,9 +29,10 @@ export default function Home() {
       <RIIEMappingSection />
       <CaseStudySection />
       <PLSApproachSection />
-      <Features />
-      <HowItWorks />
-      <CTA />
+      <DataDrivenExpertiseSection />
+      <ClosingQuoteSection />
+      <FacultySection />
+      <FinalCTASection />
       <Footer />
     </main>
   );

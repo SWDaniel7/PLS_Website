@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react";
 
 const menuItems = [
   {
-    label: "About PLS",
+    label: "About PLS영재교육",
     href: "#about",
     submenus: [
       { label: "기관소개", href: "#intro" },
@@ -71,7 +71,7 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             <Image
               src="/images/pls-logo.png"
-              alt="PLS - Phillips Academy of Little Scholars"
+              alt="PLS영재교육 - Phillips Academy of Little Scholars"
               width={180}
               height={45}
               className="h-8 md:h-10 w-auto"

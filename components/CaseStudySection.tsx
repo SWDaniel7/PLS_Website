@@ -191,7 +191,7 @@ export default function CaseStudySection() {
             className="mb-0 text-base leading-relaxed text-[var(--text-slate)] md:text-lg"
             style={{ wordBreak: "keep-all" }}
           >
-            결과로 증명하는 PLS 영재교육의 압도적 성취
+            결과로 증명하는 PLS영재교육의 압도적 성취
           </p>
         </div>
 

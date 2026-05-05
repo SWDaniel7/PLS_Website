@@ -63,7 +63,7 @@ export default function RIIEFrameworkSection() {
       style={{ backgroundColor: "var(--bg-canvas)" }}
     >
       <div className="container mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
-        <span className="section-kicker reveal-body mb-5">PLS Methodology</span>
+        <span className="section-kicker reveal-body mb-5">PLS영재교육 Methodology</span>
 
         <h2
           className="reveal-title mb-5 text-[26px] font-semibold leading-[1.3] tracking-[-0.02em] text-[var(--text-ink)] md:mb-6 md:text-[40px]"

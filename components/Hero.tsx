@@ -14,16 +14,22 @@ export default function Hero() {
       if (buttonRef.current && heroRef.current) {
         const buttonRect = buttonRef.current.getBoundingClientRect();
         const heroRect = heroRef.current.getBoundingClientRect();
-        
-        if (buttonRect.bottom < 100 || heroRect.bottom < window.innerHeight * 0.5) {
-          setIsFloating(true);
-        } else {
-          setIsFloating(false);
-        }
+
+        const pastHero =
+          buttonRect.bottom < 100 ||
+          heroRect.bottom < window.innerHeight * 0.5;
+
+        const ctaEl = document.getElementById("final-cta");
+        const ctaReached = ctaEl
+          ? ctaEl.getBoundingClientRect().top < window.innerHeight * 0.85
+          : false;
+
+        setIsFloating(pastHero && !ctaReached);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
