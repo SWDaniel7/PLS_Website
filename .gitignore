@@ -1,4 +1,5 @@
 node_modules
 .next
 .local-node
+.home
 .DS_Store
