@@ -59,18 +59,19 @@ export default function DataDrivenExpertiseSection() {
               className="reveal-body mb-5 text-base leading-relaxed text-[var(--text-slate)] md:text-lg"
               style={{ wordBreak: "keep-all" }}
             >
-              단순한 영어 수업이 아닌, Recognition-Inference-Integration-Expression
-              으로 이어지는 통합사고형 원서수업을 아이의 발달 시점과 사고 구조에
-              맞게 체계적으로 설계합니다.
+              단순한 영어 수업이 아닌, CCSS(미국 공통 교과 기준)와 IB
+              커리큘럼 표준처럼 검증된 시스템 커리큘럼을 분석 기준으로 삼아
+              Recognition-Inference-Integration-Expression으로 이어지는
+              통합사고형 원서수업을 체계적으로 설계합니다.
             </p>
             <p
               className="reveal-body mb-0 text-base leading-relaxed text-[var(--text-slate)] md:text-lg"
               style={{ wordBreak: "keep-all" }}
             >
-              또한 영어권 국가에서 가장 효과적인 언어교습 모델로 입증된
-              &apos;원서수업 교수법&apos;을 비롯해, 국내외 논문과 학습 데이터를
-              지속적으로 분석하여 각 아동의 언어·사고 반응 패턴을 정밀하게
-              모델링하고,{" "}
+              또한 영어권에서 검증된 원서수업 교수법, 국내외 학술 연구, 축적된
+              학습 데이터를 통합 분석하여 아동 인지발달·언어발달에 근거한
+              언어·사고 반응 패턴을 정밀 모델링합니다. 이 분석 체계를 기반으로{" "}
+              <strong>국내 유일의 통합사고형 원서수업 모델</strong>을 운영하며,{" "}
               <strong>
                 지금 내 아이에게 가장 적합한 원서와 교수 전략을 제공합니다.
               </strong>
@@ -176,10 +177,10 @@ export default function DataDrivenExpertiseSection() {
                         className="text-[26px] font-semibold leading-none tabular-nums text-[var(--primary-navy)]"
                         style={{ fontFeatureSettings: "'tnum'" }}
                       >
-                        G2.4
+                        G4.1
                       </span>
                       <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[var(--accent-gold)]">
-                        +0.6
+                        +0.9
                         <svg
                           aria-hidden
                           width="9"

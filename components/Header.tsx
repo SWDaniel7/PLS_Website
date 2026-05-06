@@ -4,14 +4,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const menuItems = [
   {
     label: "About PLS",
     href: "#about",
     submenus: [
-      { label: "기관소개", href: "#intro" },
-      { label: "강사소개", href: "#faculty" },
+      { label: "기관소개", href: "/about/intro" },
+      { label: "강사소개", href: "/about/faculty" },
       { label: "공지사항", href: "#notice" },
       { label: "위치&주차", href: "#location" },
     ],
@@ -67,6 +68,8 @@ function getEnrollmentStatus(): EnrollmentStatus {
 }
 
 export default function Header() {
+  const pathname = usePathname();
+  const isSubPage = pathname !== "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -123,11 +126,11 @@ export default function Header() {
                     suppressHydrationWarning
                   >
                     <span className="font-semibold text-[var(--accent-gold)]">
-                      이번 주 {nextMonth}월 등록 대기 트라이얼 클래스 마감
+                      {nextMonth}월 등록 대기 리스트
                     </span>
                     <span className="mx-2 text-white/35">·</span>
                     <span className="text-white/95">
-                      다음 주 월요일 접수 재개
+                      이번 주 트라이얼 마감 - 다음 주 월요일 접수 재개
                     </span>
                   </span>
                   <span
@@ -135,10 +138,12 @@ export default function Header() {
                     suppressHydrationWarning
                   >
                     <span className="font-semibold text-[var(--accent-gold)]">
-                      이번 주 트라이얼 마감
+                      {nextMonth}월 등록 대기 리스트
                     </span>
                     <span className="mx-1.5 text-white/35">·</span>
-                    <span className="text-white/95">월요일 재개</span>
+                    <span className="text-white/95">
+                      이번 주 트라이얼 마감 - 다음 주 월요일 접수 재개
+                    </span>
                   </span>
                 </>
               ) : (
@@ -148,11 +153,11 @@ export default function Header() {
                     suppressHydrationWarning
                   >
                     <span className="font-semibold text-[var(--accent-gold)]">
-                      {currentMonth}월 등록 조기 마감
+                      {nextMonth}월 등록 대기 리스트
                     </span>
                     <span className="mx-2 text-white/35">·</span>
                     <span className="text-white/95">
-                      {nextMonth}월 등록 대기 이번 주 트라이얼 클래스 잔여 여석{" "}
+                      이번 주 트라이얼 클래스 잔여 여석{" "}
                       <span className="font-semibold text-[var(--accent-gold)]">
                         {toCount}석
                       </span>
@@ -163,11 +168,11 @@ export default function Header() {
                     suppressHydrationWarning
                   >
                     <span className="font-semibold text-[var(--accent-gold)]">
-                      {currentMonth}월 등록 마감
+                      {nextMonth}월 등록 대기 리스트
                     </span>
                     <span className="mx-1.5 text-white/35">·</span>
                     <span className="text-white/95">
-                      트라이얼 잔여{" "}
+                      이번 주 트라이얼 클래스 잔여 여석{" "}
                       <span className="font-semibold text-[var(--accent-gold)]">
                         {toCount}석
                       </span>
@@ -211,7 +216,13 @@ export default function Header() {
                 <Link
                   href={item.href}
                   className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors duration-300 relative
-                    ${isScrolled || isMobileMenuOpen ? "text-[#2F3E5F]" : "text-white drop-shadow-[0_1px_2px_rgba(11,28,57,0.45)]"}
+                    ${
+                      isSubPage
+                        ? "text-[#2F3E5F]"
+                        : isScrolled || isMobileMenuOpen
+                          ? "text-[#2F3E5F]"
+                          : "text-white drop-shadow-[0_1px_2px_rgba(11,28,57,0.45)]"
+                    }
                     hover:text-[#D4B483]
                   `}
                 >

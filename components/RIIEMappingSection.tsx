@@ -35,7 +35,7 @@ export default function RIIEMappingSection() {
       <div className="container mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-16">
           <div className="flex flex-col lg:col-span-5">
-            <span className="section-kicker reveal-body mb-5">
+            <span className="section-kicker reveal-body mb-5 inline-flex w-fit">
               RIIE × Leveltest
             </span>
 

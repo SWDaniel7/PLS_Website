@@ -102,7 +102,7 @@ const profiles: FacultyProfile[] = [
     ],
     education: [
       { org: "성균관대학교", role: "문과대학 학사" },
-      { org: "Langara College in USA" },
+      { org: "Langara College, Canada" },
     ],
   },
   {
@@ -282,6 +282,7 @@ function FacultyCard({
 }) {
   const photoSize =
     "w-[200px] sm:w-[230px] md:w-[260px] lg:w-[260px] xl:w-[280px]";
+  const isDaniel = profile.name === "Daniel";
 
   return (
     <article className="group flex h-full min-h-[46rem] flex-col overflow-hidden rounded-3xl border border-[var(--border-hairline)] bg-white p-6 shadow-[0_8px_24px_rgba(18,44,81,0.06)] sm:min-h-[50rem] md:min-h-[52rem] lg:min-h-[54rem] md:p-8">
@@ -301,6 +302,11 @@ function FacultyCard({
                 height={560}
                 sizes="(max-width: 640px) 200px, (max-width: 1024px) 260px, 280px"
                 className="h-full w-full object-cover grayscale"
+                style={
+                  isDaniel
+                    ? { objectPosition: "52% 50%", transform: "scale(1.12)" }
+                    : undefined
+                }
                 priority={imagePriority}
               />
             </div>
@@ -360,8 +366,10 @@ function FacultyCard({
 }
 
 export default function FacultySection() {
-  const count = profiles.length;
+  const visibleProfiles = profiles.slice(0, 4);
+  const count = visibleProfiles.length;
   const [page, setPage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const [zoomFacultyIndex, setZoomFacultyIndex] = useState<number | null>(
     null
   );
@@ -385,10 +393,20 @@ export default function FacultySection() {
     };
   }, [zoomFacultyIndex, closeZoom]);
 
-  const leftIndex = page;
-  const rightIndex = (page + 1) % count;
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const apply = () => setIsMobile(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  const cardsPerView = isMobile ? 2 : 4;
+  const visibleIndices = Array.from({ length: cardsPerView }, (_, offset) => {
+    return (page + offset) % count;
+  });
   const zoomProfile =
-    zoomFacultyIndex !== null ? profiles[zoomFacultyIndex] : null;
+    zoomFacultyIndex !== null ? visibleProfiles[zoomFacultyIndex] : null;
 
   return (
     <section
@@ -419,20 +437,11 @@ export default function FacultySection() {
         </div>
 
         <p className="reveal-body mb-8 text-center text-[13px] text-[var(--text-steel)] md:mb-10">
-          전문 강사진을 화살표로 넘기며 확인하실 수 있습니다. 큰 화면에서는 한 번에
-          2명, 모바일에서는 1명이 표시됩니다.
+          전문 강사진 4인의 프로필 카드를 한 화면에서 확인하고, 화살표로 순서를
+          넘기며 보실 수 있습니다.
         </p>
 
         <div className="reveal-body relative px-2 sm:px-6 md:px-10">
-          {/* 양끝: 좁은 영역만 backdrop-blur + 그라데이션으로 카드가 잘리듯 흐려 보이게 */}
-          <div
-            className="pointer-events-none absolute inset-y-4 left-0 z-[5] w-10 bg-gradient-to-r from-[var(--bg-canvas)] from-0% via-[var(--bg-canvas)]/30 via-45% to-transparent to-100% sm:inset-y-6 sm:w-14 md:left-1 md:w-[4.25rem] supports-[backdrop-filter]:backdrop-blur-md supports-[backdrop-filter]:backdrop-saturate-150"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-y-4 right-0 z-[5] w-10 bg-gradient-to-l from-[var(--bg-canvas)] from-0% via-[var(--bg-canvas)]/30 via-45% to-transparent to-100% sm:inset-y-6 sm:w-14 md:right-1 md:w-[4.25rem] supports-[backdrop-filter]:backdrop-blur-md supports-[backdrop-filter]:backdrop-saturate-150"
-            aria-hidden
-          />
           <button
             type="button"
             onClick={goPrev}
@@ -450,31 +459,20 @@ export default function FacultySection() {
             <ChevronRight className="h-5 w-5 shrink-0" strokeWidth={2.25} />
           </button>
 
-          <div className="grid min-h-0 gap-8 md:gap-10 lg:grid-cols-2 lg:items-stretch">
-            <FacultyCard
-              key={`${leftIndex}-${page}-a`}
-              profile={profiles[leftIndex]}
-              facultyIndex={leftIndex}
-              imagePriority={page === 0 && leftIndex < 2}
-              onPhotoZoom={
-                profiles[leftIndex].imageSrc
-                  ? () => setZoomFacultyIndex(leftIndex)
-                  : undefined
-              }
-            />
-            <div className="hidden h-full lg:block">
+          <div className="grid min-h-0 gap-8 md:grid-cols-2 md:gap-9 lg:gap-10 lg:items-stretch">
+            {visibleIndices.map((profileIdx, cardPos) => (
               <FacultyCard
-                key={`${rightIndex}-${page}-b`}
-                profile={profiles[rightIndex]}
-                facultyIndex={rightIndex}
-                imagePriority={page === 0 && rightIndex < 2}
+                key={`${profileIdx}-${page}-${cardPos}`}
+                profile={visibleProfiles[profileIdx]}
+                facultyIndex={profileIdx}
+                imagePriority={page === 0 && profileIdx < 2}
                 onPhotoZoom={
-                  profiles[rightIndex].imageSrc
-                    ? () => setZoomFacultyIndex(rightIndex)
+                  visibleProfiles[profileIdx].imageSrc
+                    ? () => setZoomFacultyIndex(profileIdx)
                     : undefined
                 }
               />
-            </div>
+            ))}
           </div>
         </div>
       </div>

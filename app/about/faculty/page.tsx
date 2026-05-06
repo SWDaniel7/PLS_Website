@@ -1,0 +1,175 @@
+import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+type FacultyProfile = {
+  name: string;
+  role: string;
+  imageSrc: string;
+  workExperience: string[];
+  education: string[];
+  lead: string;
+  story: string[];
+};
+
+const facultyProfiles: FacultyProfile[] = [
+  {
+    name: "Daniel",
+    role: "대표 원장",
+    imageSrc: "/images/faculty-daniel.png",
+    workExperience: [
+      "PLS영재교육, 대표이사",
+      "PLS 대치/개포 전문관, 원장",
+      "강남 게이트/초등레테 개인교습",
+      "강남 특목고/자사고 입시 컨설팅",
+      "Google, Global M&A, Manager",
+      "주한미국대사관, KUVA, 알럼나이",
+      "교육부 소속 국립국제교육원(NIIED), WEST 알럼나이",
+      "appbackr, Palo Alto(실리콘밸리), BD",
+    ],
+    education: [
+      "스탠퍼드대학교, Continuing Studies, Education & Entrepreneurship (Class '15)",
+      "미국 국무부/대한민국 외교부 주관 글로벌 장학생",
+      "연세대학교, 경영학과 학사",
+    ],
+    lead: "Google·Stanford·장학생 출신 원장이 직접 설계한, 레테를 통과하는 사고 구조",
+    story: [
+      "Daniel 원장은 연세대학교 경영학과 졸업 후 미국 국무부·대한민국 외교부 장학 프로그램 장학생으로 선발되었으며, Google Global M&A팀에서 데이터 분석(Data Analytics) 기반 업무를 담당하며 글로벌 기준의 분석 능력과 모델링 역량을 쌓았습니다. 이 경험을 바탕으로 영어권 교습 현장의 문해력 모델(Novel-based Literacy Model)과 미국·영국의 아동 문해력 관련 논문을 체계적으로 분석하고, 한국 아동 발달 단계에 맞게 재모델링한 문해력·사고력 성장 구조(RIIE 기반)를 설계했습니다. 교육 연구–데이터 모델링–현장 적용이 결합된 이 접근법은 PLS영재교육만의 독창적인 강점입니다.",
+      "Stanford University Continuing Studies 과정을 통해 국제적 관점과 최신 학문 흐름을 지속적으로 확장해 왔으며, 미국 대사관 주관 KUVA(한미비전협회) 프로그램 멘토, 교육부 산하 국립국제교육원(NIIED) 프로그램 멘토로 활동하며 다양한 글로벌 교육 환경을 경험했습니다. 이러한 경험들은 조기 교육의 방향성을 설정하고 글로벌 기준을 반영한 학습 환경을 설계하는 데 중요한 기반이 되고 있습니다.",
+      "강남 지역 초등 레벨테스트(레테) 대비와 사고형 문해력 교육에서 다수의 성취 사례를 만들어온 것은 이 구조 위에서 가능했습니다. 단순한 입시 준비가 아닌, 아이의 사고 구조를 실질적으로 변화시켜 학습 성취가 자연스럽게 따라오도록 설계하는 것. 그것이 Daniel 원장이 PLS영재교육을 통해 일관되게 해온 일입니다.",
+    ],
+  },
+  {
+    name: "Sun",
+    role: "부원장",
+    imageSrc: "/images/faculty-sun.png",
+    workExperience: [
+      "PLS영재교육, 이사",
+      "PLS프렙 대치/개포 전문관, 부원장",
+      "강남 게이트/초등레테 개인교습",
+      "Google, Global gCare, Manager",
+      "강남 초/중등부 영어학원 강사",
+      "미국 현지 걸스카우트, Oklahoma, 코치",
+      "미국 현지 유치원/어린이집(Pre-K), Oklahoma, 교사",
+    ],
+    education: [
+      "University of Central Florida, BBA",
+      "McLoud High School, Oklahoma",
+    ],
+    lead: "미국 교실에서 직접 가르치고, Google에서 검증한 언어 발달 전문가",
+    story: [
+      "Sun 부원장은 Google Global gCare팀 Senior Manager로서 데이터 기반 의사결정과 커뮤니케이션 구조화를 담당하며 글로벌 기준의 전문성을 쌓았습니다. 그 이전에는 미국 오클라호마에서 Pre-K 유치원과 어린이집 교사로 직접 교실을 이끌며, 영유아기 언어 발달과 초기 문해력 교육을 현장에서 지도했습니다. 단순한 영어 노출이 아닌 '이해를 기반으로 한 언어 습득'의 중요성을 몸으로 익힌 교육자입니다.",
+      "미국 현지에서 걸스카우트 코치로 활동하며 아이들의 사회성, 정서 발달, 협력적 사고 구조에 대한 이해도 쌓았습니다. 언어 학습이 단순한 기술이 아니라 아이의 전인적 성장을 바탕으로 이루어져야 한다는 관점은 이 경험에서 확립되었으며, PLS영재교육의 교수 설계에 그대로 반영되고 있습니다.",
+      "Google에서 구축한 구조적 사고와 문제 해결 방식은 수업 안에서도 살아 있습니다. 아이들의 사고 과정이 '읽기 → 이해 → 사고 → 표현'으로 논리적으로 연결되도록 정교하게 설계하는 것, 그리고 강남 지역 초등 레벨테스트 지도를 통해 쌓은 현장 통찰이 그 위에 더해집니다.",
+      "미국 현장 경험을 가진 교사가 국내 레테 구조까지 이해하는 경우는 드뭅니다. Sun 부원장이 PLS영재교육 수업에서 만들어온 성취가 그 증거입니다.",
+    ],
+  },
+];
+
+function ProfileSection({ profile }: { profile: FacultyProfile }) {
+  return (
+    <section
+      className="border-b border-[var(--border-hairline)] bg-[var(--bg-canvas)] px-6 py-14 md:px-8 md:py-20 lg:px-12 lg:py-24"
+      style={{ overflowAnchor: "none" }}
+    >
+      <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[35%_65%] lg:gap-20">
+        <aside className="max-[968px]:static lg:sticky lg:top-[120px] lg:self-start">
+          <div className="mb-8 overflow-hidden rounded-2xl ring-1 ring-[var(--border-hairline)]">
+            <Image
+              src={profile.imageSrc}
+              alt={`${profile.name} 프로필 사진`}
+              width={900}
+              height={1125}
+              className="h-auto w-full grayscale"
+              priority={profile.name === "Daniel"}
+            />
+          </div>
+
+          <h2 className="mb-1 text-[34px] font-semibold tracking-[-0.02em] text-[var(--text-ink)]">
+            {profile.name}
+          </h2>
+          <p className="mb-8 text-[16px] font-medium text-[var(--text-slate)]">
+            {profile.role}
+          </p>
+
+          <div>
+            <h3 className="mb-4 border-b border-[var(--border-hairline)] pb-2 text-[13px] font-semibold tracking-[0.06em] text-[var(--text-steel)] uppercase">
+              Work Experience
+            </h3>
+            <div className="space-y-2.5">
+              {profile.workExperience.map((item) => (
+                <p
+                  key={item}
+                  className="mb-0 text-[14px] leading-relaxed text-[var(--text-charcoal)]"
+                  style={{ wordBreak: "keep-all" }}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <h3 className="mb-4 border-b border-[var(--border-hairline)] pb-2 text-[13px] font-semibold tracking-[0.06em] text-[var(--text-steel)] uppercase">
+              Education
+            </h3>
+            <div className="space-y-2.5">
+              {profile.education.map((item) => (
+                <p
+                  key={item}
+                  className="mb-0 text-[14px] leading-relaxed text-[var(--text-charcoal)]"
+                  style={{ wordBreak: "keep-all" }}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        </aside>
+
+        <article className="pt-2 md:pt-4">
+          <p className="mb-8 text-[20px] font-semibold leading-[1.7] tracking-[-0.01em] text-[var(--primary-navy)]">
+            {profile.lead}
+          </p>
+          {profile.story.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="mb-8 text-[17px] leading-[1.7] text-[var(--text-charcoal)]"
+              style={{ wordBreak: "keep-all" }}
+            >
+              {paragraph}
+            </p>
+          ))}
+        </article>
+      </div>
+    </section>
+  );
+}
+
+export default function FacultyPage() {
+  return (
+    <main className="min-h-screen bg-[var(--bg-canvas)]">
+      <Header />
+
+      <section className="bg-[var(--bg-canvas)] px-6 pb-16 pt-32 text-center md:px-8 md:pb-20 md:pt-36 lg:px-12">
+        <div className="mx-auto max-w-[1200px]">
+          <span className="section-kicker reveal-body mb-5 inline-flex">
+            Global Talent
+          </span>
+          <h1 className="text-[48px] font-semibold tracking-[-0.02em] text-[var(--text-ink)]">
+            강사소개
+          </h1>
+          <p className="mt-6 text-[15px] text-[var(--text-slate)]">
+            Phillips Academy of Little Scholars
+          </p>
+        </div>
+      </section>
+
+      {facultyProfiles.map((profile) => (
+        <ProfileSection key={profile.name} profile={profile} />
+      ))}
+
+      <Footer />
+    </main>
+  );
+}

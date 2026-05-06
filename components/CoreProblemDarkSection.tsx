@@ -15,12 +15,14 @@ export default function CoreProblemDarkSection() {
       style={{ backgroundColor: "var(--primary-navy)", color: "#FFFFFF" }}
     >
       <div className="container mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
-        <span className="section-kicker section-kicker--dark reveal-body mb-5">
-          Core Principles
-        </span>
+        <div className="reveal-body mb-5 text-center">
+          <span className="section-kicker section-kicker--dark inline-flex">
+            Core Principles
+          </span>
+        </div>
 
         <h2
-          className="reveal-title mb-12 max-w-5xl font-semibold leading-[1.4] text-white md:mb-14"
+          className="reveal-title mb-12 mx-auto max-w-5xl text-center font-semibold leading-[1.4] text-white md:mb-14"
           style={{
             fontSize: "clamp(24px, 4.2vw, 30px)",
             wordBreak: "keep-all",
@@ -112,7 +114,7 @@ export default function CoreProblemDarkSection() {
 
         {/* Body — narrative continued */}
         <div
-          className="reveal-body max-w-4xl space-y-7"
+          className="reveal-body mx-auto max-w-4xl space-y-7 text-center"
           style={{
             fontSize: "clamp(15px, 2.8vw, 17px)",
             lineHeight: 1.75,
@@ -127,7 +129,7 @@ export default function CoreProblemDarkSection() {
             입니다.
           </p>
 
-          <p className="mb-0 text-white/85">
+          <p className="mb-0 mt-6 text-white/85">
             특히 요즘 독보적 인기를 얻고 있는 에디*과 같은{" "}
             <span className="font-semibold text-[var(--accent-gold)]">
               &apos;노블베이스 원&apos;
@@ -141,11 +143,12 @@ export default function CoreProblemDarkSection() {
         </div>
 
         {/* Assessment dimensions — visual chips for the 3 challenges from body 2 */}
-        <div className="reveal-body mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-10">
+        <div className="reveal-body mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 md:mt-10">
           {[
-            { tag: "Length", label: "긴 리딩 지문" },
             { tag: "Non-fiction", label: "사고추론 문제" },
             { tag: "Fiction", label: "감정·원인·관계 추론" },
+            { tag: "Vocabulary", label: "문맥에 기반한 의미 추론" },
+            { tag: "Length", label: "긴 리딩 지문" },
           ].map((dim) => (
             <div
               key={dim.label}
@@ -172,7 +175,7 @@ export default function CoreProblemDarkSection() {
         </div>
 
         {/* Closing emphasis — bordered callout */}
-        <div className="reveal-title mt-12 max-w-4xl md:mt-14">
+        <div className="reveal-title mt-12 mx-auto max-w-4xl md:mt-14">
           <div
             className="overflow-hidden rounded-2xl px-6 py-7 md:px-9 md:py-9"
             style={{
@@ -182,7 +185,7 @@ export default function CoreProblemDarkSection() {
             }}
           >
             <p
-              className="mb-2 text-[11.5px] font-semibold tracking-[0.18em] uppercase md:text-[12px]"
+              className="mb-2 text-center text-[11.5px] font-semibold tracking-[0.18em] uppercase md:text-[12px]"
               style={{ color: "var(--accent-gold)" }}
             >
               <span
@@ -193,7 +196,7 @@ export default function CoreProblemDarkSection() {
               지금 필요한 준비
             </p>
             <p
-              className="mb-0 font-medium leading-[1.55] text-white"
+              className="mb-0 text-center font-medium leading-[1.55] text-white"
               style={{
                 fontSize: "clamp(18px, 3vw, 22px)",
                 wordBreak: "keep-all",
