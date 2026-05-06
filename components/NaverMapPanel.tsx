@@ -14,6 +14,18 @@ const LOCATION = {
   lng: 127.0492469,
   title: "PLS영재교육",
 };
+const LOCATION_QUERIES = [
+  "서울 강남구 논현로10길 16 영재센터빌딩",
+  "서울 강남구 논현로10길 16",
+  "서울 강남구 개포동 논현로10길 16",
+];
+
+function toLatLngFromGeocodeItem(item: any) {
+  const x = Number(item?.x);
+  const y = Number(item?.y);
+  if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+  return { lat: y, lng: x };
+}
 
 export default function NaverMapPanel() {
   const mapRef = useRef<HTMLDivElement | null>(null);
@@ -26,7 +38,35 @@ export default function NaverMapPanel() {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let disposed = false;
 
-    const initMap = () => {
+    const resolveAddress = async () => {
+      if (!window.naver?.maps?.Service?.geocode) return null;
+
+      for (const query of LOCATION_QUERIES) {
+        const result = await new Promise<any[] | null>((resolve) => {
+          window.naver.maps.Service.geocode(
+            {
+              query,
+            },
+            (status: any, response: any) => {
+              if (status !== window.naver.maps.Service.Status.OK) {
+                resolve(null);
+                return;
+              }
+              resolve(response?.v2?.addresses ?? null);
+            }
+          );
+        });
+
+        if (result && result.length > 0) {
+          const candidate = toLatLngFromGeocodeItem(result[0]);
+          if (candidate) return candidate;
+        }
+      }
+
+      return null;
+    };
+
+    const initMap = async () => {
       if (disposed) return;
       if (!window.naver?.maps || !mapRef.current) {
         setHasError(true);
@@ -34,10 +74,14 @@ export default function NaverMapPanel() {
         return;
       }
       try {
-        const center = new window.naver.maps.LatLng(LOCATION.lat, LOCATION.lng);
+        const resolved = await resolveAddress();
+        const center = new window.naver.maps.LatLng(
+          resolved?.lat ?? LOCATION.lat,
+          resolved?.lng ?? LOCATION.lng
+        );
         const map = new window.naver.maps.Map(mapRef.current, {
           center,
-          zoom: 16,
+          zoom: 17,
           zoomControl: true,
           zoomControlOptions: {
             position: window.naver.maps.Position.TOP_RIGHT,
@@ -49,6 +93,7 @@ export default function NaverMapPanel() {
           map,
           title: LOCATION.title,
         });
+        map.setCenter(center);
         setIsLoaded(true);
         if (timeoutId) clearTimeout(timeoutId);
       } catch (e) {
@@ -83,7 +128,7 @@ export default function NaverMapPanel() {
     const script = document.createElement("script");
     script.id = scriptId;
     script.async = true;
-    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${NAVER_MAP_CLIENT_ID}`;
+    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${NAVER_MAP_CLIENT_ID}&submodules=geocoder`;
     script.onload = initMap;
     script.onerror = () => {
       setHasError(true);
