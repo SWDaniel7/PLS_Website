@@ -5,7 +5,8 @@ import Footer from "@/components/Footer";
 type FacultyProfile = {
   name: string;
   role: string;
-  imageSrc: string;
+  imageSrc?: string;
+  placeholderGender?: "male" | "female";
   workExperience: string[];
   education: string[];
   lead: string;
@@ -64,6 +65,27 @@ const facultyProfiles: FacultyProfile[] = [
       "미국 현장 경험을 가진 교사가 국내 레테 구조까지 이해하는 경우는 드뭅니다. Sun 부원장이 PLS영재교육 수업에서 만들어온 성취가 그 증거입니다.",
     ],
   },
+  {
+    name: "Sally",
+    role: "수석강사",
+    placeholderGender: "female",
+    workExperience: [
+      "PLS영재교육, 교육 R&D 담당",
+      "PLS 대치/개포 전문관, 수석강사",
+      "강남 게이트/초등레테 교습",
+      "정철어학원 초등부 전임 강사",
+      "전문 라이팅 교수법 기반 교육과정 설계 전문가",
+      "원서 수업 커리큘럼 기획 및 설계",
+    ],
+    education: ["성균관대학교, 문과대학 학사", "Langara College, Canada"],
+    lead: "캐나다 사립학교를 나온 이중언어자가 직접 설계하고 가르치는 레테 수업",
+    story: [
+      "Sally 선생님은 캐나다 사립학교와 Langara College를 거치며 영어를 '배운 것'이 아닌 '살아온' 언어로 체화한 이중언어자입니다. 성균관대학교 문과대학에서 한국어 기반 언어·문학적 사고까지 깊이 쌓았습니다. 두 언어를 모두 모국어 수준으로 구사한다는 것은 수업 안에서 결정적인 강점이 됩니다. 아이가 어디서 막히는지, 한국어 사고 구조가 영어 표현에 어떻게 간섭하는지를 정확하게 읽어낼 수 있기 때문입니다.",
+      "정철어학원 초등부 전임강사를 거쳐 강남 게이트·초등레테 지도 경험을 쌓으며 레테 현장에 대한 실전 통찰을 확보했습니다. 어떤 아이가 어떤 문항 유형에서 막히는지, 그 지점을 어떻게 뚫어주는지를 누구보다 현장에서 직접 다뤄온 선생님입니다.",
+      "현재는 수석강사로 수업을 이끄는 동시에 PLS영재교육의 교육 R&D를 담당하며 원서 수업 커리큘럼 기획과 설계, 전문 라이팅 교수법 기반 교육과정 설계까지 맡고 있습니다. 수업을 잘 가르치는 강사가 아니라, 수업 자체를 만드는 사람입니다.",
+      "아이의 언어 구조를 두 언어로 동시에 읽고, 레테 현장을 직접 통과시켜온 경험이 Sally 선생님이 PLS영재교육 수업에서 만들어온 성취의 기반입니다.",
+    ],
+  },
 ];
 
 function ProfileSection({ profile }: { profile: FacultyProfile }) {
@@ -75,14 +97,58 @@ function ProfileSection({ profile }: { profile: FacultyProfile }) {
       <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[35%_65%] lg:gap-20">
         <aside className="max-[968px]:static lg:sticky lg:top-[120px] lg:self-start">
           <div className="mb-8 overflow-hidden rounded-2xl ring-1 ring-[var(--border-hairline)]">
-            <Image
-              src={profile.imageSrc}
-              alt={`${profile.name} 프로필 사진`}
-              width={900}
-              height={1125}
-              className="h-auto w-full grayscale"
-              priority={profile.name === "Daniel"}
-            />
+            {profile.imageSrc ? (
+              <Image
+                src={profile.imageSrc}
+                alt={`${profile.name} 프로필 사진`}
+                width={900}
+                height={1125}
+                className="h-auto w-full grayscale"
+                priority={profile.name === "Daniel"}
+              />
+            ) : (
+              <div
+                className="relative aspect-[4/5] w-full"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 85% 70% at 50% 28%, rgba(212,180,131,0.22) 0%, var(--accent-sand) 42%, #D8CFC0 100%)",
+                }}
+                aria-label={`${profile.name} 프로필 준비중`}
+              >
+                <svg
+                  viewBox="0 0 120 120"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="absolute inset-0 h-full w-full"
+                  preserveAspectRatio="xMidYMid meet"
+                  aria-hidden
+                >
+                  {profile.placeholderGender === "female" ? (
+                    <g fill="var(--primary-navy)">
+                      <ellipse cx="60" cy="38" rx="22" ry="18" opacity="0.34" />
+                      <path
+                        opacity="0.48"
+                        d="M60 30c-10.5 0-19 6.5-21.5 16-.8 3.3-.6 6.8.6 10 1.5 4 4.7 7 8.6 8.4L44 68c-5 1.6-9 5.8-10.7 11L28 118h64l-5.3-39c-1.7-5.2-5.7-9.4-10.7-11L72 64.4c3.9-1.4 7.1-4.4 8.6-8.4 1.2-3.2 1.4-6.7.6-10C79 36.5 70.5 30 60 30zm0 6.5c6.6 0 12 4.3 13.7 10.2.4 1.3.6 2.7.6 4.1 0 7.2-5.9 13.2-13.2 13.4h-.2C53.6 64 47.7 58 47.7 50.8c0-1.4.2-2.8.6-4.1C50 40.8 55.4 36.5 60 36.5z"
+                      />
+                    </g>
+                  ) : (
+                    <g fill="var(--primary-navy)">
+                      <path
+                        opacity="0.45"
+                        d="M60 22c-10 0-19 6-22 16-2 6-1 13 2 18 4 6 11 10 20 10s16-4 20-10c3-5 4-12 2-18-3-10-12-16-22-16z"
+                      />
+                      <path
+                        opacity="0.5"
+                        d="M52 52h16v8l8 4 10 38H34l10-38 8-4v-8z"
+                      />
+                      <path
+                        opacity="0.55"
+                        d="M48 28c4-6 10-9 16-8 2 4 3 8 2 13-6-2-12-3-18-5z"
+                      />
+                    </g>
+                  )}
+                </svg>
+              </div>
+            )}
           </div>
 
           <h2 className="mb-1 text-[34px] font-semibold tracking-[-0.02em] text-[var(--text-ink)]">

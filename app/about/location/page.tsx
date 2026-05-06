@@ -1,0 +1,104 @@
+import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import NaverMapPanel from "@/components/NaverMapPanel";
+
+export default function LocationPage() {
+  return (
+    <main className="min-h-screen bg-[var(--bg-canvas)]">
+      <Header />
+
+      <section
+        className="px-6 pb-10 pt-32 text-center md:px-8 md:pb-12 md:pt-36"
+        style={{ backgroundColor: "var(--bg-canvas)" }}
+      >
+        <span className="section-kicker reveal-body mb-4 inline-flex">
+          Location & Parking
+        </span>
+        <h1 className="text-[40px] font-semibold tracking-[-0.02em] text-[var(--text-ink)]">
+          위치 & 주차
+        </h1>
+        <p className="mt-3 text-base text-[var(--text-slate)]">
+          Phillips Academy of Little Scholars
+        </p>
+      </section>
+
+      <section
+        className="px-6 pb-24 md:px-8 md:pb-28 lg:pb-32"
+        style={{ backgroundColor: "var(--bg-canvas)" }}
+      >
+        <div className="mx-auto grid max-w-[1200px] grid-cols-[4fr_6fr] gap-12 items-start max-[968px]:grid-cols-1">
+          <div className="flex flex-col gap-8">
+            <div>
+              <h3 className="mb-3 text-[14px] font-semibold tracking-[0.05em] text-[var(--text-steel)] uppercase">
+                Address
+              </h3>
+              <p
+                className="text-[19px] font-semibold leading-[1.5] text-[var(--text-ink)]"
+                style={{ wordBreak: "keep-all" }}
+              >
+                서울시 강남구 논현로 10길, 16
+                <br />
+                영재센터빌딩 4층
+                <br />
+                <span className="text-[15px] font-normal text-[var(--text-slate)]">
+                  (강남부동산 좌측 입구)
+                </span>
+              </p>
+            </div>
+
+            <div
+              className="rounded-r-xl rounded-l-none p-6"
+              style={{
+                backgroundColor: "var(--bg-surface-soft)",
+                borderLeft: "3px solid var(--accent-gold)",
+              }}
+            >
+              <h3 className="mb-2 text-[14px] font-semibold tracking-[0.05em] text-[var(--text-steel)] uppercase">
+                Parking Information
+              </h3>
+              <p className="mb-2 text-[15px] leading-[1.6] text-[var(--text-charcoal)]">
+                <strong>영재센터빌딩은 주차 불가 합니다.</strong>
+              </p>
+              <p className="mb-0 text-[15px] leading-[1.6] text-[var(--text-charcoal)]">
+                국악고 옆{" "}
+                <span className="font-semibold text-[var(--primary-navy)]">
+                  포이초교공영주차장
+                </span>
+                (도보 2분 거리)을 이용해 주세요.
+              </p>
+            </div>
+
+            <div
+              className="overflow-hidden rounded-2xl"
+              style={{ boxShadow: "0 4px 20px rgba(18, 44, 81, 0.06)" }}
+            >
+              <Image
+                src="/images/location-building.png"
+                alt="영재센터빌딩 전경"
+                width={800}
+                height={800}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <p className="mt-[-18px] text-[13px] text-[var(--text-steel)]">
+              영재센터빌딩 전경
+            </p>
+          </div>
+
+          <div
+            className="w-full overflow-hidden rounded-3xl min-h-[600px] max-[968px]:min-h-[420px]"
+            style={{
+              boxShadow: "0 8px 32px rgba(18, 44, 81, 0.08)",
+              backgroundColor: "var(--bg-surface-soft)",
+            }}
+          >
+            <NaverMapPanel />
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}

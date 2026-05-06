@@ -14,7 +14,7 @@ const menuItems = [
       { label: "기관소개", href: "/about/intro" },
       { label: "강사소개", href: "/about/faculty" },
       { label: "공지사항", href: "#notice" },
-      { label: "위치&주차", href: "#location" },
+      { label: "위치&주차", href: "/about/location" },
     ],
   },
   {
