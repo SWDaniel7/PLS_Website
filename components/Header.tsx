@@ -19,22 +19,22 @@ const menuItems = [
   },
   {
     label: "RIIE Framework",
-    href: "#riie",
+    href: "/#riie",
     submenus: [],
   },
   {
     label: "재원생 성과",
-    href: "#case",
+    href: "/#case",
     submenus: [],
   },
   {
     label: "입시정보/칼럼",
-    href: "#admission",
+    href: "https://blog.naver.com/PostList.naver?blogId=ym_career&from=postList&categoryNo=16",
     submenus: [],
   },
   {
     label: "대기 상담",
-    href: "#final-cta",
+    href: "http://pf.kakao.com/_xdIwEn",
     submenus: [],
   },
 ];
@@ -99,6 +99,8 @@ export default function Header() {
   const toggleMobileSubmenu = (label: string) => {
     setActiveMobileSubmenu(activeMobileSubmenu === label ? null : label);
   };
+  const isExternalLink = (href: string) =>
+    href.startsWith("http://") || href.startsWith("https://");
 
   return (
     <>
@@ -112,8 +114,10 @@ export default function Header() {
           }`}
           aria-hidden={!isStatusBarVisible}
         >
-          <Link
-            href="#final-cta"
+          <a
+            href="http://pf.kakao.com/_xdIwEn"
+            target="_blank"
+            rel="noreferrer"
             tabIndex={isStatusBarVisible ? 0 : -1}
             className="block bg-[var(--primary-navy-dark)] text-white transition-colors duration-300 hover:bg-[#0a1830]"
           >
@@ -181,7 +185,7 @@ export default function Header() {
                 </>
               )}
             </div>
-          </Link>
+          </a>
         </div>
 
         <div
@@ -213,30 +217,52 @@ export default function Header() {
                 onMouseEnter={() => setActiveMenu(item.label)}
                 onMouseLeave={() => setActiveMenu(null)}
               >
-                <Link
-                  href={item.href}
-                  className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors duration-300 relative
-                    ${
-                      isSubPage
-                        ? "text-[#2F3E5F]"
-                        : isScrolled || isMobileMenuOpen
+                {isExternalLink(item.href) ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors duration-300 relative
+                      ${
+                        isSubPage
                           ? "text-[#2F3E5F]"
-                          : "text-white drop-shadow-[0_1px_2px_rgba(11,28,57,0.45)]"
-                    }
-                    hover:text-[#D4B483]
-                  `}
-                >
-                  {item.label}
-                  {item.submenus.length > 0 && (
-                    <ChevronDown 
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        activeMenu === item.label ? "rotate-180" : ""
-                      }`} 
-                    />
-                  )}
-                  {/* Hover underline effect */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D4B483] transition-all duration-300 group-hover:w-full" />
-                </Link>
+                          : isScrolled || isMobileMenuOpen
+                            ? "text-[#2F3E5F]"
+                            : "text-white drop-shadow-[0_1px_2px_rgba(11,28,57,0.45)]"
+                      }
+                      hover:text-[#D4B483]
+                    `}
+                  >
+                    {item.label}
+                    {/* Hover underline effect */}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D4B483] transition-all duration-300 group-hover:w-full" />
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors duration-300 relative
+                      ${
+                        isSubPage
+                          ? "text-[#2F3E5F]"
+                          : isScrolled || isMobileMenuOpen
+                            ? "text-[#2F3E5F]"
+                            : "text-white drop-shadow-[0_1px_2px_rgba(11,28,57,0.45)]"
+                      }
+                      hover:text-[#D4B483]
+                    `}
+                  >
+                    {item.label}
+                    {item.submenus.length > 0 && (
+                      <ChevronDown 
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          activeMenu === item.label ? "rotate-180" : ""
+                        }`} 
+                      />
+                    )}
+                    {/* Hover underline effect */}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D4B483] transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                )}
 
                 {/* Elegant Submenu Dropdown */}
                 {item.submenus.length > 0 && (
@@ -366,13 +392,25 @@ export default function Header() {
                     </div>
                   </>
                 ) : (
-                  <Link
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-6 py-3.5 text-sm font-medium text-[#2F3E5F] transition-all duration-300 hover:bg-[#FAF8F4] active:bg-[#F5F3EF] active:text-[#D4B483] active:scale-[0.995]"
-                  >
-                    {item.label}
-                  </Link>
+                  isExternalLink(item.href) ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block px-6 py-3.5 text-sm font-medium text-[#2F3E5F] transition-all duration-300 hover:bg-[#FAF8F4] active:bg-[#F5F3EF] active:text-[#D4B483] active:scale-[0.995]"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block px-6 py-3.5 text-sm font-medium text-[#2F3E5F] transition-all duration-300 hover:bg-[#FAF8F4] active:bg-[#F5F3EF] active:text-[#D4B483] active:scale-[0.995]"
+                    >
+                      {item.label}
+                    </Link>
+                  )
                 )}
               </div>
             ))}
