@@ -7,14 +7,24 @@ import { ChevronDown } from "lucide-react";
 
 const menuItems = [
   {
-    label: "About PLS영재교육",
+    label: "About PLS",
     href: "#about",
     submenus: [
       { label: "기관소개", href: "#intro" },
-      { label: "강사소개", href: "#teachers" },
+      { label: "강사소개", href: "#faculty" },
       { label: "공지사항", href: "#notice" },
       { label: "위치&주차", href: "#location" },
     ],
+  },
+  {
+    label: "RIIE Framework",
+    href: "#riie",
+    submenus: [],
+  },
+  {
+    label: "재원생 성과",
+    href: "#case",
+    submenus: [],
   },
   {
     label: "입시정보/칼럼",
@@ -22,17 +32,47 @@ const menuItems = [
     submenus: [],
   },
   {
-    label: "대기등록",
-    href: "#register",
+    label: "대기 상담",
+    href: "#final-cta",
     submenus: [],
   },
 ];
+
+type EnrollmentStatus = {
+  currentMonth: number;
+  nextMonth: number;
+  toCount: number;
+  isClosed: boolean;
+};
+
+function getEnrollmentStatus(): EnrollmentStatus {
+  const now = new Date();
+  const currentMonth = now.getMonth() + 1;
+  const nextMonth = currentMonth === 12 ? 1 : currentMonth + 1;
+  const day = now.getDay();
+
+  let toCount = 3;
+  let isClosed = false;
+
+  if (day === 6) {
+    toCount = 0;
+    isClosed = true;
+  } else if (day === 5) {
+    toCount = 1;
+  } else if (day === 4 || day === 3) {
+    toCount = 2;
+  }
+
+  return { currentMonth, nextMonth, toCount, isClosed };
+}
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+  const { currentMonth, nextMonth, toCount, isClosed } = getEnrollmentStatus();
+  const isStatusBarVisible = isScrolled || isMobileMenuOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,14 +99,94 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled || isMobileMenuOpen
-            ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
-            : "bg-transparent py-4"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50">
+        {/* Top status bar — admissions urgency (visible only when scrolled) */}
+        <div
+          className={`overflow-hidden transition-[max-height,opacity,transform] duration-500 ease-out ${
+            isStatusBarVisible
+              ? "max-h-[60px] opacity-100 translate-y-0"
+              : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"
+          }`}
+          aria-hidden={!isStatusBarVisible}
+        >
+          <Link
+            href="#final-cta"
+            tabIndex={isStatusBarVisible ? 0 : -1}
+            className="block bg-[var(--primary-navy-dark)] text-white transition-colors duration-300 hover:bg-[#0a1830]"
+          >
+            <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 px-4 py-1.5 md:py-2">
+              <span className="status-dot" aria-hidden />
+              {isClosed ? (
+                <>
+                  <span
+                    className="hidden sm:inline text-[12px] md:text-[13px] tracking-[-0.005em]"
+                    suppressHydrationWarning
+                  >
+                    <span className="font-semibold text-[var(--accent-gold)]">
+                      이번 주 {nextMonth}월 등록 대기 트라이얼 클래스 마감
+                    </span>
+                    <span className="mx-2 text-white/35">·</span>
+                    <span className="text-white/95">
+                      다음 주 월요일 접수 재개
+                    </span>
+                  </span>
+                  <span
+                    className="sm:hidden text-[11.5px] tracking-[-0.005em]"
+                    suppressHydrationWarning
+                  >
+                    <span className="font-semibold text-[var(--accent-gold)]">
+                      이번 주 트라이얼 마감
+                    </span>
+                    <span className="mx-1.5 text-white/35">·</span>
+                    <span className="text-white/95">월요일 재개</span>
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span
+                    className="hidden sm:inline text-[12px] md:text-[13px] tracking-[-0.005em]"
+                    suppressHydrationWarning
+                  >
+                    <span className="font-semibold text-[var(--accent-gold)]">
+                      {currentMonth}월 등록 조기 마감
+                    </span>
+                    <span className="mx-2 text-white/35">·</span>
+                    <span className="text-white/95">
+                      {nextMonth}월 등록 대기 이번 주 트라이얼 클래스 잔여 여석{" "}
+                      <span className="font-semibold text-[var(--accent-gold)]">
+                        {toCount}석
+                      </span>
+                    </span>
+                  </span>
+                  <span
+                    className="sm:hidden text-[11.5px] tracking-[-0.005em]"
+                    suppressHydrationWarning
+                  >
+                    <span className="font-semibold text-[var(--accent-gold)]">
+                      {currentMonth}월 등록 마감
+                    </span>
+                    <span className="mx-1.5 text-white/35">·</span>
+                    <span className="text-white/95">
+                      트라이얼 잔여{" "}
+                      <span className="font-semibold text-[var(--accent-gold)]">
+                        {toCount}석
+                      </span>
+                    </span>
+                  </span>
+                </>
+              )}
+            </div>
+          </Link>
+        </div>
+
+        <div
+          className={`transition-all duration-300 ${
+            isScrolled || isMobileMenuOpen
+              ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
+              : "bg-transparent py-4"
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -80,7 +200,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {menuItems.map((item) => (
               <div
                 key={item.label}
@@ -164,6 +284,7 @@ export default function Header() {
               />
             </span>
           </button>
+          </div>
         </div>
       </header>
 
@@ -178,7 +299,7 @@ export default function Header() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div 
-          className={`absolute top-[60px] left-0 right-0 bg-white shadow-2xl max-h-[calc(100vh-60px)] overflow-y-auto transition-all duration-300 ${
+          className={`absolute top-[88px] left-0 right-0 bg-white shadow-2xl max-h-[calc(100vh-88px)] overflow-y-auto transition-all duration-300 ${
             isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
           }`}
         >

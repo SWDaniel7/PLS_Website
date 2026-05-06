@@ -1,9 +1,30 @@
-import { HelpCircle } from "lucide-react";
+import { Quote } from "lucide-react";
 
-const questions = [
-  "진도는 나가는데, 왜 틀릴까?",
-  "추론(Inference) 문제는 왜 막힐까?",
-  "말은 잘하는데, 왜 쓰기는 안될까?",
+type Question = {
+  prefix: string;
+  emphasis: string;
+  suffix: string;
+  breakBefore?: boolean;
+};
+
+const questions: Question[] = [
+  {
+    prefix: "진도는 나가는데, ",
+    emphasis: "왜",
+    suffix: " 틀릴까?",
+    breakBefore: true,
+  },
+  {
+    prefix: "추론(Inference) 문제는 ",
+    emphasis: "왜",
+    suffix: " 막힐까?",
+  },
+  {
+    prefix: "말은 잘하는데, ",
+    emphasis: "왜",
+    suffix: " 쓰기는 안될까?",
+    breakBefore: true,
+  },
 ];
 
 export default function ParentAnxietyInsightSection() {
@@ -25,27 +46,69 @@ export default function ParentAnxietyInsightSection() {
               </span>
             </h2>
 
-            <div className="reveal-body mb-8 grid gap-3 sm:grid-cols-3 sm:gap-4 md:mb-10">
+            <p className="reveal-body mb-6 text-[13px] font-semibold uppercase tracking-[0.18em] text-[var(--text-steel)] md:mb-7">
+              <span className="mr-3 inline-block h-px w-8 align-middle" style={{ background: "var(--accent-gold)" }} />
+              학부모님께서 가장 자주 던지시는 질문
+            </p>
+
+            <div className="reveal-body mb-10 grid gap-4 sm:grid-cols-3 md:mb-12 md:gap-5">
               {questions.map((q, i) => (
-                <div
-                  key={q}
-                  className={`group relative rounded-2xl border border-[var(--border-hairline)] bg-white p-5 shadow-[0_4px_14px_rgba(18,44,81,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent-gold)]/45 hover:shadow-[0_14px_30px_rgba(18,44,81,0.10)] ${
-                    i === 1 ? "sm:mt-5" : i === 2 ? "sm:mt-10" : ""
-                  }`}
+                <article
+                  key={q.prefix + q.suffix}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-[var(--border-hairline)] shadow-[0_8px_22px_rgba(18,44,81,0.06)] transition-all duration-400 hover:-translate-y-1.5 hover:ring-[var(--accent-gold)]/55 hover:shadow-[0_20px_44px_rgba(18,44,81,0.14)] md:p-7"
                 >
-                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-[var(--accent-sand)] transition-colors duration-300 group-hover:bg-[var(--accent-gold)]/20">
-                    <HelpCircle
-                      className="h-4 w-4 text-[var(--accent-gold)]"
+                  <span
+                    aria-hidden
+                    className="absolute left-0 right-0 top-0 h-[3px]"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, var(--accent-gold) 0%, #E1C99A 60%, transparent 100%)",
+                    }}
+                  />
+
+                  <div className="mb-5 flex items-center justify-between">
+                    <span
+                      className="font-semibold leading-none tracking-tight text-[var(--accent-gold)]"
+                      style={{ fontSize: "30px" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <Quote
+                      className="h-5 w-5 -scale-x-100 text-[var(--accent-gold)]/40 transition-colors duration-300 group-hover:text-[var(--accent-gold)]/65"
                       aria-hidden
+                      strokeWidth={2}
                     />
                   </div>
+
                   <p
-                    className="mb-0 text-[14px] font-medium leading-[1.65] text-[var(--text-ink)] md:text-[15px]"
+                    className="mb-4 text-[18px] font-semibold leading-[1.45] text-[var(--text-ink)] md:text-[19px]"
                     style={{ wordBreak: "keep-all" }}
                   >
-                    {q}
+                    {q.prefix}
+                    {q.breakBefore && <br className="hidden sm:block" />}
+                    <span className="relative inline-block">
+                      <span className="relative z-10 px-0.5 text-[var(--accent-gold)] transition-colors duration-300 group-hover:text-[var(--primary-navy)]">
+                        {q.emphasis}
+                      </span>
+                      <span
+                        aria-hidden
+                        className="absolute bottom-[2px] left-0 right-0 z-0 h-[3px] origin-left scale-x-100 bg-[var(--accent-gold)]/20"
+                      />
+                    </span>
+                    {q.suffix}
                   </p>
-                </div>
+
+                  <div className="mt-auto flex items-center gap-2">
+                    <span
+                      aria-hidden
+                      className="h-px w-6"
+                      style={{ background: "var(--accent-gold)" }}
+                    />
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text-steel)]">
+                      Parent&apos;s voice
+                    </span>
+                  </div>
+                </article>
               ))}
             </div>
 

@@ -171,7 +171,8 @@ function ManuscriptProof({ proof }: { proof: ManuscriptCard }) {
 export default function CaseStudySection() {
   return (
     <section
-      className="section-padding py-16 md:py-24 lg:py-[100px]"
+      id="case"
+      className="section-padding py-16 md:py-24 lg:py-[100px] scroll-mt-24 md:scroll-mt-16"
       style={{ backgroundColor: "var(--bg-canvas)" }}
     >
       <div className="container mx-auto max-w-7xl px-6 md:px-8 lg:px-12">

@@ -59,7 +59,8 @@ export default function RIIEFrameworkSection() {
 
   return (
     <section
-      className="section-padding py-16 md:py-24 lg:py-[100px]"
+      id="riie"
+      className="section-padding py-16 md:py-24 lg:py-[100px] scroll-mt-24 md:scroll-mt-16"
       style={{ backgroundColor: "var(--bg-canvas)" }}
     >
       <div className="container mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
@@ -208,19 +209,42 @@ export default function RIIEFrameworkSection() {
         {/* DESKTOP: tab interface */}
         <div className="hidden lg:block">
           <div className="reveal-body mb-8 flex gap-3 px-1 pb-2 pt-2">
-            {tabs.map((tab, i) => (
-              <button
-                key={tab.label}
-                onClick={() => setActiveIndex(i)}
-                className={`shrink-0 rounded-full border px-5 py-2.5 text-[15px] font-semibold transition-colors duration-300 ${
-                  i === activeIndex
-                    ? "border-[var(--primary-navy)] bg-[var(--primary-navy)] text-white shadow-[0_8px_24px_rgba(11,28,57,0.18)]"
-                    : "border-[var(--border-hairline)] bg-white text-[var(--text-charcoal)] hover:border-[var(--primary-navy)]/40 hover:text-[var(--primary-navy)]"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+            {tabs.map((tab, i) => {
+              const isActive = i === activeIndex;
+              return (
+                <button
+                  key={tab.label}
+                  onClick={() => setActiveIndex(i)}
+                  aria-pressed={isActive}
+                  className={`group/tab relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full border px-5 py-2.5 text-[15px] font-semibold transition-all duration-300 ease-out will-change-transform active:scale-[0.96] ${
+                    isActive
+                      ? "scale-[1.04] border-[var(--primary-navy)] bg-[var(--primary-navy)] text-white shadow-[0_12px_30px_rgba(11,28,57,0.28)]"
+                      : "border-[var(--border-hairline)] bg-white text-[var(--text-charcoal)] hover:-translate-y-0.5 hover:border-[var(--primary-navy)]/40 hover:bg-[var(--bg-surface-soft)] hover:text-[var(--primary-navy)] hover:shadow-[0_4px_14px_rgba(18,44,81,0.08)]"
+                  }`}
+                >
+                  <span
+                    aria-hidden
+                    className={`block rounded-full transition-all duration-300 ease-out ${
+                      isActive
+                        ? "h-1.5 w-1.5 bg-[var(--accent-gold)] shadow-[0_0_0_3px_rgba(212,180,131,0.28)]"
+                        : "h-0 w-0 opacity-0"
+                    }`}
+                  />
+                  <span className="relative">{tab.label}</span>
+                  {isActive && (
+                    <span
+                      aria-hidden
+                      key={`pulse-${activeIndex}`}
+                      className="pointer-events-none absolute inset-0 animate-[fadeIn_500ms_ease-out] rounded-full"
+                      style={{
+                        background:
+                          "radial-gradient(60% 80% at 50% 50%, rgba(212,180,131,0.18) 0%, transparent 70%)",
+                      }}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
 
           <div className="reveal-body grid items-stretch gap-10 lg:grid-cols-12">
@@ -237,17 +261,17 @@ export default function RIIEFrameworkSection() {
                   }}
                 />
 
-                <div className="relative flex h-full min-h-[440px] flex-col items-start justify-between p-10">
-                  <span className="text-sm font-semibold tracking-[0.18em] text-[var(--accent-gold)] uppercase">
+                <div className="relative flex h-full min-h-[400px] flex-col items-start justify-between p-9 lg:p-10">
+                  <span className="text-[13px] font-semibold tracking-[0.18em] text-[var(--accent-gold)] uppercase">
                     RIIE Framework
                   </span>
                   <span
                     key={`letter-${activeIndex}`}
-                    className="block animate-[fadeIn_400ms_ease-out] text-[180px] font-semibold leading-none text-white lg:text-[200px]"
+                    className="block animate-[fadeIn_400ms_ease-out] text-[150px] font-semibold leading-none text-white lg:text-[170px]"
                   >
                     {active.letter}
                   </span>
-                  <span className="text-base font-semibold tracking-[0.16em] text-white/85 uppercase">
+                  <span className="text-[15px] font-semibold tracking-[0.16em] text-white/85 uppercase">
                     {active.title}
                   </span>
                 </div>
@@ -289,30 +313,34 @@ export default function RIIEFrameworkSection() {
             </div>
           </div>
 
-          <div className="reveal-body mt-10 flex items-center justify-between">
-            <div className="flex items-center gap-3 text-sm">
-              <span className="font-semibold text-[var(--text-ink)]">
-                {activeIndex + 1}
-              </span>
-              <span className="h-[1px] w-16 bg-[var(--border-hairline)]" />
-              <span className="text-[var(--text-steel)]">{tabs.length}</span>
-            </div>
-            <div className="flex items-center gap-2">
+          <div className="reveal-body mt-10 flex justify-center">
+            <div className="inline-flex items-center gap-4 rounded-full border border-[var(--border-hairline)] bg-white/70 py-2 pl-2 pr-2 shadow-[0_4px_18px_rgba(18,44,81,0.05)] backdrop-blur-sm">
               <button
                 type="button"
                 onClick={goPrev}
                 aria-label="이전 RIIE 영역"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-hairline)] bg-white text-[var(--text-charcoal)] transition-colors duration-300 hover:border-[var(--primary-navy)]/40 hover:text-[var(--primary-navy)]"
+                className="group flex h-10 w-10 items-center justify-center rounded-full bg-white text-[var(--text-charcoal)] ring-1 ring-[var(--border-hairline)] transition-all duration-300 hover:text-[var(--primary-navy)] hover:ring-[var(--primary-navy)]/40"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
               </button>
+
+              <div className="flex select-none items-center gap-3 px-1 text-[13px]">
+                <span className="font-semibold tabular-nums text-[var(--text-ink)]">
+                  {String(activeIndex + 1).padStart(2, "0")}
+                </span>
+                <span className="h-[1px] w-14 bg-[var(--border-hairline)]" />
+                <span className="tabular-nums text-[var(--text-steel)]">
+                  {String(tabs.length).padStart(2, "0")}
+                </span>
+              </div>
+
               <button
                 type="button"
                 onClick={goNext}
                 aria-label="다음 RIIE 영역"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--primary-navy)] bg-[var(--primary-navy)] text-white transition-colors duration-300 hover:bg-[var(--primary-navy-dark)]"
+                className="group flex h-10 w-10 items-center justify-center rounded-full bg-[var(--primary-navy)] text-white shadow-[0_6px_16px_rgba(18,44,81,0.22)] transition-all duration-300 hover:bg-[var(--primary-navy-dark)] hover:shadow-[0_8px_22px_rgba(18,44,81,0.32)]"
               >
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </button>
             </div>
           </div>

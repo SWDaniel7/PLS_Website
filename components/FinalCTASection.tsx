@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function FinalCTASection() {
   return (
-    <section id="final-cta" className="cta-section">
+    <section id="final-cta" className="cta-section scroll-mt-24 md:scroll-mt-16">
       <div className="cta-container">
         <div className="reveal-body mb-8 flex items-center justify-center gap-3">
           <span

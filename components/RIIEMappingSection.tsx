@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 const mappings = [
@@ -30,19 +27,14 @@ const matteGradient =
   "linear-gradient(150deg, #1B3056 0%, #0C1D38 60%, #08152C 100%)";
 
 export default function RIIEMappingSection() {
-  const [flipped, setFlipped] = useState<number | null>(null);
-
-  const toggle = (i: number) =>
-    setFlipped((prev) => (prev === i ? null : i));
-
   return (
     <section
       className="section-padding py-16 md:py-24 lg:py-[100px]"
       style={{ backgroundColor: "var(--bg-surface-soft)" }}
     >
       <div className="container mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
-        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-16">
+          <div className="flex flex-col lg:col-span-5">
             <span className="section-kicker reveal-body mb-5">
               RIIE × Leveltest
             </span>
@@ -66,7 +58,7 @@ export default function RIIEMappingSection() {
               진단하고, 그에 맞는 방향성을 제시해드리겠습니다.
             </p>
 
-            <div className="reveal-body hidden rounded-2xl border border-[var(--border-hairline)] bg-white p-6 lg:block">
+            <div className="reveal-body hidden rounded-2xl border border-[var(--border-hairline)] bg-white p-6 lg:mt-auto lg:block">
               <p className="mb-3 text-[12px] font-semibold tracking-[0.18em] text-[var(--accent-gold)] uppercase">
                 Why it matters
               </p>
@@ -81,21 +73,17 @@ export default function RIIEMappingSection() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="reveal-body grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-              {mappings.map((row, i) => {
-                const isFlipped = flipped === i;
+            <div className="reveal-body grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:h-full lg:grid-rows-2">
+              {mappings.map((row) => {
                 return (
                   <button
                     key={row.area}
                     type="button"
-                    onClick={() => toggle(i)}
-                    aria-pressed={isFlipped}
-                    className="group h-[180px] w-full cursor-pointer text-left [perspective:1200px] focus:outline-none sm:h-[220px] lg:h-[260px]"
+                    aria-label={`${row.area} 영역과 대응되는 레테 유형 보기`}
+                    className="group h-[170px] w-full cursor-default text-left [perspective:1200px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-gold)] focus-visible:ring-offset-2 sm:h-[190px] lg:h-full"
                   >
                     <div
-                      className={`relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] ${
-                        isFlipped ? "[transform:rotateY(180deg)]" : ""
-                      }`}
+                      className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]"
                     >
                       <div
                         className="absolute inset-0 flex flex-col rounded-2xl border border-[var(--border-hairline)] bg-white p-5 sm:p-6 [backface-visibility:hidden]"
@@ -124,7 +112,7 @@ export default function RIIEMappingSection() {
                             대응되는 레테 유형은?
                           </p>
                           <p className="mb-0 flex items-center gap-1 text-[12px] font-medium text-[var(--accent-gold)]">
-                            <span className="lg:hidden">클릭해보세요</span>
+                            <span className="lg:hidden">탭해서 확인하기</span>
                             <span className="hidden lg:inline">
                               마우스를 올려보세요
                             </span>

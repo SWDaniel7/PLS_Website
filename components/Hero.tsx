@@ -1,13 +1,18 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 export default function Hero() {
   const [isFloating, setIsFloating] = useState(false);
+  const [isUpVisible, setIsUpVisible] = useState(false);
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const heroRef = useRef<HTMLElement>(null);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +30,7 @@ export default function Hero() {
           : false;
 
         setIsFloating(pastHero && !ctaReached);
+        setIsUpVisible(pastHero);
       }
     };
 
@@ -71,12 +77,23 @@ export default function Hero() {
               </p>
               <Link
                 ref={buttonRef}
-                href="#register"
+                href="#final-cta"
                 className="reveal-body group inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 bg-[var(--accent-gold)] text-[var(--primary-navy-dark)] rounded-full font-semibold text-xs sm:text-sm shadow-[0_4px_12px_rgba(11,28,57,0.18)] transition-all duration-300 hover:bg-[#c9a673] hover:shadow-[0_10px_24px_rgba(212,180,131,0.45)] hover:tracking-[0.02em] active:bg-[#b8985a] active:translate-y-[1px] active:scale-[0.98] active:shadow-[0_3px_10px_rgba(11,28,57,0.22)]"
               >
-                대기등록
+                대기 상담
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-0" />
               </Link>
+              <p
+                className="reveal-body mt-3.5 flex items-center gap-2 text-[12px] sm:text-[13px] tracking-[-0.005em] text-white/75"
+                style={{ wordBreak: "keep-all" }}
+              >
+                <span
+                  aria-hidden
+                  className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                  style={{ background: "var(--accent-gold)" }}
+                />
+                잔여 TO는 접수 순서대로 우선 안내드립니다
+              </p>
             </div>
           </div>
         </div>
@@ -91,18 +108,32 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Floating Button - tuned for mobile visibility and touch feedback */}
+      {/* Primary CTA — mid-right floating */}
       <Link
-        href="#register"
-        className={`group fixed right-4 sm:right-4 md:right-6 z-50 flex items-center gap-2 px-4 py-2.5 md:px-4 md:py-2.5 bg-[var(--accent-gold)] text-[var(--primary-navy-dark)] rounded-full font-semibold text-sm md:text-sm shadow-[0_12px_28px_rgba(11,28,57,0.24)] ring-1 ring-white/30 transition-[transform,opacity,background-color,box-shadow,letter-spacing] duration-300 md:hover:bg-[#c9a673] md:hover:shadow-[0_14px_32px_rgba(212,180,131,0.40)] md:hover:tracking-[0.02em] active:bg-[#c9a673] active:translate-y-[1px] active:scale-[0.98] active:shadow-[0_8px_20px_rgba(11,28,57,0.22)] ${
-          isFloating 
-            ? "bottom-[14vh] md:bottom-[14vh] opacity-100 translate-x-0" 
-            : "bottom-[14vh] md:bottom-[14vh] opacity-0 translate-x-20 pointer-events-none"
+        href="#final-cta"
+        className={`group fixed right-4 md:right-6 z-50 inline-flex items-center gap-2 rounded-full bg-[var(--accent-gold)] text-[var(--primary-navy-dark)] font-semibold px-4 py-2.5 text-sm md:px-6 md:py-3.5 md:text-[15px] shadow-[0_12px_28px_rgba(11,28,57,0.24)] ring-1 ring-white/30 transition-[opacity,transform,background-color,box-shadow,letter-spacing] duration-300 md:hover:bg-[#c9a673] md:hover:shadow-[0_16px_36px_rgba(212,180,131,0.45)] md:hover:tracking-[0.02em] md:hover:-translate-y-0.5 active:bg-[#c9a673] active:translate-y-[1px] active:scale-[0.98] active:shadow-[0_8px_20px_rgba(11,28,57,0.22)] ${
+          isFloating
+            ? "bottom-[14vh] opacity-100 translate-x-0"
+            : "bottom-[14vh] opacity-0 translate-x-20 pointer-events-none"
         }`}
       >
-        대기등록
-        <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        대기 상담
+        <ArrowRight className="w-3.5 h-3.5 md:w-[18px] md:h-[18px] transition-transform duration-300 group-hover:translate-x-1" />
       </Link>
+
+      {/* Scroll-to-top — bottom-right corner, independent visibility */}
+      <button
+        type="button"
+        onClick={handleScrollToTop}
+        aria-label="페이지 상단으로 이동"
+        className={`group fixed right-4 md:right-6 bottom-6 md:bottom-8 z-50 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-white text-[var(--primary-navy)] ring-1 ring-[var(--border-hairline)] shadow-[0_10px_22px_rgba(11,28,57,0.14)] backdrop-blur-sm transition-all duration-300 md:hover:text-[var(--accent-gold)] md:hover:ring-[var(--accent-gold)]/55 md:hover:shadow-[0_14px_30px_rgba(11,28,57,0.18)] md:hover:-translate-y-0.5 active:translate-y-[1px] active:scale-95 ${
+          isUpVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+      >
+        <ArrowUp className="w-[15px] h-[15px] md:w-[18px] md:h-[18px] transition-transform duration-300 group-hover:-translate-y-0.5" />
+      </button>
     </>
   );
 }

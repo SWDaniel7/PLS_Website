@@ -78,14 +78,34 @@ export default function ParentPainSection() {
                     cardRefs.current[index] = el;
                   }}
                   data-index={index}
-                  className="reveal-body translate-y-5 rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] p-6 opacity-0 transition-all duration-500"
+                  className="group reveal-body relative translate-y-5 overflow-hidden rounded-2xl border border-[var(--border-hairline)] bg-white p-6 opacity-0 shadow-[0_2px_10px_rgba(18,44,81,0.04)] transition-[background-color,border-color,box-shadow,opacity,transform] duration-500 ease-out hover:bg-[var(--primary-navy)] hover:border-[var(--primary-navy)] hover:shadow-[0_14px_32px_rgba(11,28,57,0.22)] md:p-7"
                 >
-                  <h3 className="mb-2 text-lg font-semibold text-[var(--text-ink)]">
-                    {point.title}
-                  </h3>
-                  <p className="mb-0 text-[15px] leading-relaxed text-[var(--text-slate)]">
-                    {point.description}
-                  </p>
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-5 bottom-5 w-[3px] rounded-r-full bg-[var(--accent-gold)]/25 transition-all duration-500 ease-out group-hover:bg-[var(--accent-gold)] group-hover:top-3 group-hover:bottom-3"
+                  />
+                  <div className="flex items-start gap-5">
+                    <span
+                      className="mt-0.5 shrink-0 font-semibold leading-none tabular-nums text-[var(--accent-gold)]"
+                      style={{ fontSize: "26px", letterSpacing: "-0.02em" }}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <h3
+                        className="mb-1.5 text-[17px] font-semibold leading-[1.35] text-[var(--text-ink)] transition-colors duration-500 ease-out group-hover:text-white md:text-[18px]"
+                        style={{ wordBreak: "keep-all" }}
+                      >
+                        {point.title}
+                      </h3>
+                      <p
+                        className="mb-0 text-[14.5px] leading-[1.65] text-[var(--text-slate)] transition-colors duration-500 ease-out group-hover:text-white/80 md:text-[15px]"
+                        style={{ wordBreak: "keep-all" }}
+                      >
+                        {point.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -93,7 +113,7 @@ export default function ParentPainSection() {
 
           <div className="order-first self-start lg:order-none lg:col-span-2 lg:sticky lg:top-28">
             <div
-              className="h-[360px] w-full rounded-3xl bg-cover bg-center shadow-[0_4px_20px_rgba(18,44,81,0.08)] md:h-[460px] lg:h-[560px]"
+              className="h-[360px] w-full rounded-3xl bg-cover bg-center shadow-[0_4px_20px_rgba(18,44,81,0.08)] md:h-[460px] lg:h-[720px]"
               style={{
                 backgroundImage: "url('/images/parent-anxiety.png')",
               }}

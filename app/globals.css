@@ -129,6 +129,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
     font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
@@ -168,22 +171,39 @@
 .section-kicker {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
   border-radius: 9999px;
-  padding: 7px 18px;
-  border: 1px solid var(--border-hairline);
-  background: color-mix(in oklab, var(--bg-canvas) 92%, var(--accent-sand) 8%);
-  color: var(--text-slate);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  padding: 7px 16px 7px 14px;
+  border: 1px solid rgba(18, 44, 81, 0.18);
+  background: rgba(18, 44, 81, 0.05);
+  color: var(--primary-navy);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  line-height: 1;
+}
+
+.section-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--accent-gold);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(212, 180, 131, 0.18);
 }
 
 .section-kicker--dark {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
+}
+
+.section-kicker--dark::before {
+  background: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(212, 180, 131, 0.24);
 }
 
 /* Highlight (shading) for emphasis text */
@@ -216,6 +236,47 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Status bar live indicator pulse */
+.status-dot {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background: var(--accent-gold);
+  opacity: 0.6;
+  animation: statusPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes statusPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.55;
+  }
+  80%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot::after {
+    animation: none;
+    opacity: 0;
   }
 }
 
