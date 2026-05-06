@@ -5,15 +5,20 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const linkItems = [
-  { label: "공식카카오채널", href: "#kakao" },
-  { label: "블로그", href: "#blog" },
-  { label: "인스타그램", href: "#instagram" },
-  { label: "오시는 길", href: "#location" },
+  { label: "공식카카오채널", href: "http://pf.kakao.com/_xdIwEn" },
+  {
+    label: "블로그",
+    href: "https://blog.naver.com/PostList.naver?blogId=ym_career&from=postList&categoryNo=16",
+  },
+  { label: "인스타그램", href: "https://www.instagram.com/pls_eng_prep/" },
+  { label: "오시는 길", href: "https://vide-coding-website.vercel.app/about/location" },
 ];
 
 export default function Footer() {
   const pathname = usePathname();
   const isSubPage = pathname !== "/";
+  const isExternalLink = (href: string) =>
+    href.startsWith("http://") || href.startsWith("https://");
 
   return (
     <footer
@@ -57,17 +62,31 @@ export default function Footer() {
             </Link>
 
             <nav className="grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-6 sm:gap-y-3">
-              {linkItems.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors duration-300 hover:text-[var(--accent-gold)] ${
-                    isSubPage ? "text-white/85" : "text-[var(--text-charcoal)]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {linkItems.map((link) =>
+                isExternalLink(link.href) && link.label !== "오시는 길" ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`text-sm font-medium transition-colors duration-300 hover:text-[var(--accent-gold)] ${
+                      isSubPage ? "text-white/85" : "text-[var(--text-charcoal)]"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className={`text-sm font-medium transition-colors duration-300 hover:text-[var(--accent-gold)] ${
+                      isSubPage ? "text-white/85" : "text-[var(--text-charcoal)]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </nav>
 
             <p

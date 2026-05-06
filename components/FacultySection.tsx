@@ -351,14 +351,14 @@ function FacultyCard({
       </div>
 
       <Link
-        href="#"
+        href="/about/faculty"
         className="mt-auto inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-colors duration-200 hover:bg-[var(--primary-navy)] hover:text-white"
         style={{
           backgroundColor: "var(--bg-surface)",
           color: "var(--text-charcoal)",
         }}
       >
-        <span>전체 이력 보기</span>
+        <span>강사 소개 보기</span>
         <ArrowRight className="h-4 w-4" />
       </Link>
     </article>
@@ -366,8 +366,8 @@ function FacultyCard({
 }
 
 export default function FacultySection() {
-  const visibleProfiles = profiles.slice(0, 4);
-  const count = visibleProfiles.length;
+  const displayProfiles = profiles;
+  const count = displayProfiles.length;
   const [page, setPage] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [zoomFacultyIndex, setZoomFacultyIndex] = useState<number | null>(
@@ -406,7 +406,7 @@ export default function FacultySection() {
     return (page + offset) % count;
   });
   const zoomProfile =
-    zoomFacultyIndex !== null ? visibleProfiles[zoomFacultyIndex] : null;
+    zoomFacultyIndex !== null ? displayProfiles[zoomFacultyIndex] : null;
 
   return (
     <section
@@ -437,7 +437,7 @@ export default function FacultySection() {
         </div>
 
         <p className="reveal-body mb-8 text-center text-[13px] text-[var(--text-steel)] md:mb-10">
-          전문 강사진 4인의 프로필 카드를 한 화면에서 확인하고, 화살표로 순서를
+          전문 강사진 5인의 프로필 카드를 한 화면에서 확인하고, 화살표로 순서를
           넘기며 보실 수 있습니다.
         </p>
 
@@ -463,11 +463,11 @@ export default function FacultySection() {
             {visibleIndices.map((profileIdx, cardPos) => (
               <FacultyCard
                 key={`${profileIdx}-${page}-${cardPos}`}
-                profile={visibleProfiles[profileIdx]}
+                profile={displayProfiles[profileIdx]}
                 facultyIndex={profileIdx}
                 imagePriority={page === 0 && profileIdx < 2}
                 onPhotoZoom={
-                  visibleProfiles[profileIdx].imageSrc
+                  displayProfiles[profileIdx].imageSrc
                     ? () => setZoomFacultyIndex(profileIdx)
                     : undefined
                 }

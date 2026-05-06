@@ -63,7 +63,12 @@ export default function FinalCTASection() {
           부탁드립니다.
         </p>
 
-        <Link href="#register" className="cta-button reveal-body">
+        <Link
+          href="http://pf.kakao.com/_xdIwEn"
+          target="_blank"
+          rel="noreferrer"
+          className="cta-button reveal-body"
+        >
           <span>상담 신청하기</span>
           <ArrowRight
             className="h-5 w-5"

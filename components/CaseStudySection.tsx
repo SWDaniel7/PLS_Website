@@ -1,7 +1,10 @@
+import Image from "next/image";
+
 type ScoreCard = {
   type: "score";
   label: string;
   bars: number[];
+  imageSrc?: string;
 };
 
 type ManuscriptCard = {
@@ -9,6 +12,7 @@ type ManuscriptCard = {
   label: string;
   words: number;
   lines: number;
+  imageSrc?: string;
 };
 
 type CaseStudy = {
@@ -31,19 +35,24 @@ const caseStudies: CaseStudy[] = [
     title:
       "재시 목표였던 아이가 초시 지필에서 에디*, 아이* 두 곳 모두 합격",
     body: [
-      "다른 프렙들에서는 '초시 합격은 어렵다'는 평가를 받았으나, 12주 집중 과정을 통해 Reading(Integration·Inference) 영역이 급성장하며 10월 초시에서 지원했던 최상위 어학원 두 곳의 지필테스트를 모두 합격했습니다.",
-      "단순 암기가 아닌 이해·사고·표현 중심 수업을 통해 실력이 안정화되었고, Writing 자신감과 학습 태도의 '내적 변화'까지 동반된 의미 있는 성장 사례입니다.",
+      "다른 프렙들에서는 “초시 합격은 어렵다”는 평가를 받았던 아동, 재시를 목표로 7세 중반에 PLS영재교육에서 학습 시작",
+      "12주 집중 과정에서 Reading(Integration·Inference) 영역 급성장",
+      "10월 초시에서 지원했던 에디*·아이* 두 원 지필테스트 모두 합격",
+      "단순 암기 중심이 아닌 이해·사고·표현 중심 수업을 통해 실력 안정화",
+      "Writing 자신감과 학습 태도의 ‘내적 변화’까지 동반된 성장 사례",
     ],
     proofs: [
       {
         type: "score",
         label: "에디* Academy",
         bars: [82, 70, 88, 76, 92],
+        imageSrc: "/images/case-score-left.png",
       },
       {
         type: "score",
         label: "아이* Academy",
         bars: [78, 84, 90, 72, 86],
+        imageSrc: "/images/case-score-right.png",
       },
     ],
     proofCaption: "Score Report · 초시 지필테스트",
@@ -55,21 +64,26 @@ const caseStudies: CaseStudy[] = [
     subtitle:
       "12주 만에 글의 양뿐 아니라 문장 구성력과 스토리 전개력까지 6세 완성형으로 성장",
     body: [
-      "Word Count 150 수준에서 250 수준으로 확장되었으며, 기초 문장 오류와 시제 혼용이 감소하고 문장 연결어와 구문 사용 능력이 대폭 강화되었습니다.",
-      "단순 사건 나열에서 벗어나 감정·상황 묘사 중심의 글쓰기로 발전했으며, 5문단 스토리 구조가 잡히며 이야기 전개가 자연스러워졌습니다. 이는 에디*, 아이* 등 상위 원에서 중점 평가하는 핵심 역량(아이디어 구체화 및 자기표현력)이 완벽히 강화되었음을 보여줍니다.",
+      "12주 만에 Word Count 150 → 250 수준으로 확장, 글의 길이뿐 아니라 내용 완성도 향상",
+      "기초 문장 오류와 시제 혼용 감소, 문장 연결어와 구문 사용 능력 강화",
+      "5문단 스토리 구조가 잡히며 이야기 전개가 자연스러워짐",
+      "단순 사건 나열에서 벗어나 감정·상황 묘사 중심의 글쓰기로 발전",
+      "아이디어 구체화 및 문장 표현 다양화로 자기표현력 향상 - 에디*·아이* 등 상위 원에서 중점 평가하는 핵심 역량 강화",
     ],
     proofs: [
-      {
-        type: "manuscript",
-        label: "BEFORE",
-        words: 150,
-        lines: 8,
-      },
       {
         type: "manuscript",
         label: "AFTER",
         words: 250,
         lines: 14,
+        imageSrc: "/images/writing-after.png",
+      },
+      {
+        type: "manuscript",
+        label: "BEFORE",
+        words: 150,
+        lines: 8,
+        imageSrc: "/images/writing-before.png",
       },
     ],
     proofCaption: "Writing Sample · Before / After 12 weeks",
@@ -77,6 +91,20 @@ const caseStudies: CaseStudy[] = [
 ];
 
 function ScoreProof({ proof }: { proof: ScoreCard }) {
+  if (proof.imageSrc) {
+    return (
+      <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-[var(--border-hairline)] bg-white shadow-[0_8px_24px_rgba(18,44,81,0.08)]">
+        <Image
+          src={proof.imageSrc}
+          alt={`${proof.label} score report`}
+          width={720}
+          height={960}
+          className="h-full w-full object-cover object-top"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="relative flex aspect-[3/4] flex-col overflow-hidden rounded-xl border border-[var(--border-hairline)] bg-white shadow-[0_8px_24px_rgba(18,44,81,0.08)]">
       <div className="border-b border-[var(--border-hairline)] px-3 py-2.5">
@@ -130,6 +158,20 @@ function ScoreProof({ proof }: { proof: ScoreCard }) {
 
 function ManuscriptProof({ proof }: { proof: ManuscriptCard }) {
   const isAfter = proof.label === "AFTER";
+  if (proof.imageSrc) {
+    return (
+      <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-[var(--border-hairline)] bg-white shadow-[0_8px_24px_rgba(18,44,81,0.08)]">
+        <Image
+          src={proof.imageSrc}
+          alt={`${proof.label} writing sample`}
+          width={900}
+          height={1200}
+          className="h-full w-full object-cover object-top"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="relative flex aspect-[3/4] flex-col overflow-hidden rounded-xl border border-[var(--border-hairline)] bg-white shadow-[0_8px_24px_rgba(18,44,81,0.08)]">
       <div className="flex items-center justify-between border-b border-[var(--border-hairline)] px-3 py-2.5">
@@ -197,10 +239,31 @@ export default function CaseStudySection() {
         </div>
 
         <div
-          className="reveal-body mb-10 overflow-hidden rounded-3xl border border-[var(--border-hairline)] md:mb-14"
+          className="reveal-body relative mb-10 overflow-hidden rounded-3xl border border-[var(--border-hairline)] md:mb-14"
           style={{ backgroundColor: "var(--bg-surface-soft)" }}
         >
-          <div className="grid gap-10 p-8 md:p-12 lg:grid-cols-12 lg:gap-12 lg:p-14">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -top-4 -left-10 h-[72%] w-[44%] opacity-[0.1] md:opacity-[0.14]">
+              <Image
+                src="/images/insight-bg-left.png"
+                alt=""
+                fill
+                className="object-contain object-left-top"
+                aria-hidden
+              />
+            </div>
+            <div className="absolute -right-12 -bottom-8 h-[80%] w-[46%] opacity-[0.08] md:opacity-[0.12]">
+              <Image
+                src="/images/insight-bg-right.png"
+                alt=""
+                fill
+                className="object-contain object-right-bottom"
+                aria-hidden
+              />
+            </div>
+            <div className="absolute inset-0 bg-white/58 md:bg-white/52" />
+          </div>
+          <div className="relative z-10 grid gap-10 p-8 md:p-12 lg:grid-cols-12 lg:gap-12 lg:p-14">
             <div className="lg:col-span-7">
               <span
                 className="mb-5 inline-block rounded-md bg-white px-3 py-1.5 text-[13px] font-semibold text-[var(--primary-navy)] shadow-[0_2px_8px_rgba(18,44,81,0.06)]"
@@ -304,7 +367,13 @@ export default function CaseStudySection() {
                 <p className="mb-4 text-[10px] font-semibold tracking-[0.22em] text-[var(--text-steel)] uppercase">
                   {cs.proofCaption}
                 </p>
-                <div className="grid grid-cols-2 gap-3 md:gap-4">
+                <div
+                  className={`grid gap-3 md:gap-4 ${
+                    cs.proofs.every((proof) => proof.type === "manuscript")
+                      ? "grid-cols-1"
+                      : "grid-cols-2"
+                  }`}
+                >
                   {cs.proofs.map((proof, i) =>
                     proof.type === "score" ? (
                       <ScoreProof key={i} proof={proof} />
@@ -315,16 +384,14 @@ export default function CaseStudySection() {
                 </div>
               </div>
 
-              <div className="space-y-3">
-                {cs.body.map((para, i) => (
-                  <p
-                    key={i}
-                    className="mb-0 text-[15px] leading-relaxed text-[var(--text-charcoal)]"
-                    style={{ wordBreak: "keep-all" }}
-                  >
-                    {para}
-                  </p>
-                ))}
+              <div>
+                <ul className="mb-0 list-disc space-y-2.5 pl-5 text-[14px] leading-relaxed text-[var(--text-charcoal)] md:text-[15px]">
+                  {cs.body.map((point, i) => (
+                    <li key={i} style={{ wordBreak: "keep-all" }}>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </article>
           ))}

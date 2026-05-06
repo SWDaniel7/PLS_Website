@@ -217,15 +217,18 @@ export default function FacultyPage() {
     <main className="min-h-screen bg-[var(--bg-canvas)]">
       <Header />
 
-      <section className="bg-[var(--bg-canvas)] px-6 pb-16 pt-32 text-center md:px-8 md:pb-20 md:pt-36 lg:px-12">
-        <div className="mx-auto max-w-[1200px]">
-          <span className="section-kicker reveal-body mb-5 inline-flex">
-            Global Talent
-          </span>
-          <h1 className="text-[48px] font-semibold tracking-[-0.02em] text-[var(--text-ink)]">
+      <section className="pt-32 md:pt-36">
+        <div className="mx-auto max-w-[1200px] px-6 pb-20 text-center md:px-8 md:pb-24">
+          <p className="mb-3 text-[12px] font-semibold tracking-[0.22em] text-[var(--text-steel)] uppercase">
+            About PLS
+          </p>
+          <h1
+            className="mx-auto max-w-4xl text-[44px] font-semibold leading-[1.15] tracking-[-0.03em] text-[var(--text-ink)] md:text-[72px]"
+            style={{ wordBreak: "keep-all" }}
+          >
             강사소개
           </h1>
-          <p className="mt-6 text-[15px] text-[var(--text-slate)]">
+          <p className="mt-4 text-[14px] text-[var(--text-steel)] md:text-[15px]">
             Phillips Academy of Little Scholars
           </p>
         </div>
