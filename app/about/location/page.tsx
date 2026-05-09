@@ -1,11 +1,80 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NaverMapPanel from "@/components/NaverMapPanel";
 
+export const metadata: Metadata = {
+  title: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
+  description:
+    "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
+  keywords: [
+    "PLS영재교육",
+    "피엘에스영재교육",
+    "찾아오는길",
+    "위치",
+    "주차",
+    "대치프렙",
+    "대치동영어",
+  ],
+  openGraph: {
+    title: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
+    description:
+      "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
+    images: [
+      {
+        url: "/images/location-building.png",
+        alt: "PLS영재교육 위치 및 주차 안내",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
+    description:
+      "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
+    images: ["/images/location-building.png"],
+  },
+};
+
 export default function LocationPage() {
+  const locationSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
+        description:
+          "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
+        url: "https://pls-website-iota.vercel.app/about/location",
+        inLanguage: "ko-KR",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "홈",
+            item: "https://pls-website-iota.vercel.app/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "찾아오는길",
+            item: "https://pls-website-iota.vercel.app/about/location",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-[var(--bg-canvas)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+      />
       <Header />
 
       <section className="pt-32 md:pt-36">

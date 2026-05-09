@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,6 +12,40 @@ type FacultyProfile = {
   education: string[];
   lead: string;
   story: string[];
+};
+
+export const metadata: Metadata = {
+  title: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
+  description:
+    "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
+  keywords: [
+    "PLS영재교육",
+    "피엘에스영재교육",
+    "강사소개",
+    "PLS프렙",
+    "게이트입시",
+    "초등레테",
+    "대치프렙",
+    "대치게이트",
+  ],
+  openGraph: {
+    title: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
+    description:
+      "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
+    images: [
+      {
+        url: "/images/faculty-daniel.png",
+        alt: "PLS영재교육 강사소개",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
+    description:
+      "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
+    images: ["/images/faculty-daniel.png"],
+  },
 };
 
 const facultyProfiles: FacultyProfile[] = [
@@ -237,8 +272,43 @@ function ProfileSection({ profile }: { profile: FacultyProfile }) {
 }
 
 export default function FacultyPage() {
+  const facultySchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
+        description:
+          "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
+        url: "https://pls-website-iota.vercel.app/about/faculty",
+        inLanguage: "ko-KR",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "홈",
+            item: "https://pls-website-iota.vercel.app/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "강사소개",
+            item: "https://pls-website-iota.vercel.app/about/faculty",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-[var(--bg-canvas)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(facultySchema) }}
+      />
       <Header />
 
       <section className="pt-32 md:pt-36">

@@ -1,14 +1,82 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getNoticesFromNotion } from "@/lib/notion";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "PLS영재교육 재원생 사례 · 공지사항",
+  description:
+    "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
+  keywords: [
+    "PLS영재교육",
+    "피엘에스영재교육",
+    "재원생 사례",
+    "공지사항",
+    "PLS프렙",
+    "레벨테스트",
+    "초등어학원",
+  ],
+  openGraph: {
+    title: "PLS영재교육 재원생 사례 · 공지사항",
+    description:
+      "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
+    images: [
+      {
+        url: "/images/hero-background.png",
+        alt: "PLS영재교육 공지사항 및 재원생 소식",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PLS영재교육 재원생 사례 · 공지사항",
+    description:
+      "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
+    images: ["/images/hero-background.png"],
+  },
+};
 
 export default async function NoticePage() {
+  const noticeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: "PLS영재교육 재원생 사례 · 공지사항",
+        description:
+          "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
+        url: "https://pls-website-iota.vercel.app/notice",
+        inLanguage: "ko-KR",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "홈",
+            item: "https://pls-website-iota.vercel.app/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "공지사항",
+            item: "https://pls-website-iota.vercel.app/notice",
+          },
+        ],
+      },
+    ],
+  };
+
   const { notices, error } = await getNoticesFromNotion();
 
   return (
     <main className="min-h-screen bg-[var(--bg-canvas)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(noticeSchema) }}
+      />
       <Header />
 
       <section className="pt-32 md:pt-36">

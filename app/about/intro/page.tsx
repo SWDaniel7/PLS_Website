@@ -1,10 +1,79 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+export const metadata: Metadata = {
+  title: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
+  description:
+    "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
+  keywords: [
+    "PLS영재교육",
+    "피엘에스영재교육",
+    "기관소개",
+    "PLS프렙",
+    "원서수업",
+    "초등레테",
+    "대치동영어",
+  ],
+  openGraph: {
+    title: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
+    description:
+      "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
+    images: [
+      {
+        url: "/images/hero-main-campus.png",
+        alt: "PLS영재교육 기관소개",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
+    description:
+      "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
+    images: ["/images/hero-main-campus.png"],
+  },
+};
+
 export default function IntroPage() {
+  const introSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
+        description:
+          "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
+        url: "https://pls-website-iota.vercel.app/about/intro",
+        inLanguage: "ko-KR",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "홈",
+            item: "https://pls-website-iota.vercel.app/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "기관소개",
+            item: "https://pls-website-iota.vercel.app/about/intro",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-[var(--bg-canvas)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(introSchema) }}
+      />
       <Header />
 
       <section className="pt-32 md:pt-36">
