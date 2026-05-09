@@ -36,6 +36,141 @@ export const metadata: Metadata = {
   },
 };
 
+const literacyFlow = [
+  { label: "읽기", value: 82 },
+  { label: "이해", value: 76 },
+  { label: "추론", value: 79 },
+  { label: "표현", value: 74 },
+];
+
+function SectionVisualCard({
+  variant,
+}: {
+  variant: "philosophy" | "role";
+}) {
+  if (variant === "philosophy") {
+    return (
+      <div className="mt-10 overflow-hidden rounded-3xl border border-[var(--border-hairline)] bg-white p-5 shadow-[0_10px_30px_rgba(18,44,81,0.08)] md:mt-12 md:p-6">
+        <div className="mb-4 flex items-center justify-between">
+          <p className="mb-0 text-[11px] font-semibold tracking-[0.18em] text-[var(--text-steel)] uppercase">
+            Core Literacy Design
+          </p>
+          <span className="text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--accent-gold)]">
+            RIIE
+          </span>
+        </div>
+        <div className="mb-5 grid grid-cols-4 gap-2">
+          {literacyFlow.map((item, idx) => (
+            <div
+              key={item.label}
+              className="rounded-xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] p-2.5 text-center"
+            >
+              <p className="mb-1 text-[10px] font-medium text-[var(--text-steel)]">
+                {item.label}
+              </p>
+              <p className="mb-0 text-[16px] font-semibold text-[var(--primary-navy)]">
+                {item.value}
+              </p>
+              <div
+                className="mx-auto mt-2 h-1 w-9 rounded-full"
+                style={{
+                  background:
+                    idx % 2 === 0
+                      ? "linear-gradient(90deg,#1B3056,#294A83)"
+                      : "linear-gradient(90deg,#D4B483,#C39A62)",
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] p-4">
+          <p className="mb-2 text-[12px] font-semibold text-[var(--text-ink)]">
+            발달 단계별 수업 설계
+          </p>
+          <div className="space-y-2.5">
+            {[
+              "5~6세 · 언어 구조 토대 설계",
+              "7세 · 겉읽기에서 이해 기반 읽기로 전환",
+              "8세+ · 추론·논리 구성·자기표현 확장",
+            ].map((line) => (
+              <div key={line} className="flex items-center gap-2.5">
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: "var(--accent-gold)" }}
+                />
+                <p className="mb-0 text-[12.5px] text-[var(--text-charcoal)]">
+                  {line}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-10 overflow-hidden rounded-3xl border border-[var(--border-hairline)] bg-white p-5 shadow-[0_10px_30px_rgba(18,44,81,0.08)] md:mt-12 md:p-6">
+      <div className="mb-4 flex items-center justify-between">
+        <p className="mb-0 text-[11px] font-semibold tracking-[0.18em] text-[var(--text-steel)] uppercase">
+          Learning Growth Snapshot
+        </p>
+        <span className="text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--accent-gold)]">
+          Live
+        </span>
+      </div>
+      <div className="mb-5 rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] p-4">
+        <div className="mb-2 flex items-center justify-between">
+          <p className="mb-0 text-[12px] font-semibold text-[var(--text-ink)]">
+            레테 핵심 역량 점검
+          </p>
+          <p className="mb-0 text-[10px] text-[var(--text-steel)]">최근 12주</p>
+        </div>
+        <div className="h-16 w-full">
+          <svg viewBox="0 0 240 64" className="h-full w-full" aria-hidden>
+            <defs>
+              <linearGradient id="introGrowthFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#1B3056" stopOpacity="0.22" />
+                <stop offset="100%" stopColor="#1B3056" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0 58 L0 50 L40 48 L80 45 L120 43 L160 38 L200 35 L240 32 L240 58 Z"
+              fill="url(#introGrowthFill)"
+            />
+            <polyline
+              points="0,50 40,48 80,45 120,43 160,38 200,35 240,32"
+              fill="none"
+              stroke="var(--primary-navy)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <circle cx="240" cy="32" r="2.8" fill="var(--accent-gold)" />
+          </svg>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-2">
+        {[
+          { label: "문해력", value: "+18%" },
+          { label: "추론력", value: "+14%" },
+          { label: "표현력", value: "+21%" },
+        ].map((kpi) => (
+          <div
+            key={kpi.label}
+            className="rounded-xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] px-3 py-2.5 text-center"
+          >
+            <p className="mb-1 text-[10px] text-[var(--text-steel)]">{kpi.label}</p>
+            <p className="mb-0 text-[14px] font-semibold text-[var(--primary-navy)]">
+              {kpi.value}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function IntroPage() {
   const introSchema = {
     "@context": "https://schema.org",
@@ -146,6 +281,7 @@ export default function IntroPage() {
               <p className="mb-0">
                 PLS영재교육의 모든 교사진은 유아·아동 언어 발달, 영어 교수법, 원서 기반 문해 교육 전문가들로 구성되어 있으며, 수천 건의 학습 데이터와 영어권 문해교육 연구를 기반으로 아이의 성장 경로를 정교하게 모델링합니다. 이를 통해 지금 아이에게 가장 적합한 원서, 가장 효과적인 사고 유도 질문, 가장 효율적인 표현 전략을 도출해 수업에 반영합니다.
               </p>
+              <SectionVisualCard variant="philosophy" />
             </div>
           </div>
 
@@ -184,6 +320,7 @@ export default function IntroPage() {
               <p className="mb-0">
                 PLS영재교육은 레테 대비를 부담이 아닌 아이 성장의 기회로 전환하며, 아이의 학습 능력이 본질에서부터 단단해지도록 돕는 가장 신뢰할 수 있는 교육 파트너입니다.
               </p>
+              <SectionVisualCard variant="role" />
             </div>
           </div>
         </div>

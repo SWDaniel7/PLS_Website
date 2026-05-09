@@ -252,7 +252,17 @@ function ProfileSection({ profile }: { profile: FacultyProfile }) {
           </div>
         </aside>
 
-        <article className="pt-2 md:pt-4">
+        <article className="relative overflow-hidden pt-2 md:pt-4">
+          <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+            <div className="absolute top-1/2 left-1/2 h-[68%] w-[88%] -translate-x-1/2 -translate-y-1/2 opacity-[0.045]">
+              <Image
+                src="/images/faculty-bg-logo.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
           <p className="mb-8 text-[20px] font-semibold leading-[1.7] tracking-[-0.01em] text-[var(--primary-navy)]">
             {profile.lead}
           </p>
