@@ -109,7 +109,7 @@ const profiles: FacultyProfile[] = [
   {
     name: "David",
     role: "PLS영재교육 부원장",
-    imageSrc: "/images/faculty-placeholder.png",
+    imageSrc: "/images/faculty-david.png",
     placeholder: { gender: "male" },
     imageAlt: "David — PLS영재교육 부원장",
     highlights: [
@@ -439,12 +439,7 @@ export default function FacultySection() {
           </p>
         </div>
 
-        <p className="reveal-body mb-8 text-center text-[13px] text-[var(--text-steel)] md:mb-10">
-          전문 강사진 5인의 프로필 카드를 한 화면에서 확인하고, 화살표로 순서를
-          넘기며 보실 수 있습니다.
-        </p>
-
-        <div className="reveal-body relative px-2 sm:px-6 md:px-10">
+        <div className="reveal-body relative mt-8 px-2 sm:px-6 md:mt-10 md:px-10">
           <button
             type="button"
             onClick={goPrev}

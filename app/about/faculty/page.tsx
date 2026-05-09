@@ -125,7 +125,7 @@ const facultyProfiles: FacultyProfile[] = [
   {
     name: "David",
     role: "부원장",
-    imageSrc: "/images/faculty-placeholder.png",
+    imageSrc: "/images/faculty-david.png",
     workExperience: [
       "PLS영재교육, 이사",
       "PLS 대치/개포 전문관, 부원장",
