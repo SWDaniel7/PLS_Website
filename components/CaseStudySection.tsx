@@ -306,10 +306,15 @@ export default function CaseStudySection() {
                 className="mb-4 text-[15px] leading-relaxed text-[var(--text-charcoal)] md:text-base"
                 style={{ wordBreak: "keep-all" }}
               >
-                26년 인사이트 프렙 응시생 100% 합격 및 3개월 이상 수강생 88%
-                탑반(ENSIGHT) 석권이라는 압도적 결과를 만들어냈습니다. 이는 단순
-                리딩서 풀이를 넘어, 텍스트의 행간을 읽어내는{" "}
-                <span className="font-semibold text-[var(--text-ink)]">
+                26년 인사이트 프렙 응시생{" "}
+                <span className="highlight highlight-light">100% 합격</span> 및
+                3개월 이상 수강생{" "}
+                <span className="highlight highlight-light">
+                  88% 탑반(ENSIGHT) 석권
+                </span>
+                이라는 압도적 결과를 만들어냈습니다. 이는 단순 리딩서 풀이를
+                넘어, 텍스트의 행간을 읽어내는{" "}
+                <span className="highlight highlight-light font-semibold text-[var(--text-ink)]">
                   &lsquo;통합사고형 원서 수업&rsquo;
                 </span>
                 으로 최상위권 추론 능력을 완성한 결과입니다.

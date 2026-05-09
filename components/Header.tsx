@@ -104,9 +104,23 @@ export default function Header() {
       const nextTop = headerRef.current?.getBoundingClientRect().height ?? 88;
       setMobileMenuTop(Math.round(nextTop + MOBILE_MENU_TOP_ADJUST_PX));
     };
+
     updateMobileMenuTop();
+    const rafId = window.requestAnimationFrame(updateMobileMenuTop);
+    const timeoutId = window.setTimeout(updateMobileMenuTop, 320);
+
+    const ro = new ResizeObserver(() => {
+      updateMobileMenuTop();
+    });
+    if (headerRef.current) ro.observe(headerRef.current);
+
     window.addEventListener("resize", updateMobileMenuTop);
-    return () => window.removeEventListener("resize", updateMobileMenuTop);
+    return () => {
+      window.removeEventListener("resize", updateMobileMenuTop);
+      window.cancelAnimationFrame(rafId);
+      window.clearTimeout(timeoutId);
+      ro.disconnect();
+    };
   }, [isScrolled, isMobileMenuOpen]);
 
   const toggleMobileSubmenu = (label: string) => {

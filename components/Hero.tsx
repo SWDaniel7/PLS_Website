@@ -43,7 +43,7 @@ export default function Hero() {
       <section ref={heroRef} className="relative min-h-screen flex flex-col justify-between">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat [background-position:65%_30%] md:[background-position:50%_50%]"
+          className="absolute inset-0 bg-cover bg-no-repeat [background-position:61%_30%] md:[background-position:50%_50%]"
           style={{
             backgroundImage: "url('/images/hero-students.png')",
           }}
