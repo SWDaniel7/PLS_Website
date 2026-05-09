@@ -82,6 +82,7 @@ const profiles: FacultyProfile[] = [
   {
     name: "Sally",
     role: "PLS영재교육 수석강사",
+    imageSrc: "/images/faculty-placeholder.png",
     placeholder: { gender: "female" },
     imageAlt: "Sally — PLS영재교육 수석강사",
     highlights: [
@@ -108,6 +109,7 @@ const profiles: FacultyProfile[] = [
   {
     name: "David",
     role: "PLS영재교육 부원장",
+    imageSrc: "/images/faculty-placeholder.png",
     placeholder: { gender: "male" },
     imageAlt: "David — PLS영재교육 부원장",
     highlights: [
@@ -133,6 +135,7 @@ const profiles: FacultyProfile[] = [
   {
     name: "Hayden",
     role: "PLS영재교육 연구강사",
+    imageSrc: "/images/faculty-placeholder.png",
     placeholder: { gender: "male" },
     imageAlt: "Hayden — PLS영재교육 연구강사",
     highlights: [
@@ -524,7 +527,7 @@ export default function FacultySection() {
                 {zoomProfile.role}
               </p>
               <div className="mt-4 flex flex-wrap gap-1.5">
-                {zoomProfile.highlights.slice(0, 5).map((h) => (
+                {zoomProfile.highlights.slice(0, 6).map((h) => (
                   <span
                     key={h}
                     className="rounded-md border border-[var(--border-hairline)] bg-white/85 px-2.5 py-1 text-[10px] font-medium text-[var(--text-charcoal)] sm:text-[11px]"
