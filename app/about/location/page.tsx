@@ -77,25 +77,37 @@ export default function LocationPage() {
       />
       <Header />
 
-      <section className="pt-32 md:pt-36">
-        <div className="mx-auto max-w-[1200px] px-6 pb-20 text-center md:px-8 md:pb-24">
-          <p className="mb-3 text-[12px] font-semibold tracking-[0.22em] text-[var(--text-steel)] uppercase">
-            About PLS
-          </p>
-          <h1
-            className="mx-auto max-w-4xl text-[44px] font-semibold leading-[1.15] tracking-[-0.03em] text-[var(--text-ink)] md:text-[72px]"
-            style={{ wordBreak: "keep-all" }}
-          >
-            위치 & 주차
-          </h1>
-          <p className="mt-4 text-[14px] text-[var(--text-steel)] md:text-[15px]">
-            Phillips Academy of Little Scholars
-          </p>
+      <section className="relative overflow-hidden pt-32 md:pt-36">
+        <div className="pointer-events-none absolute inset-0">
+          <Image
+            src="/images/location-title-bg.png"
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            aria-hidden
+          />
+        </div>
+        <div className="relative mx-auto max-w-[1200px] px-6 pb-28 text-center md:px-8 md:pb-32">
+          <div className="mx-auto inline-block rounded-2xl border border-white/70 bg-white/72 px-6 py-5 backdrop-blur-[1.5px]">
+            <p className="mb-3 text-[12px] font-semibold tracking-[0.22em] text-[var(--primary-navy)]/70 uppercase">
+              About PLS
+            </p>
+            <h1
+              className="mx-auto max-w-4xl text-[44px] font-semibold leading-[1.15] tracking-[-0.03em] text-[var(--primary-navy)] md:text-[72px]"
+              style={{ wordBreak: "keep-all" }}
+            >
+              위치 & 주차
+            </h1>
+            <p className="mt-4 text-[14px] text-[var(--primary-navy)]/65 md:text-[15px]">
+              Phillips Academy of Little Scholars
+            </p>
+          </div>
         </div>
       </section>
 
       <section
-        className="px-6 pb-24 md:px-8 md:pb-28 lg:pb-32"
+        className="pt-6 px-6 pb-24 md:pt-10 md:px-8 md:pb-28 lg:pb-32"
         style={{ backgroundColor: "var(--bg-canvas)" }}
       >
         <div className="mx-auto grid max-w-[1200px] grid-cols-[4fr_6fr] gap-12 items-start max-[968px]:grid-cols-1">

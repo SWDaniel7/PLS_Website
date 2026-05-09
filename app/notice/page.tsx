@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getNoticesFromNotion } from "@/lib/notion";
@@ -79,24 +80,36 @@ export default async function NoticePage() {
       />
       <Header />
 
-      <section className="pt-32 md:pt-36">
-        <div className="mx-auto max-w-[1200px] px-6 pb-14 text-center md:px-8 md:pb-16">
-          <p className="mb-3 text-[12px] font-semibold tracking-[0.22em] text-[var(--text-steel)] uppercase">
-            About PLS
-          </p>
-          <h1
-            className="mx-auto max-w-4xl text-[44px] font-semibold leading-[1.15] tracking-[-0.03em] text-[var(--text-ink)] md:text-[72px]"
-            style={{ wordBreak: "keep-all" }}
-          >
-            공지사항
-          </h1>
-          <p className="mt-4 text-[14px] text-[var(--text-steel)] md:text-[15px]">
-            Phillips Academy of Little Scholars
-          </p>
+      <section className="relative overflow-hidden pt-32 md:pt-36">
+        <div className="pointer-events-none absolute inset-0">
+          <Image
+            src="/images/hero-background.png"
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            aria-hidden
+          />
+        </div>
+        <div className="relative mx-auto max-w-[1200px] px-6 pb-28 text-center md:px-8 md:pb-32">
+          <div className="mx-auto inline-block rounded-2xl border border-white/70 bg-white/72 px-6 py-5 backdrop-blur-[1.5px]">
+            <p className="mb-3 text-[12px] font-semibold tracking-[0.22em] text-[var(--primary-navy)]/70 uppercase">
+              About PLS
+            </p>
+            <h1
+              className="mx-auto max-w-4xl text-[44px] font-semibold leading-[1.15] tracking-[-0.03em] text-[var(--primary-navy)] md:text-[72px]"
+              style={{ wordBreak: "keep-all" }}
+            >
+              공지사항
+            </h1>
+            <p className="mt-4 text-[14px] text-[var(--primary-navy)]/65 md:text-[15px]">
+              Phillips Academy of Little Scholars
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="pb-16 md:pb-24">
+      <section className="pt-6 pb-16 md:pt-10 md:pb-24">
         <div className="mx-auto max-w-[1200px] px-6 md:px-8">
           <div className="overflow-hidden rounded-3xl border border-[var(--border-hairline)] bg-white">
             <div className="grid grid-cols-[120px_1fr_140px_120px] border-b border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] px-6 py-4 text-[12px] font-semibold tracking-[0.08em] text-[var(--text-steel)] uppercase md:grid-cols-[140px_1fr_180px_120px]">
