@@ -21,13 +21,13 @@ export default function Home() {
       <ScrollReveal />
       <Header />
       <Hero />
-      <CaseStudySection />
       <ParentPainSection />
       <ParentAnxietyInsightSection />
       <CoreProblemSection />
       <CoreProblemDarkSection />
       <RIIEFrameworkSection />
       <RIIEMappingSection />
+      <CaseStudySection />
       <PLSApproachSection />
       <DataDrivenExpertiseSection />
       <ClosingQuoteSection />
