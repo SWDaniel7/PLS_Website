@@ -211,8 +211,8 @@ export default function Header() {
         <div
           className={`transition-all duration-300 ${
             isScrolled || isMobileMenuOpen
-              ? "bg-white/95 backdrop-blur-md shadow-sm py-2 md:py-3"
-              : "bg-transparent py-2.5 md:py-4"
+              ? "bg-white/95 backdrop-blur-md shadow-sm py-1.5 md:py-3"
+              : "bg-transparent py-2 md:py-4"
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex items-center justify-between">
@@ -223,7 +223,7 @@ export default function Header() {
               alt="PLS영재교육 - Phillips Academy of Little Scholars"
               width={180}
               height={45}
-              className="h-7 md:h-10 w-auto"
+              className="h-6 md:h-10 w-auto"
               priority
             />
           </Link>
@@ -321,22 +321,22 @@ export default function Header() {
           {/* Mobile Menu Button - refined circular with morphing 2-line */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden relative h-9 w-9 rounded-full ring-1 transition-all duration-300 hover:ring-[#D4B483] active:scale-95 ${
+            className={`md:hidden relative h-8 w-8 rounded-full ring-1 transition-all duration-300 hover:ring-[#D4B483] active:scale-95 ${
               isScrolled || isMobileMenuOpen
                 ? "bg-white/85 backdrop-blur-sm ring-[#E1E4E9] text-[#2F3E5F]"
                 : "bg-white/10 backdrop-blur-md ring-white/35 text-white shadow-[0_4px_14px_rgba(11,28,57,0.18)]"
             }`}
             aria-label={isMobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
           >
-            <span className="absolute inset-0 flex flex-col items-center justify-center gap-[4px]">
+            <span className="absolute inset-0 flex flex-col items-center justify-center gap-[3px]">
               <span
-                className={`block h-[1.5px] w-[16px] rounded-full bg-current transition-transform duration-300 origin-center ${
-                  isMobileMenuOpen ? "translate-y-[2.75px] rotate-45" : ""
+                className={`block h-[1.5px] w-[14px] rounded-full bg-current transition-transform duration-300 origin-center ${
+                  isMobileMenuOpen ? "translate-y-[2.25px] rotate-45" : ""
                 }`}
               />
               <span
-                className={`block h-[1.5px] w-[16px] rounded-full bg-current transition-transform duration-300 origin-center ${
-                  isMobileMenuOpen ? "-translate-y-[2.75px] -rotate-45" : ""
+                className={`block h-[1.5px] w-[14px] rounded-full bg-current transition-transform duration-300 origin-center ${
+                  isMobileMenuOpen ? "-translate-y-[2.25px] -rotate-45" : ""
                 }`}
               />
             </span>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -102,6 +103,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <ScrollToTopButton />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
