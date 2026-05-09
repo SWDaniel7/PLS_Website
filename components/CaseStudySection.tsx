@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 
 type ScoreCard = {
@@ -17,7 +18,7 @@ type ManuscriptCard = {
 
 type CaseStudy = {
   tag: string;
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   body: string[];
   proofs: (ScoreCard | ManuscriptCard)[];
@@ -53,8 +54,14 @@ const sparklineFill = `M0,40 L${sparklinePath
 const caseStudies: CaseStudy[] = [
   {
     tag: "7세 사례",
-    title:
-      "재시 목표였던 아이가 초시 지필에서 에디*, 아이* 두 곳 모두 합격",
+    title: (
+      <>
+        재시 목표였던 아이가 초시 지필에서{" "}
+        <span className="highlight highlight-light">
+          에디*, 아이* 두 곳 모두 합격
+        </span>
+      </>
+    ),
     body: [
       "다른 프렙들에서는 “초시 합격은 어렵다”는 평가를 받았던 아동, 재시를 목표로 7세 중반에 PLS영재교육에서 학습 시작",
       "12주 집중 과정에서 Reading(Integration·Inference) 영역 급성장",
@@ -80,8 +87,15 @@ const caseStudies: CaseStudy[] = [
   },
   {
     tag: "6세 사례",
-    title:
-      "문법 오류가 많던 150단어 글에서 250단어 수준의 완성형 Writing으로",
+    title: (
+      <>
+        문법 오류가 많던 150단어 글에서{" "}
+        <span className="highlight highlight-light">
+          250단어 수준의 완성형 Writing
+        </span>
+        으로
+      </>
+    ),
     subtitle:
       "12주 만에 글의 양뿐 아니라 문장 구성력과 스토리 전개력까지 6세 완성형으로 성장",
     body: [
