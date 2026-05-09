@@ -156,7 +156,7 @@ export default function Header() {
         <div
           className={`overflow-hidden transition-[max-height,opacity,transform] duration-500 ease-out ${
             isStatusBarVisible
-              ? "max-h-[104px] opacity-100 translate-y-0"
+              ? "max-h-[96px] opacity-100 translate-y-0"
               : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"
           }`}
           aria-hidden={!isStatusBarVisible}
@@ -168,18 +168,18 @@ export default function Header() {
             tabIndex={isStatusBarVisible ? 0 : -1}
             suppressHydrationWarning
             aria-label="PLS영재교육 카카오톡 채널 열기"
-            className="block w-full cursor-pointer bg-[var(--accent-slate)] text-white transition-[filter] duration-300 hover:brightness-110 active:brightness-95 [touch-action:manipulation]"
+            className="group relative block w-full cursor-pointer overflow-hidden bg-[var(--accent-slate)] text-white [touch-action:manipulation] transition-[filter,box-shadow,transform] duration-300 ease-out before:pointer-events-none before:absolute before:inset-0 before:z-0 before:bg-gradient-to-b before:from-white/[0.22] before:via-white/[0.06] before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-y-0 after:left-0 after:z-[1] after:h-full after:w-[55%] after:max-w-[min(420px,55vw)] after:-translate-x-[130%] after:skew-x-[-18deg] after:bg-gradient-to-r after:from-transparent after:via-white/50 after:to-transparent after:opacity-0 after:shadow-[0_0_40px_rgba(255,255,255,0.35)] after:transition-[transform,opacity] after:duration-700 after:ease-out hover:after:translate-x-[240%] hover:after:opacity-100 hover:brightness-[1.14] hover:saturate-110 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-2px_0_rgba(212,180,131,0.35),0_0_0_1px_rgba(212,180,131,0.45),0_18px_44px_-10px_rgba(11,28,57,0.62),0_0_48px_-12px_rgba(212,180,131,0.28)] hover:[transform:translateZ(0)] active:brightness-[0.88] active:shadow-[inset_0_4px_20px_rgba(0,0,0,0.35)] active:before:opacity-35 active:after:opacity-0 active:duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-gold)]/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--accent-slate)]"
           >
-            <div className="mx-auto flex max-w-7xl flex-col items-center gap-1 px-4 py-2.5 md:gap-1.5 md:py-3">
+            <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-0.5 px-4 py-2 md:gap-1 md:py-2.5">
               <div className="flex items-center justify-center gap-2">
                 <span className="status-dot" aria-hidden />
-                <span className="text-[12px] font-semibold tracking-[-0.005em] text-[var(--accent-gold)] md:text-[13px]">
+                <span className="text-[11.5px] font-semibold tracking-[-0.005em] text-[var(--accent-gold)] md:text-[12.5px]">
                   {nextMonth}월 등록 대기 리스트
                 </span>
               </div>
               {isClosed ? (
                 <p
-                  className="mb-0 text-center text-[11.5px] leading-snug tracking-[-0.005em] text-white/95 md:text-[13px]"
+                  className="mb-0 text-center text-[11px] leading-tight tracking-[-0.005em] text-white/95 md:text-[12px]"
                   style={{ wordBreak: "keep-all" }}
                 >
                   이번 주 트라이얼 마감 ·{" "}
@@ -191,7 +191,7 @@ export default function Header() {
                 </p>
               ) : (
                 <p
-                  className="mb-0 text-center text-[11.5px] leading-snug tracking-[-0.005em] text-white/95 md:text-[13px]"
+                  className="mb-0 text-center text-[11px] leading-tight tracking-[-0.005em] text-white/95 md:text-[12px]"
                   style={{ wordBreak: "keep-all" }}
                 >
                   이번 주 트라이얼 클래스 잔여 여석{" "}
@@ -211,8 +211,8 @@ export default function Header() {
         <div
           className={`transition-all duration-300 ${
             isScrolled || isMobileMenuOpen
-              ? "bg-white/95 backdrop-blur-md shadow-sm py-1.5 md:py-3"
-              : "bg-transparent py-2 md:py-4"
+              ? "bg-white/95 backdrop-blur-md shadow-sm py-1.5 md:py-2"
+              : "bg-transparent py-2 md:py-2"
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex items-center justify-between">
@@ -223,7 +223,7 @@ export default function Header() {
               alt="PLS영재교육 - Phillips Academy of Little Scholars"
               width={180}
               height={45}
-              className="h-6 md:h-10 w-auto"
+              className="h-6 md:h-9 w-auto"
               priority
             />
           </Link>
