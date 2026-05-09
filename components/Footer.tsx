@@ -22,6 +22,7 @@ export default function Footer() {
 
   return (
     <footer
+      id="site-footer"
       style={{
         backgroundColor: isSubPage
           ? "var(--primary-navy-dark)"
