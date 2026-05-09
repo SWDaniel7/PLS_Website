@@ -9,7 +9,6 @@ import RIIEFrameworkSection from "@/components/RIIEFrameworkSection";
 import RIIEMappingSection from "@/components/RIIEMappingSection";
 import CaseStudySection from "@/components/CaseStudySection";
 import PLSApproachSection from "@/components/PLSApproachSection";
-import DataDrivenExpertiseSection from "@/components/DataDrivenExpertiseSection";
 import ClosingQuoteSection from "@/components/ClosingQuoteSection";
 import FacultySection from "@/components/FacultySection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -29,7 +28,6 @@ export default function Home() {
       <RIIEMappingSection />
       <CaseStudySection />
       <PLSApproachSection />
-      <DataDrivenExpertiseSection />
       <ClosingQuoteSection />
       <FacultySection />
       <FinalCTASection />

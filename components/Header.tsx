@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
@@ -18,13 +18,13 @@ const menuItems = [
     ],
   },
   {
-    label: "RIIE Framework",
-    href: "/#riie",
+    label: "재원생 성과",
+    href: "/#case",
     submenus: [],
   },
   {
-    label: "재원생 성과",
-    href: "/#case",
+    label: "RIIE Framework",
+    href: "/#riie",
     submenus: [],
   },
   {
@@ -68,12 +68,15 @@ function getEnrollmentStatus(): EnrollmentStatus {
 }
 
 export default function Header() {
+  const MOBILE_MENU_TOP_ADJUST_PX = 4;
+  const headerRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
   const isSubPage = pathname !== "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+  const [mobileMenuTop, setMobileMenuTop] = useState(88);
   const { currentMonth, nextMonth, toCount, isClosed } = getEnrollmentStatus();
   const isStatusBarVisible = isScrolled || isMobileMenuOpen;
 
@@ -96,6 +99,16 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    const updateMobileMenuTop = () => {
+      const nextTop = headerRef.current?.getBoundingClientRect().height ?? 88;
+      setMobileMenuTop(Math.round(nextTop + MOBILE_MENU_TOP_ADJUST_PX));
+    };
+    updateMobileMenuTop();
+    window.addEventListener("resize", updateMobileMenuTop);
+    return () => window.removeEventListener("resize", updateMobileMenuTop);
+  }, [isScrolled, isMobileMenuOpen]);
+
   const toggleMobileSubmenu = (label: string) => {
     setActiveMobileSubmenu(activeMobileSubmenu === label ? null : label);
   };
@@ -104,7 +117,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50">
+      <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50">
         {/* Top status bar — admissions urgency (visible only when scrolled) */}
         <div
           className={`overflow-hidden transition-[max-height,opacity,transform] duration-500 ease-out ${
@@ -336,9 +349,13 @@ export default function Header() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div 
-          className={`absolute top-[88px] left-0 right-0 bg-white shadow-2xl max-h-[calc(100vh-88px)] overflow-y-auto transition-all duration-300 ${
+          className={`absolute left-0 right-0 bg-white shadow-2xl overflow-y-auto transition-all duration-300 ${
             isMobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
           }`}
+          style={{
+            top: `${mobileMenuTop}px`,
+            maxHeight: `calc(100vh - ${mobileMenuTop}px)`,
+          }}
         >
           <nav className="py-2">
             {menuItems.map((item, idx) => (

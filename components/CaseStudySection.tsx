@@ -28,6 +28,27 @@ const heroStats = [
   { value: "100%", label: "26년 인사이트 프렙 응시생 합격" },
   { value: "88%", label: "3개월 이상 수강생 탑반(ENSIGHT) 석권" },
 ];
+const riieBars = [
+  { label: "R", value: 82 },
+  { label: "I", value: 71 },
+  { label: "I", value: 76 },
+  { label: "E", value: 64 },
+];
+const sparklinePoints = [
+  { x: 0, y: 32 },
+  { x: 30, y: 28 },
+  { x: 60, y: 24 },
+  { x: 90, y: 22 },
+  { x: 120, y: 16 },
+  { x: 150, y: 18 },
+  { x: 180, y: 11 },
+  { x: 210, y: 8 },
+  { x: 240, y: 5 },
+];
+const sparklinePath = sparklinePoints.map((p) => `${p.x},${p.y}`).join(" ");
+const sparklineFill = `M0,40 L${sparklinePath
+  .split(" ")
+  .join(" L")} L240,40 Z`;
 
 const caseStudies: CaseStudy[] = [
   {
@@ -333,11 +354,11 @@ export default function CaseStudySection() {
           </div>
         </div>
 
-        <div className="grid gap-8 md:gap-10 lg:grid-cols-2">
+        <div className="grid gap-8 md:gap-10 lg:grid-cols-2 lg:items-stretch">
           {caseStudies.map((cs) => (
             <article
               key={cs.tag}
-              className="reveal-body flex flex-col rounded-3xl border border-[var(--border-hairline)] p-7 md:p-10"
+              className="reveal-body flex h-full flex-col rounded-3xl border border-[var(--border-hairline)] p-7 md:p-10"
               style={{ backgroundColor: "var(--bg-surface-soft)" }}
             >
               <span
@@ -393,6 +414,180 @@ export default function CaseStudySection() {
                   ))}
                 </ul>
               </div>
+              {cs.tag === "7세 사례" ? (
+                <div className="mt-auto pt-6">
+                  <div className="reveal-body relative">
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute -right-4 -top-4 hidden h-24 w-24 opacity-40 md:block"
+                      style={{
+                        backgroundImage:
+                          "radial-gradient(rgba(18, 44, 81, 0.18) 1px, transparent 1.4px)",
+                        backgroundSize: "10px 10px",
+                        maskImage:
+                          "radial-gradient(circle at top right, black 30%, transparent 75%)",
+                        WebkitMaskImage:
+                          "radial-gradient(circle at top right, black 30%, transparent 75%)",
+                      }}
+                    />
+                    <div className="relative rounded-3xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] p-4 shadow-[0_12px_32px_rgba(18,44,81,0.08)] md:p-5">
+                      <div className="mb-4 flex items-center justify-between px-1">
+                        <p className="mb-0 text-[11px] font-semibold tracking-[0.18em] text-[var(--text-steel)] uppercase">
+                          Student Insight Dashboard
+                        </p>
+                        <span className="inline-flex items-center gap-1.5">
+                          <span className="status-dot" />
+                          <span className="text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--accent-gold)]">
+                            Live · 2026
+                          </span>
+                        </span>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="rounded-2xl bg-white p-4 shadow-[0_4px_14px_rgba(18,44,81,0.04)] ring-1 ring-[var(--border-hairline)]">
+                          <div className="mb-3 flex items-center justify-between">
+                            <p className="mb-0 text-[12.5px] font-semibold text-[var(--text-ink)]">
+                              RIIE Skills Profile
+                            </p>
+                            <span className="text-[10px] tabular-nums text-[var(--text-steel)]">
+                              Cohort avg
+                            </span>
+                          </div>
+                          <div className="flex h-[88px] items-end gap-2.5">
+                            {riieBars.map((bar, idx) => (
+                              <div
+                                key={`${bar.label}-${idx}`}
+                                className="flex flex-1 flex-col items-center gap-1.5"
+                              >
+                                <div className="relative flex w-full flex-1 items-end overflow-hidden rounded-md bg-[var(--bg-surface-soft)]">
+                                  <div
+                                    className="w-full rounded-md"
+                                    style={{
+                                      height: `${bar.value}%`,
+                                      background:
+                                        idx === 1
+                                          ? "linear-gradient(180deg, var(--accent-gold) 0%, #C9A266 100%)"
+                                          : "linear-gradient(180deg, #1B3056 0%, #0C1D38 100%)",
+                                    }}
+                                  />
+                                </div>
+                                <span className="text-[10.5px] font-semibold tabular-nums tracking-tight text-[var(--text-steel)]">
+                                  {bar.value}
+                                </span>
+                                <span className="text-[11px] font-semibold text-[var(--primary-navy)]">
+                                  {bar.label}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="rounded-2xl bg-white p-4 shadow-[0_4px_14px_rgba(18,44,81,0.04)] ring-1 ring-[var(--border-hairline)]">
+                          <div className="mb-2 flex items-center justify-between">
+                            <p className="mb-0 text-[12.5px] font-semibold text-[var(--text-ink)]">
+                              Reading Level Index
+                            </p>
+                            <span className="text-[10px] text-[var(--text-steel)]">
+                              Last 6 months
+                            </span>
+                          </div>
+                          <div className="mb-2 flex items-baseline gap-2">
+                            <span
+                              className="text-[26px] font-semibold leading-none tabular-nums text-[var(--primary-navy)]"
+                              style={{ fontFeatureSettings: "'tnum'" }}
+                            >
+                              5.8
+                            </span>
+                            <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[var(--accent-gold)]">
+                              +1.1
+                              <svg
+                                aria-hidden
+                                width="9"
+                                height="9"
+                                viewBox="0 0 9 9"
+                                fill="none"
+                              >
+                                <path
+                                  d="M4.5 1.5L7.5 5.5H1.5L4.5 1.5Z"
+                                  fill="currentColor"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <svg
+                            viewBox="0 0 240 40"
+                            preserveAspectRatio="none"
+                            className="h-10 w-full"
+                            aria-hidden
+                          >
+                            <defs>
+                              <linearGradient id="sparkFillCase" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#1B3056" stopOpacity="0.18" />
+                                <stop offset="100%" stopColor="#1B3056" stopOpacity="0" />
+                              </linearGradient>
+                            </defs>
+                            <path d={sparklineFill} fill="url(#sparkFillCase)" />
+                            <polyline
+                              fill="none"
+                              stroke="var(--primary-navy)"
+                              strokeWidth="1.8"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              points={sparklinePath}
+                            />
+                            {sparklinePoints.map((p, i) => (
+                              <circle
+                                key={i}
+                                cx={p.x}
+                                cy={p.y}
+                                r={i === sparklinePoints.length - 1 ? 2.5 : 1.4}
+                                fill={
+                                  i === sparklinePoints.length - 1
+                                    ? "var(--accent-gold)"
+                                    : "var(--primary-navy)"
+                                }
+                              />
+                            ))}
+                          </svg>
+                        </div>
+                        <div className="rounded-2xl bg-white p-4 shadow-[0_4px_14px_rgba(18,44,81,0.04)] ring-1 ring-[var(--border-hairline)]">
+                          <div className="mb-2 flex items-center justify-between">
+                            <p className="mb-0 text-[12.5px] font-semibold text-[var(--text-ink)]">
+                              Pattern Analysis
+                            </p>
+                            <span className="text-[10px] tracking-[0.14em] uppercase text-[var(--accent-gold)]">
+                              Auto
+                            </span>
+                          </div>
+                          <p
+                            className="mb-3 text-[12.5px] leading-[1.65] text-[var(--text-slate)]"
+                            style={{ wordBreak: "keep-all" }}
+                          >
+                            지문 핵심을 빠르게 찾고 근거 문장을 정확히 짚는 힘이
+                            좋아졌습니다. 긴 문장에서도 의미 단위를 끊어 읽는
+                            습관이 자리 잡았고, 서술형에서는 답의 논리 순서를 더
+                            안정적으로 구성하고 있습니다.
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {["Inference 강세", "Detail 보강", "Sequence 안정"].map(
+                              (tag) => (
+                                <span
+                                  key={tag}
+                                  className="rounded-full border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] px-2 py-0.5 text-[10.5px] font-medium text-[var(--text-charcoal)]"
+                                >
+                                  {tag}
+                                </span>
+                              )
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between px-1 text-[10px] tracking-[0.12em] uppercase text-[var(--text-steel)]">
+                        <span>Source · Cohort 2026</span>
+                        <span className="tabular-nums">N = 127</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
             </article>
           ))}
         </div>

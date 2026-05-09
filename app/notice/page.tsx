@@ -23,7 +23,7 @@ export default async function NoticePage() {
             공지사항
           </h1>
           <p className="mt-4 text-[14px] text-[var(--text-steel)] md:text-[15px]">
-            Notion Database Board
+            Phillips Academy of Little Scholars
           </p>
         </div>
       </section>
