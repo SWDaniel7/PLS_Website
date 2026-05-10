@@ -82,8 +82,7 @@ const profiles: FacultyProfile[] = [
   {
     name: "Sally",
     role: "PLS영재교육 수석강사",
-    imageSrc: "/images/faculty-placeholder.png",
-    placeholder: { gender: "female" },
+    imageSrc: "/images/faculty-sally.png",
     imageAlt: "Sally — PLS영재교육 수석강사",
     highlights: [
       "예비초레테 입시",
