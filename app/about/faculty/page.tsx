@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
+import { absoluteUrl } from "@/lib/site-url";
 import Footer from "@/components/Footer";
 
 type FacultyProfile = {
@@ -103,8 +104,7 @@ const facultyProfiles: FacultyProfile[] = [
   {
     name: "Sally",
     role: "수석강사",
-    imageSrc: "/images/faculty-placeholder.png",
-    placeholderGender: "female",
+    imageSrc: "/images/faculty-sally.png",
     workExperience: [
       "PLS영재교육, 교육 R&D 담당",
       "PLS 대치/개포 전문관, 수석강사",
@@ -112,6 +112,9 @@ const facultyProfiles: FacultyProfile[] = [
       "정철어학원 초등부 전임 강사",
       "전문 라이팅 교수법 기반 교육과정 설계 전문가",
       "원서 수업 커리큘럼 기획 및 설계",
+      "국제 컨퍼런스 미팅 영·한 순차·동시 통역",
+      "VIP 의전 및 C레벨 임원 수행통역",
+      "프리랜서 통역사/번역가",
     ],
     education: ["성균관대학교, 문과대학 학사", "Langara College, Canada"],
     lead: "캐나다 사립학교를 나온 이중언어자가 직접 설계하고 가르치는 레테 수업",
@@ -290,7 +293,7 @@ export default function FacultyPage() {
         name: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
         description:
           "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
-        url: "https://pls-website-iota.vercel.app/about/faculty",
+        url: absoluteUrl("/about/faculty"),
         inLanguage: "ko-KR",
       },
       {
@@ -300,13 +303,13 @@ export default function FacultyPage() {
             "@type": "ListItem",
             position: 1,
             name: "홈",
-            item: "https://pls-website-iota.vercel.app/",
+            item: absoluteUrl("/"),
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "강사소개",
-            item: "https://pls-website-iota.vercel.app/about/faculty",
+            item: absoluteUrl("/about/faculty"),
           },
         ],
       },

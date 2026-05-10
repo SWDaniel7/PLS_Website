@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { absoluteUrl } from "@/lib/site-url";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -180,7 +181,7 @@ export default function IntroPage() {
         name: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
         description:
           "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
-        url: "https://pls-website-iota.vercel.app/about/intro",
+        url: absoluteUrl("/about/intro"),
         inLanguage: "ko-KR",
       },
       {
@@ -190,13 +191,13 @@ export default function IntroPage() {
             "@type": "ListItem",
             position: 1,
             name: "홈",
-            item: "https://pls-website-iota.vercel.app/",
+            item: absoluteUrl("/"),
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "기관소개",
-            item: "https://pls-website-iota.vercel.app/about/intro",
+            item: absoluteUrl("/about/intro"),
           },
         ],
       },

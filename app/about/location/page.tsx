@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
+import { absoluteUrl } from "@/lib/site-url";
 import Footer from "@/components/Footer";
 import NaverMapPanel from "@/components/NaverMapPanel";
 
@@ -46,7 +47,7 @@ export default function LocationPage() {
         name: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
         description:
           "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
-        url: "https://pls-website-iota.vercel.app/about/location",
+        url: absoluteUrl("/about/location"),
         inLanguage: "ko-KR",
       },
       {
@@ -56,13 +57,13 @@ export default function LocationPage() {
             "@type": "ListItem",
             position: 1,
             name: "홈",
-            item: "https://pls-website-iota.vercel.app/",
+            item: absoluteUrl("/"),
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "찾아오는길",
-            item: "https://pls-website-iota.vercel.app/about/location",
+            item: absoluteUrl("/about/location"),
           },
         ],
       },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
+import { absoluteUrl } from "@/lib/site-url";
 import Footer from "@/components/Footer";
 import { getNoticesFromNotion } from "@/lib/notion";
 
@@ -47,7 +48,7 @@ export default async function NoticePage() {
         name: "PLS영재교육 재원생 사례 · 공지사항",
         description:
           "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
-        url: "https://pls-website-iota.vercel.app/notice",
+        url: absoluteUrl("/notice"),
         inLanguage: "ko-KR",
       },
       {
@@ -57,13 +58,13 @@ export default async function NoticePage() {
             "@type": "ListItem",
             position: 1,
             name: "홈",
-            item: "https://pls-website-iota.vercel.app/",
+            item: absoluteUrl("/"),
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "공지사항",
-            item: "https://pls-website-iota.vercel.app/notice",
+            item: absoluteUrl("/notice"),
           },
         ],
       },
