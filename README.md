@@ -20,7 +20,7 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://127.0.0.1:3333](http://127.0.0.1:3333) with your browser to see the result.
+Open [http://localhost:3333](http://localhost:3333) with your browser to see the result (dev server must be running in a terminal).
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
