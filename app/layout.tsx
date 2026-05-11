@@ -27,6 +27,14 @@ export const metadata: Metadata = {
     '초등어학원',
     '챕터북',
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: 'PLS영재교육 | 초등레테 입시 & 원서(노블)수업 영재교육센터',
     description:
