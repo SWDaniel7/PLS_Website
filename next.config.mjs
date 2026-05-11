@@ -29,6 +29,27 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/pls영재교육pls프렙/찾아오는-길',
+        destination: '/about/location',
+        permanent: true,
+      },
+      {
+        source:
+          '/pls%EC%98%81%EC%9E%AC%EA%B5%90%EC%9C%A1pls%ED%94%84%EB%A0%99/%EC%B0%BE%EC%95%84%EC%98%A4%EB%8A%94-%EA%B8%B8',
+        destination: '/about/location',
+        permanent: true,
+      },
+      {
+        source: '/pls영재교육pls프렙/notice',
+        destination: '/notice',
+        permanent: true,
+      },
+      {
+        source: '/pls%EC%98%81%EC%9E%AC%EA%B5%90%EC%9C%A1pls%ED%94%84%EB%A0%99/notice',
+        destination: '/notice',
+        permanent: true,
+      },
+      {
         source: '/신규-수정중-pls프렙피엘에스프렙/찾아오는-길',
         destination: '/about/location',
         permanent: true,
