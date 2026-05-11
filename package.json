@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
+    "dev": "next dev --webpack -H 127.0.0.1 -p 3333",
     "preview": "rm -rf .next && next dev --webpack -H 127.0.0.1 -p 3333",
-    "dev:clean": "rm -rf .next && next dev --webpack",
+    "dev:clean": "rm -rf .next && next dev --webpack -H 127.0.0.1 -p 3333",
     "dev:3002": "next dev --webpack -p 3002",
-    "dev:turbo": "next dev --turbopack",
+    "dev:turbo": "next dev --turbopack -H 127.0.0.1 -p 3333",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."
