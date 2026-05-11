@@ -54,9 +54,9 @@ const profiles: FacultyProfile[] = [
   },
   {
     name: "Sun",
-    role: "PLS영재교육 부원장",
+    role: "PLS영재교육 이사",
     imageSrc: "/images/faculty-sun.png",
-    imageAlt: "Sun — PLS영재교육 부원장",
+    imageAlt: "Sun — PLS영재교육 이사",
     highlights: [
       "게이트 입시",
       "예비초레테 입시",
@@ -66,7 +66,7 @@ const profiles: FacultyProfile[] = [
       "미국유치원",
     ],
     workExperience: [
-      { org: "PLS영재교육", role: "부원장" },
+      { org: "PLS영재교육", role: "이사" },
       { org: "PLS 대치/개포 전문관", role: "부원장" },
       { org: "강남 게이트/초등레테 개인교습" },
       { org: "Google", division: "Global gCare", role: "Manager" },
