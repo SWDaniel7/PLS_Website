@@ -35,6 +35,11 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  verification: {
+    other: {
+      'naver-site-verification': '88e8f4f41292f29d4dd87d548a9e4475fa2a33d1',
+    },
+  },
   openGraph: {
     title: 'PLS영재교육 | 초등레테 입시 & 원서(노블)수업 영재교육센터',
     description:
