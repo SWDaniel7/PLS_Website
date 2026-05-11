@@ -50,6 +50,9 @@ export const metadata: Metadata = {
       "PLS영재교육 재원생 사례와 RIIE 기반 원서수업 성과를 확인하세요. 초등레테·게이트입시 대비를 위한 통합사고형 문해력 수업을 제공합니다.",
     images: ["/images/hero-students.png"],
   },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {

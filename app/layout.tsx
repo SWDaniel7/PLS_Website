@@ -48,9 +48,6 @@ export const metadata: Metadata = {
       'PLS영재교육(피엘에스영재교육)은 PLS프렙(피엘에스프렙) 기반의 게이트입시·초등레테·대치프렙 전문 교육기관으로, 원서수업과 에세이라이팅 중심의 통합사고형 문해력 수업을 제공합니다.',
     images: ['/images/hero-main-campus.png'],
   },
-  alternates: {
-    canonical: '/',
-  },
   generator: 'v0.app',
   icons: {
     icon: [

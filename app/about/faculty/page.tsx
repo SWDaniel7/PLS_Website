@@ -47,6 +47,9 @@ export const metadata: Metadata = {
       "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
     images: ["/images/faculty-daniel.png"],
   },
+  alternates: {
+    canonical: "/about/faculty",
+  },
 };
 
 const facultyProfiles: FacultyProfile[] = [

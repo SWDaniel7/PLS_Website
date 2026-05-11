@@ -37,6 +37,9 @@ export const metadata: Metadata = {
       "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
     images: ["/images/hero-background.png"],
   },
+  alternates: {
+    canonical: "/notice",
+  },
 };
 
 export default async function NoticePage() {

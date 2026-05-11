@@ -36,6 +36,9 @@ export const metadata: Metadata = {
       "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
     images: ["/images/location-building.png"],
   },
+  alternates: {
+    canonical: "/about/location",
+  },
 };
 
 export default function LocationPage() {

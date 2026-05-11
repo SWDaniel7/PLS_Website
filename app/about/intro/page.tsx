@@ -35,6 +35,9 @@ export const metadata: Metadata = {
       "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
     images: ["/images/hero-main-campus.png"],
   },
+  alternates: {
+    canonical: "/about/intro",
+  },
 };
 
 const literacyFlow = [
