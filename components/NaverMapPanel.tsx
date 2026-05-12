@@ -9,10 +9,10 @@ declare global {
 }
 
 const LOCATION = {
-  lat: 37.47718,
-  lng: 127.05335,
+  lat: 37.474329,
+  lng: 127.049949,
   title: "PLS영재교육",
-  address: "서울 강남구 논현로10길 16",
+  address: "서울시 강남구 논현로10길 16 영재센터빌딩 4층",
 };
 
 
@@ -59,6 +59,11 @@ export default function NaverMapPanel() {
           position: center,
           map,
           title: LOCATION.title,
+          icon: {
+            url: "https://static.naver.net/maps/v3/pin_default.png",
+            size: new window.naver.maps.Size(22, 35),
+            anchor: new window.naver.maps.Point(12, 35),
+          },
         });
         map.setCenter(center);
         setIsLoaded(true);

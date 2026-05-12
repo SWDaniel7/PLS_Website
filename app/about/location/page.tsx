@@ -124,9 +124,7 @@ export default function LocationPage() {
                 className="text-[19px] font-semibold leading-[1.5] text-[var(--text-ink)]"
                 style={{ wordBreak: "keep-all" }}
               >
-                서울시 강남구 논현로 10길, 16
-                <br />
-                영재센터빌딩 4층
+                서울시 강남구 논현로10길 16 영재센터빌딩 4층
                 <br />
                 <span className="text-[15px] font-normal text-[var(--text-slate)]">
                   (강남부동산 좌측 입구)
