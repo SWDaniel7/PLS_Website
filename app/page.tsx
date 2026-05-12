@@ -17,7 +17,7 @@ import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "PLS영재교육 | 재원생 사례 · 초등레테 · 게이트입시",
+  title: "재원생 사례 · 초등레테 · 게이트입시",
   description:
     "PLS영재교육 재원생 사례와 RIIE 기반 원서수업 성과를 확인하세요. 초등레테·게이트입시 대비를 위한 통합사고형 문해력 수업을 제공합니다.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "대치프렙",
   ],
   openGraph: {
-    title: "PLS영재교육 | 재원생 사례 · 초등레테 · 게이트입시",
+    title: "재원생 사례 · 초등레테 · 게이트입시 | PLS영재교육",
     description:
       "PLS영재교육 재원생 사례와 RIIE 기반 원서수업 성과를 확인하세요. 초등레테·게이트입시 대비를 위한 통합사고형 문해력 수업을 제공합니다.",
     images: [
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PLS영재교육 | 재원생 사례 · 초등레테 · 게이트입시",
+    title: "재원생 사례 · 초등레테 · 게이트입시 | PLS영재교육",
     description:
       "PLS영재교육 재원생 사례와 RIIE 기반 원서수업 성과를 확인하세요. 초등레테·게이트입시 대비를 위한 통합사고형 문해력 수업을 제공합니다.",
     images: ["/images/hero-students.png"],
@@ -59,7 +59,7 @@ export default function Home() {
   const homeSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "PLS영재교육 | 재원생 사례 · 초등레테 · 게이트입시",
+    name: "재원생 사례 · 초등레테 · 게이트입시 | PLS영재교육",
     description:
       "PLS영재교육 재원생 사례와 RIIE 기반 원서수업 성과를 확인하세요. 초등레테·게이트입시 대비를 위한 통합사고형 문해력 수업을 제공합니다.",
     url: absoluteUrl("/"),

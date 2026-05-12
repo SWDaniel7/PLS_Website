@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
+  title: "기관소개 | 설립이념 · 교육철학",
   description:
     "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "대치동영어",
   ],
   openGraph: {
-    title: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
+    title: "기관소개 | 설립이념 · 교육철학 | PLS영재교육",
     description:
       "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
     images: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
+    title: "기관소개 | 설립이념 · 교육철학 | PLS영재교육",
     description:
       "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
     images: ["/images/hero-main-campus.png"],
@@ -181,7 +181,7 @@ export default function IntroPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "PLS영재교육 기관소개 | 설립이념 · 교육철학",
+        name: "기관소개 | 설립이념 · 교육철학 | PLS영재교육",
         description:
           "PLS영재교육 기관소개 페이지입니다. 설립이념과 교육철학, 원서 기반 통합사고형 문해력 수업 구조를 확인할 수 있습니다.",
         url: absoluteUrl("/about/intro"),

@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import NaverMapPanel from "@/components/NaverMapPanel";
 
 export const metadata: Metadata = {
-  title: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
+  title: "찾아오는길 | 위치 · 주차 안내",
   description:
     "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "대치동영어",
   ],
   openGraph: {
-    title: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
+    title: "찾아오는길 | 위치 · 주차 안내 | PLS영재교육",
     description:
       "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
+    title: "찾아오는길 | 위치 · 주차 안내 | PLS영재교육",
     description:
       "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
     images: ["/images/location-building.png"],
@@ -47,7 +47,7 @@ export default function LocationPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "PLS영재교육 찾아오는길 | 위치 · 주차 안내",
+        name: "찾아오는길 | 위치 · 주차 안내 | PLS영재교육",
         description:
           "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
         url: absoluteUrl("/about/location"),

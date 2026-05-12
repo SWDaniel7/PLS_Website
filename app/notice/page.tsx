@@ -7,7 +7,7 @@ import { getNoticesFromNotion } from "@/lib/notion";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "PLS영재교육 재원생 사례 · 공지사항",
+  title: "재원생 사례 · 공지사항",
   description:
     "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "초등어학원",
   ],
   openGraph: {
-    title: "PLS영재교육 재원생 사례 · 공지사항",
+    title: "재원생 사례 · 공지사항 | PLS영재교육",
     description:
       "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PLS영재교육 재원생 사례 · 공지사항",
+    title: "재원생 사례 · 공지사항 | PLS영재교육",
     description:
       "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
     images: ["/images/hero-background.png"],
@@ -48,7 +48,7 @@ export default async function NoticePage() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        name: "PLS영재교육 재원생 사례 · 공지사항",
+        name: "재원생 사례 · 공지사항 | PLS영재교육",
         description:
           "PLS영재교육 공지사항과 재원생 관련 소식을 확인하세요. 레테·원서수업·학부모 안내 등 최신 정보를 제공합니다.",
         url: absoluteUrl("/notice"),

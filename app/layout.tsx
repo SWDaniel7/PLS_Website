@@ -2,12 +2,15 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import FloatingConsultCTA from '@/components/FloatingConsultCTA'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
-import { absoluteUrl, getSiteUrl } from '@/lib/site-url'
+import { absoluteUrl, getIndexingSiteUrl, getSiteUrl } from '@/lib/site-url'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
-  title: 'PLS영재교육 | 초등레테 입시 & 원서(노블)수업 영재교육센터',
+  metadataBase: new URL(getIndexingSiteUrl()),
+  title: {
+    default: 'PLS영재교육 | 초등레테 입시 & 원서(노블)수업 영재교육센터',
+    template: '%s | PLS영재교육',
+  },
   description:
     'PLS영재교육(피엘에스영재교육)은 PLS프렙(피엘에스프렙) 기반의 게이트입시·초등레테·대치프렙 전문 교육기관으로, 원서수업과 에세이라이팅 중심의 통합사고형 문해력 수업을 제공합니다.',
   keywords: [
@@ -91,7 +94,6 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'PLS영재교육',
-    alternateName: ['피엘에스영재교육', 'PLS프렙', '피엘에스프렙'],
     url: site,
     logo: absoluteUrl('/images/pls-logo.png'),
     sameAs: ['https://blog.naver.com/ym_career'],

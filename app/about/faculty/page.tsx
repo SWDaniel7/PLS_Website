@@ -16,7 +16,7 @@ type FacultyProfile = {
 };
 
 export const metadata: Metadata = {
-  title: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
+  title: "강사소개 | 레테·게이트 입시 전문 강사진",
   description:
     "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "대치게이트",
   ],
   openGraph: {
-    title: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
+    title: "강사소개 | 레테·게이트 입시 전문 강사진 | PLS영재교육",
     description:
       "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
     images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
+    title: "강사소개 | 레테·게이트 입시 전문 강사진 | PLS영재교육",
     description:
       "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
     images: ["/images/faculty-daniel.png"],
@@ -295,7 +295,7 @@ export default function FacultyPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "PLS영재교육 강사소개 | 레테·게이트 입시 전문 강사진",
+        name: "강사소개 | 레테·게이트 입시 전문 강사진 | PLS영재교육",
         description:
           "PLS영재교육 강사소개 페이지입니다. 초등레테·게이트입시 현장 경험을 갖춘 강사진의 이력과 교육 철학을 확인하세요.",
         url: absoluteUrl("/about/faculty"),
