@@ -15,6 +15,22 @@ const LOCATION = {
   address: "서울시 강남구 논현로10길 16 영재센터빌딩 4층",
 };
 
+const MAP_LABEL_SUBLINE = "영재센터 빌딩 4층";
+
+function buildMapLabelElement(): HTMLDivElement {
+  const root = document.createElement("div");
+  root.className = "map-label";
+  const main = document.createElement("div");
+  main.className = "map-label-main";
+  main.textContent = LOCATION.title;
+  const sub = document.createElement("div");
+  sub.className = "map-label-sub";
+  sub.textContent = MAP_LABEL_SUBLINE;
+  root.appendChild(main);
+  root.appendChild(sub);
+  return root;
+}
+
 /** 마커 좌표 위에 고정 라벨 DOM을 올리는 OverlayView (네이버 지도 v3). */
 function attachPlsNameLabelOverlay(
   naver: NonNullable<Window["naver"]>,
@@ -26,20 +42,7 @@ function attachPlsNameLabelOverlay(
   const LabelOverlay = function (this: any, latLng: any) {
     N.OverlayView.call(this);
     this._position = latLng;
-    this._root = document.createElement("div");
-    this._root.textContent = LOCATION.title;
-    Object.assign(this._root.style, {
-      position: "absolute",
-      background: "#fff",
-      color: "#122C51",
-      fontSize: "13px",
-      fontWeight: "600",
-      padding: "5px 10px",
-      borderRadius: "6px",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-      whiteSpace: "nowrap",
-      pointerEvents: "none",
-    });
+    this._root = buildMapLabelElement();
   } as any;
 
   LabelOverlay.prototype = Object.create(N.OverlayView.prototype);
@@ -52,11 +55,11 @@ function attachPlsNameLabelOverlay(
     if (!projection || !this.getMap()) return;
     const pixel = projection.fromCoordToOffset(this._position);
     if (!pixel) return;
-    const markerVisualOffsetPx = 46;
-    const gapPx = 8;
+    /** 라벨+꼬리가 핀 위로 뜨고, 꼬리 끝이 핀 상단 근처에 닿도록 (px, 조정 가능). */
+    const liftAboveAnchorPx = 44;
     this._root.style.left = `${pixel.x}px`;
     this._root.style.top = `${pixel.y}px`;
-    this._root.style.transform = `translate(-50%, calc(-100% - ${markerVisualOffsetPx + gapPx}px))`;
+    this._root.style.transform = `translate(-50%, calc(-100% - ${liftAboveAnchorPx}px))`;
   };
   LabelOverlay.prototype.onRemove = function (this: any) {
     this._root?.parentNode?.removeChild(this._root);
@@ -140,18 +143,7 @@ export default function NaverMapPanel() {
         }
 
         if (!labelAttached) {
-          const el = document.createElement("div");
-          el.textContent = LOCATION.title;
-          Object.assign(el.style, {
-            fontSize: "13px",
-            fontWeight: "600",
-            padding: "5px 10px",
-            borderRadius: "6px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-            background: "#fff",
-            color: "#122C51",
-            whiteSpace: "nowrap",
-          });
+          const el = buildMapLabelElement();
           const iw = new naver.maps.InfoWindow({
             content: el,
             disableAnchor: true,
@@ -159,7 +151,7 @@ export default function NaverMapPanel() {
             backgroundColor: "transparent",
             borderColor: "transparent",
             disableAutoPan: true,
-            pixelOffset: new naver.maps.Point(0, -52),
+            pixelOffset: new naver.maps.Point(0, -72),
           });
           iw.open(map, marker);
           mapInstances.infoWindow = iw;
