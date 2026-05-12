@@ -114,7 +114,7 @@ export default function LocationPage() {
         className="pt-6 px-6 pb-24 md:pt-10 md:px-8 md:pb-28 lg:pb-32"
         style={{ backgroundColor: "var(--bg-canvas)" }}
       >
-        <div className="mx-auto grid max-w-[1200px] grid-cols-[4fr_6fr] gap-12 items-start max-[968px]:grid-cols-1">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-[4fr_6fr] gap-12 items-stretch max-[968px]:grid-cols-1">
           <div className="flex flex-col gap-8">
             <div>
               <h3 className="mb-3 text-[14px] font-semibold tracking-[0.05em] text-[var(--text-steel)] uppercase">
@@ -172,13 +172,15 @@ export default function LocationPage() {
           </div>
 
           <div
-            className="w-full overflow-hidden rounded-3xl min-h-[600px] max-[968px]:min-h-[420px]"
+            className="w-full h-full overflow-hidden rounded-3xl max-[968px]:min-h-[420px]"
             style={{
               boxShadow: "0 8px 32px rgba(18, 44, 81, 0.08)",
               backgroundColor: "var(--bg-surface-soft)",
             }}
           >
-            <NaverMapPanel />
+            <div className="h-full w-full min-h-0">
+              <NaverMapPanel />
+            </div>
           </div>
         </div>
       </section>
