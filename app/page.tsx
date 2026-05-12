@@ -3,7 +3,8 @@ import { absoluteUrl } from "@/lib/site-url";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ScrollReveal from "@/components/ScrollReveal";
-import ParentConcernSection from "@/components/ParentConcernSection";
+import ParentPainSection from "@/components/ParentPainSection";
+import ParentAnxietyInsightSection from "@/components/ParentAnxietyInsightSection";
 import CoreProblemSection from "@/components/CoreProblemSection";
 import CoreProblemDarkSection from "@/components/CoreProblemDarkSection";
 import RIIEFrameworkSection from "@/components/RIIEFrameworkSection";
@@ -74,7 +75,8 @@ export default function Home() {
       <ScrollReveal />
       <Header />
       <Hero />
-      <ParentConcernSection />
+      <ParentPainSection />
+      <ParentAnxietyInsightSection />
       <CoreProblemSection />
       <CoreProblemDarkSection />
       <RIIEFrameworkSection />
