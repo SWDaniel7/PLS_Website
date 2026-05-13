@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ArrowUp } from "lucide-react";
+import { ArrowRight, ArrowUp, MessageCircle } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 export default function Hero() {
@@ -114,12 +114,17 @@ export default function Hero() {
         href="http://pf.kakao.com/_xdIwEn"
         target="_blank"
         rel="noreferrer"
-        className={`group fixed right-4 md:right-6 z-50 inline-flex items-center gap-2 rounded-full bg-[var(--accent-gold)] text-[var(--primary-navy-dark)] font-semibold px-4 py-2.5 text-sm md:px-6 md:py-3.5 md:text-[15px] shadow-[0_12px_28px_rgba(11,28,57,0.24)] ring-1 ring-white/30 transition-[opacity,transform,background-color,box-shadow,letter-spacing] duration-300 md:hover:bg-[#c9a673] md:hover:shadow-[0_16px_36px_rgba(212,180,131,0.45)] md:hover:tracking-[0.02em] md:hover:-translate-y-0.5 active:bg-[#c9a673] active:translate-y-[1px] active:scale-[0.98] active:shadow-[0_8px_20px_rgba(11,28,57,0.22)] ${
+        className={`group fixed right-4 md:right-6 z-50 inline-flex items-center gap-2 md:gap-2.5 rounded-full bg-[var(--accent-gold)] text-[var(--primary-navy-dark)] font-semibold px-5 py-3 text-sm md:px-7 md:py-4 md:text-[15px] shadow-[0_14px_36px_rgba(11,28,57,0.32)] ring-2 ring-[var(--primary-navy)]/25 transition-[opacity,transform,background-color,box-shadow,letter-spacing] duration-300 md:hover:bg-[#c9a673] md:hover:shadow-[0_18px_44px_rgba(212,180,131,0.55)] md:hover:tracking-[0.02em] md:hover:-translate-y-0.5 active:bg-[#c9a673] active:translate-y-[1px] active:scale-[0.98] active:shadow-[0_8px_20px_rgba(11,28,57,0.22)] ${
           isFloating
             ? "bottom-[14vh] opacity-100 translate-x-0"
             : "bottom-[14vh] opacity-0 translate-x-20 pointer-events-none"
         }`}
       >
+        <span
+          aria-hidden
+          className="floating-cta-halo pointer-events-none absolute -inset-2 rounded-full -z-10"
+        />
+        <MessageCircle className="w-4 h-4 md:w-[18px] md:h-[18px]" strokeWidth={2.2} />
         대기 상담
         <ArrowRight className="w-3.5 h-3.5 md:w-[18px] md:h-[18px] transition-transform duration-300 group-hover:translate-x-1" />
       </a>

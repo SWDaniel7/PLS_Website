@@ -20,7 +20,8 @@ export default function CoreProblemSection() {
       className="py-16 md:py-24 lg:py-[100px]"
       style={{ backgroundColor: "var(--bg-canvas)" }}
     >
-      <div className="container mx-auto max-w-5xl px-6 md:px-8 lg:px-12">
+      <div className="container mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
+        <div className="max-w-4xl">
         <div className="mb-10 md:mb-14">
           <span className="section-kicker reveal-body mb-5">Core Problem</span>
 
@@ -235,6 +236,7 @@ export default function CoreProblemSection() {
             </span>
             과도 연결됩니다.
           </p>
+        </div>
         </div>
       </div>
     </section>

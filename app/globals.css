@@ -494,6 +494,36 @@
   background: var(--text-steel);
 }
 
+/* 플로팅 상담 CTA — 외곽 골드 halo 부드러운 펄스 */
+.floating-cta-halo {
+  background: radial-gradient(
+    closest-side,
+    rgba(212, 180, 131, 0.55),
+    transparent 75%
+  );
+  filter: blur(3px);
+  animation: floatingCtaPulse 3.6s ease-in-out infinite;
+}
+
+@keyframes floatingCtaPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-cta-halo {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
 /* NaverMapPanel 지도 위 PLS 라벨 오버레이 */
 .map-label {
   position: absolute;
