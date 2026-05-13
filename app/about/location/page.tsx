@@ -8,23 +8,31 @@ import NaverMapPanel from "@/components/NaverMapPanel";
 export const metadata: Metadata = {
   title: "찾아오는길 | 위치 · 주차 안내",
   description:
-    "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
+    "PLS영재교육(PLS프렙) 찾아오는길 안내입니다. 서울 강남구 논현로 영재센터빌딩 4층 위치, 대중교통 및 주차 정보를 확인하세요. 대치동영어·대치프렙 인근 초등레테·게이트입시 전문 영재교육센터입니다.",
   keywords: [
     "PLS영재교육",
     "피엘에스영재교육",
+    "PLS프렙",
     "찾아오는길",
     "위치",
     "주차",
+    "강남구",
+    "논현로",
+    "영재센터빌딩",
     "대치프렙",
     "대치동영어",
+    "초등레테",
+    "게이트입시",
   ],
   openGraph: {
     title: "찾아오는길 | 위치 · 주차 안내 | PLS영재교육",
     description:
-      "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
+      "PLS영재교육(PLS프렙) 찾아오는길 안내입니다. 서울 강남구 논현로 영재센터빌딩 4층 위치, 대중교통 및 주차 정보를 확인하세요.",
     images: [
       {
         url: "/images/location-building.png",
+        width: 1200,
+        height: 630,
         alt: "PLS영재교육 위치 및 주차 안내",
       },
     ],
@@ -33,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "찾아오는길 | 위치 · 주차 안내 | PLS영재교육",
     description:
-      "PLS영재교육 찾아오는길 페이지입니다. 대치/개포 PLS영재교육 위치, 주소, 주차 정보를 확인하세요.",
+      "PLS영재교육(PLS프렙) 찾아오는길 안내입니다. 서울 강남구 논현로 영재센터빌딩 4층 위치, 대중교통 및 주차 정보를 확인하세요.",
     images: ["/images/location-building.png"],
   },
   alternates: {
