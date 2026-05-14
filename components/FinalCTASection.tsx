@@ -43,7 +43,7 @@ export default function FinalCTASection() {
         <p
           className="reveal-body mb-4"
           style={{
-            fontSize: "18px",
+            fontSize: "clamp(15px, 2vw, 18px)",
             color: "rgba(255, 255, 255, 0.9)",
             wordBreak: "keep-all",
           }}
@@ -54,7 +54,7 @@ export default function FinalCTASection() {
         <p
           className="reveal-body mb-14"
           style={{
-            fontSize: "15px",
+            fontSize: "clamp(13px, 1.8vw, 15px)",
             color: "rgba(255, 255, 255, 0.6)",
             wordBreak: "keep-all",
           }}

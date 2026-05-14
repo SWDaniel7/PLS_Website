@@ -321,7 +321,7 @@ export default function Header() {
           {/* Mobile Menu Button - refined circular with morphing 2-line */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden relative h-8 w-8 rounded-full ring-1 transition-all duration-300 hover:ring-[#D4B483] active:scale-95 ${
+            className={`md:hidden relative h-11 w-11 rounded-full ring-1 transition-all duration-300 hover:ring-[#D4B483] active:scale-95 ${
               isScrolled || isMobileMenuOpen
                 ? "bg-white/85 backdrop-blur-sm ring-[#E1E4E9] text-[#2F3E5F]"
                 : "bg-white/10 backdrop-blur-md ring-white/35 text-white shadow-[0_4px_14px_rgba(11,28,57,0.18)]"

@@ -45,7 +45,7 @@ export default function FloatingConsultCTA() {
       href="https://pf.kakao.com/_xdIwEn"
       target="_blank"
       rel="noopener noreferrer"
-      className={`group fixed bottom-[14vh] right-4 z-50 inline-flex items-center gap-2 md:gap-2.5 rounded-full bg-[var(--accent-gold)] px-5 py-3 text-sm font-semibold text-[var(--primary-navy-dark)] shadow-[0_14px_36px_rgba(11,28,57,0.32)] ring-2 ring-[var(--primary-navy)]/25 transition-[opacity,transform,background-color,box-shadow,letter-spacing] duration-300 md:right-6 md:px-7 md:py-4 md:text-[15px] md:hover:-translate-y-0.5 md:hover:bg-[#c9a673] md:hover:tracking-[0.02em] md:hover:shadow-[0_18px_44px_rgba(212,180,131,0.55)] active:translate-y-[1px] active:scale-[0.98] active:bg-[#c9a673] active:shadow-[0_8px_20px_rgba(11,28,57,0.22)] ${
+      className={`group fixed bottom-[14dvh] right-4 z-50 inline-flex items-center gap-2 md:gap-2.5 rounded-full bg-[var(--accent-gold)] px-5 py-3 text-sm font-semibold text-[var(--primary-navy-dark)] shadow-[0_14px_36px_rgba(11,28,57,0.32)] ring-2 ring-[var(--primary-navy)]/25 transition-[opacity,transform,background-color,box-shadow,letter-spacing] duration-300 md:right-6 md:px-7 md:py-4 md:text-[15px] md:hover:-translate-y-0.5 md:hover:bg-[#c9a673] md:hover:tracking-[0.02em] md:hover:shadow-[0_18px_44px_rgba(212,180,131,0.55)] active:translate-y-[1px] active:scale-[0.98] active:bg-[#c9a673] active:shadow-[0_8px_20px_rgba(11,28,57,0.22)] ${
         visible
           ? "translate-x-0 opacity-100"
           : "pointer-events-none translate-x-20 opacity-0"

@@ -512,7 +512,7 @@ export default function FacultySection() {
             </div>
             <div className="border-t border-[var(--border-hairline)] bg-[color-mix(in_srgb,var(--accent-sand)_38%,var(--bg-canvas))] px-5 py-5 sm:px-8 sm:py-6">
               <p className="mb-1.5 text-[10px] font-semibold tracking-[0.22em] text-[var(--text-steel)] uppercase">
-                Faculty {String(zoomFacultyIndex + 1).padStart(2, "0")}
+                Faculty {String(zoomFacultyIndex! + 1).padStart(2, "0")}
               </p>
               <h3 className="text-xl font-semibold tracking-[-0.02em] text-[var(--text-ink)] sm:text-2xl">
                 {zoomProfile.name}

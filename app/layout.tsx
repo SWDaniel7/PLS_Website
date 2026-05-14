@@ -100,7 +100,7 @@ export default function RootLayout({
   const site = getSiteUrl()
   const orgSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['Organization', 'LocalBusiness', 'EducationalOrganization'],
     name: 'PLS영재교육',
     alternateName: ['피엘에스영재교육', 'PLS프렙', '피엘에스프렙', 'PLS', '피엘에스'],
     url: site,
