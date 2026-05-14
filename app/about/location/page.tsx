@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 import Header from "@/components/Header";
 import { absoluteUrl } from "@/lib/site-url";
 import Footer from "@/components/Footer";
@@ -184,16 +185,27 @@ export default function LocationPage() {
             </p>
           </div>
 
-          <div
-            className="w-full h-full overflow-hidden rounded-3xl max-[968px]:min-h-[420px]"
-            style={{
-              boxShadow: "0 8px 32px rgba(18, 44, 81, 0.08)",
-              backgroundColor: "var(--bg-surface-soft)",
-            }}
-          >
-            <div className="h-full w-full min-h-0">
-              <NaverMapPanel mapClientId={naverMapClientId} />
+          <div className="flex h-full flex-col gap-3 max-[968px]:h-auto">
+            <div
+              className="w-full flex-1 overflow-hidden rounded-3xl max-[968px]:min-h-[420px]"
+              style={{
+                boxShadow: "0 8px 32px rgba(18, 44, 81, 0.08)",
+                backgroundColor: "var(--bg-surface-soft)",
+              }}
+            >
+              <div className="h-full w-full min-h-0">
+                <NaverMapPanel mapClientId={naverMapClientId} />
+              </div>
             </div>
+            <a
+              href="https://map.naver.com/p/entry/place/2044921658"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-fit items-center gap-1.5 rounded-full border border-[var(--border-hairline)] bg-white px-4 py-2 text-[13px] font-medium text-[var(--primary-navy)] shadow-sm transition-colors hover:border-[var(--primary-navy)]/25 hover:bg-[var(--bg-surface-soft)]"
+            >
+              <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+              네이버 지도에서 열기
+            </a>
           </div>
         </div>
       </section>
