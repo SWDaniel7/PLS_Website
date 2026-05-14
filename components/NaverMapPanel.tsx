@@ -68,6 +68,9 @@ function attachPlsNameLabelOverlay(
   return new LabelOverlay(position);
 }
 
+// NEXT_PUBLIC_ 키는 브라우저에 원래부터 노출되는 공개 값이므로 소스에 fallback으로 보관합니다.
+const NAVER_MAP_CLIENT_ID_DEFAULT = "obzbf0y5i3";
+
 export type NaverMapPanelProps = {
   /** 서버(배포 환경)에서 주입 시 빌드 번들에 없던 키도 반영됩니다. 없으면 NEXT_PUBLIC_* 환경 변수를 사용합니다. */
   mapClientId?: string | null;
@@ -81,7 +84,7 @@ export default function NaverMapPanel({ mapClientId: mapClientIdProp }: NaverMap
   const [statusText, setStatusText] = useState("지도를 불러오는 중입니다...");
   const fromProp = typeof mapClientIdProp === "string" ? mapClientIdProp.trim() : "";
   const fromEnv = (process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID ?? "").trim();
-  const mapClientId = fromProp || fromEnv;
+  const mapClientId = fromProp || fromEnv || NAVER_MAP_CLIENT_ID_DEFAULT;
 
   useEffect(() => {
     if (!mapClientId) {
