@@ -49,7 +49,13 @@ export const metadata: Metadata = {
   },
 };
 
+/** 네이버 지도 클라이언트 ID를 빌드가 아닌 요청 시점 env에서 읽어 클라이언트로 전달 */
+export const dynamic = "force-dynamic";
+
 export default function LocationPage() {
+  const naverMapClientId =
+    process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID?.trim() ?? "";
+
   const locationSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -187,7 +193,7 @@ export default function LocationPage() {
             }}
           >
             <div className="h-full w-full min-h-0">
-              <NaverMapPanel />
+              <NaverMapPanel mapClientId={naverMapClientId} />
             </div>
           </div>
         </div>

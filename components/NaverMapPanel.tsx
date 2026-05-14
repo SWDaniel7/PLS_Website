@@ -15,7 +15,43 @@ const LOCATION = {
   address: "서울시 강남구 논현로10길 16 영재센터빌딩 4층",
 };
 
+const NAVER_PLACE_HREF =
+  "https://map.naver.com/p/entry/place/2044921658?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202605062040&locale=ko&svcName=map_pcv5";
+
 const MAP_LABEL_SUBLINE = "영재센터 빌딩 4층";
+
+/** 네이버 클라이언트 ID 없을 때 동일 좌표를 OSM 임베드로 표시 */
+function OsmLocationFallback() {
+  const d = 0.0028;
+  const minLon = LOCATION.lng - d;
+  const maxLon = LOCATION.lng + d;
+  const minLat = LOCATION.lat - d;
+  const maxLat = LOCATION.lat + d;
+  const bbox = `${minLon},${minLat},${maxLon},${maxLat}`;
+  const src = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&layer=mapnik&marker=${LOCATION.lat}%2C${LOCATION.lng}`;
+
+  return (
+    <div className="relative h-full w-full min-h-0 max-[968px]:min-h-[420px]">
+      <iframe
+        title={`${LOCATION.title} 위치`}
+        src={src}
+        className="h-full w-full min-h-[320px] border-0"
+        loading="lazy"
+        referrerPolicy="strict-origin-when-cross-origin"
+      />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center p-3">
+        <a
+          href={NAVER_PLACE_HREF}
+          target="_blank"
+          rel="noreferrer"
+          className="pointer-events-auto rounded-full bg-[var(--primary-navy)] px-4 py-2 text-sm font-medium text-white shadow-md"
+        >
+          네이버 지도에서 열기
+        </a>
+      </div>
+    </div>
+  );
+}
 
 function buildMapLabelElement(): HTMLDivElement {
   const root = document.createElement("div");
@@ -68,21 +104,18 @@ function attachPlsNameLabelOverlay(
   return new LabelOverlay(position);
 }
 
-export default function NaverMapPanel() {
+type NaverMapInteractiveProps = {
+  mapClientId: string;
+};
+
+function NaverMapInteractive({ mapClientId }: NaverMapInteractiveProps) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const loadedRef = useRef(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [statusText, setStatusText] = useState("지도를 불러오는 중입니다...");
-  const mapClientId = process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID;
 
   useEffect(() => {
-    if (!mapClientId) {
-      setHasError(true);
-      setStatusText("NEXT_PUBLIC_NAVER_MAP_CLIENT_ID 설정이 필요합니다.");
-      return;
-    }
-
     const scriptId = "naver-maps-sdk";
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let disposed = false;
@@ -160,7 +193,7 @@ export default function NaverMapPanel() {
         loadedRef.current = true;
         setIsLoaded(true);
         if (timeoutId) clearTimeout(timeoutId);
-      } catch (e) {
+      } catch {
         setHasError(true);
         setStatusText("지도 렌더링 중 오류가 발생했습니다.");
       }
@@ -207,29 +240,31 @@ export default function NaverMapPanel() {
     };
   }, [mapClientId]);
 
+  if (hasError) {
+    return <OsmLocationFallback />;
+  }
+
   return (
     <div className="relative h-full w-full min-h-0 max-[968px]:min-h-[420px]">
       <div ref={mapRef} className="h-full w-full" />
-      {!isLoaded && !hasError ? (
+      {!isLoaded ? (
         <div className="absolute inset-0 flex items-center justify-center text-sm text-[var(--text-steel)]">
           {statusText}
         </div>
       ) : null}
-      {hasError ? (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[var(--bg-surface-soft)] p-6 text-center">
-          <p className="text-sm text-[var(--text-charcoal)]">
-            {statusText}
-          </p>
-          <a
-            href="https://map.naver.com/p/entry/place/2044921658?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202605062040&locale=ko&svcName=map_pcv5"
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm font-medium text-[var(--primary-navy)] underline underline-offset-2"
-          >
-            네이버 지도에서 열기
-          </a>
-        </div>
-      ) : null}
     </div>
   );
+}
+
+export type NaverMapPanelProps = {
+  /** 서버에서 주입 (빌드 시점이 아닌 배포 환경 변수 반영). 비우면 OSM 대체 지도. */
+  mapClientId?: string | null;
+};
+
+export default function NaverMapPanel({ mapClientId }: NaverMapPanelProps) {
+  const id = typeof mapClientId === "string" ? mapClientId.trim() : "";
+  if (!id) {
+    return <OsmLocationFallback />;
+  }
+  return <NaverMapInteractive mapClientId={id} />;
 }
