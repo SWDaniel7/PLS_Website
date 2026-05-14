@@ -49,7 +49,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+
 export default function LocationPage() {
+  const naverMapClientId =
+    process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID?.trim() ?? "";
+
   const locationSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -187,7 +192,7 @@ export default function LocationPage() {
             }}
           >
             <div className="h-full w-full min-h-0">
-              <NaverMapPanel />
+              <NaverMapPanel mapClientId={naverMapClientId} />
             </div>
           </div>
         </div>

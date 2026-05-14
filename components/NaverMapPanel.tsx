@@ -68,18 +68,25 @@ function attachPlsNameLabelOverlay(
   return new LabelOverlay(position);
 }
 
-export default function NaverMapPanel() {
+export type NaverMapPanelProps = {
+  /** 서버(배포 환경)에서 주입 시 빌드 번들에 없던 키도 반영됩니다. 없으면 NEXT_PUBLIC_* 환경 변수를 사용합니다. */
+  mapClientId?: string | null;
+};
+
+export default function NaverMapPanel({ mapClientId: mapClientIdProp }: NaverMapPanelProps) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const loadedRef = useRef(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [statusText, setStatusText] = useState("지도를 불러오는 중입니다...");
-  const mapClientId = process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID;
+  const fromProp = typeof mapClientIdProp === "string" ? mapClientIdProp.trim() : "";
+  const fromEnv = (process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID ?? "").trim();
+  const mapClientId = fromProp || fromEnv;
 
   useEffect(() => {
     if (!mapClientId) {
       setHasError(true);
-      setStatusText("NEXT_PUBLIC_NAVER_MAP_CLIENT_ID 설정이 필요합니다.");
+      setStatusText("지도 표시를 위한 설정이 완료되지 않았습니다.");
       return;
     }
 
