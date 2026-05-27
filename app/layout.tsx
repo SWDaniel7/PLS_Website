@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import FloatingConsultCTA from '@/components/FloatingConsultCTA'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
-import { absoluteUrl, getIndexingSiteUrl, getSiteUrl } from '@/lib/site-url'
+import { getIndexingSiteUrl } from '@/lib/site-url'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -57,38 +57,12 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ko_KR',
     siteName: 'PLS영재교육',
-    images: [
-      {
-        url: '/images/hero-main-campus.png',
-        width: 1200,
-        height: 630,
-        alt: 'PLS영재교육 메인 캠퍼스',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'PLS영재교육 | 초등레테 입시 & 원서(노블)수업 영재교육센터',
     description:
       'PLS영재교육(피엘에스영재교육, PLS프렙)은 초등레테·게이트입시·대치프렙 전문 교육기관입니다. 에디센·피아이(PI) 합격 실적, 에세이라이팅·원서수업 중심의 통합사고형 문해력 수업을 제공합니다.',
-    images: ['/images/hero-main-campus.png'],
-  },
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
   },
 }
 
@@ -97,20 +71,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const site = getSiteUrl()
+  const site = getIndexingSiteUrl()
   const orgSchema = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'LocalBusiness', 'EducationalOrganization'],
     name: 'PLS영재교육',
     alternateName: ['피엘에스영재교육', 'PLS프렙', '피엘에스프렙', 'PLS', '피엘에스'],
+    description:
+      'PLS영재교육(PLS프렙)은 초등레테·게이트입시 전문 영재교육기관입니다. 에디센·피아이(PI) 합격 실적, 에세이라이팅·원서수업 중심의 통합사고형 문해력 커리큘럼을 제공합니다.',
     url: site,
-    logo: absoluteUrl('/images/pls-logo.png'),
+    logo: `${site}/images/pls-logo.png`,
+    image: `${site}/opengraph-image`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: '논현로10길 16 영재센터빌딩 4층',
       addressLocality: '강남구',
       addressRegion: '서울특별시',
+      postalCode: '06039',
       addressCountry: 'KR',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 37.474329,
+      longitude: 127.049949,
     },
     sameAs: ['https://blog.naver.com/ym_career'],
   }

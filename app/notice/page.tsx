@@ -33,21 +33,12 @@ export const metadata: Metadata = {
     title: "재원생 사례 · 공지사항 | PLS영재교육",
     description:
       "PLS영재교육(PLS프렙) 재원생 합격 사례와 공지사항을 확인하세요. 에디센합격·피아이(PI)합격, 초등레테·게이트입시·대치프렙·서초게이트 합격 소식, 원서수업·레벨테스트 관련 최신 안내를 제공합니다.",
-    images: [
-      {
-        url: "/images/hero-background.png",
-        width: 1200,
-        height: 630,
-        alt: "PLS영재교육 공지사항 및 재원생 소식",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "재원생 사례 · 공지사항 | PLS영재교육",
     description:
       "PLS영재교육(PLS프렙) 재원생 합격 사례와 공지사항을 확인하세요. 에디센합격·피아이(PI)합격, 초등레테·게이트입시·대치프렙·서초게이트 합격 소식, 원서수업·레벨테스트 관련 최신 안내를 제공합니다.",
-    images: ["/images/hero-background.png"],
   },
   alternates: {
     canonical: "/notice",

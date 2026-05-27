@@ -16,7 +16,7 @@ import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "재원생 사례 · 초등레테 · 게이트입시",
+  title: "초등레테·게이트입시 영재교육",
   description:
     "PLS영재교육(PLS프렙) 재원생의 에디센·피아이(PI) 합격 사례를 확인하세요. 초등레테·게이트입시·대치프렙·서초게이트 대비 원서수업과 에세이라이팅 전문 영재교육센터입니다.",
   keywords: [
@@ -42,24 +42,15 @@ export const metadata: Metadata = {
     "초등어학원",
   ],
   openGraph: {
-    title: "재원생 사례 · 초등레테 · 게이트입시 | PLS영재교육",
+    title: "초등레테·게이트입시 영재교육 | PLS영재교육",
     description:
       "PLS영재교육(PLS프렙) 재원생의 에디센·피아이 합격 사례를 확인하세요. 초등레테·게이트입시·대치프렙·서초게이트 대비 원서수업과 에세이라이팅 전문 영재교육센터입니다.",
-    images: [
-      {
-        url: "/images/hero-students.png",
-        width: 1200,
-        height: 630,
-        alt: "PLS영재교육 재원생 사례 및 수업 성과",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "재원생 사례 · 초등레테 · 게이트입시 | PLS영재교육",
+    title: "초등레테·게이트입시 영재교육 | PLS영재교육",
     description:
       "PLS영재교육(PLS프렙) 재원생의 에디센·피아이 합격 사례를 확인하세요. 초등레테·게이트입시·대치프렙·서초게이트 대비 원서수업과 에세이라이팅 전문 영재교육센터입니다.",
-    images: ["/images/hero-students.png"],
   },
   alternates: {
     canonical: "/",

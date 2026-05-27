@@ -29,21 +29,12 @@ export const metadata: Metadata = {
     title: "찾아오는길 | 위치 · 주차 안내 | PLS영재교육",
     description:
       "PLS영재교육(PLS프렙) 찾아오는길 안내입니다. 서울 강남구 논현로 영재센터빌딩 4층 위치, 대중교통 및 주차 정보를 확인하세요.",
-    images: [
-      {
-        url: "/images/location-building.png",
-        width: 1200,
-        height: 630,
-        alt: "PLS영재교육 위치 및 주차 안내",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "찾아오는길 | 위치 · 주차 안내 | PLS영재교육",
     description:
       "PLS영재교육(PLS프렙) 찾아오는길 안내입니다. 서울 강남구 논현로 영재센터빌딩 4층 위치, 대중교통 및 주차 정보를 확인하세요.",
-    images: ["/images/location-building.png"],
   },
   alternates: {
     canonical: "/about/location",

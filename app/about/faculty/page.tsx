@@ -41,21 +41,12 @@ export const metadata: Metadata = {
     title: "강사소개 | 레테·게이트 입시 전문 강사진 | PLS영재교육",
     description:
       "PLS영재교육(PLS프렙) 강사소개입니다. 에디센·피아이(PI) 합격, 초등레테·게이트입시·대치프렙·서초게이트 현장 경험을 갖춘 에세이라이팅·원서수업 전문 강사진의 이력과 교육 철학을 확인하세요.",
-    images: [
-      {
-        url: "/images/faculty-daniel.png",
-        width: 1200,
-        height: 630,
-        alt: "PLS영재교육 강사소개",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "강사소개 | 레테·게이트 입시 전문 강사진 | PLS영재교육",
     description:
       "PLS영재교육(PLS프렙) 강사소개입니다. 에디센·피아이(PI) 합격, 초등레테·게이트입시·대치프렙·서초게이트 현장 경험을 갖춘 에세이라이팅·원서수업 전문 강사진의 이력과 교육 철학을 확인하세요.",
-    images: ["/images/faculty-daniel.png"],
   },
   alternates: {
     canonical: "/about/faculty",

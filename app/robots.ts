@@ -6,10 +6,11 @@ export default function robots(): MetadataRoute.Robots {
   const base = getIndexingSiteUrl();
 
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
+    rules: [
+      { userAgent: '*', allow: '/' },
+      { userAgent: 'Yeti', allow: '/' },
+      { userAgent: 'Naverbot', allow: '/' },
+    ],
     sitemap: `${base}/sitemap.xml`,
     host: base,
   };

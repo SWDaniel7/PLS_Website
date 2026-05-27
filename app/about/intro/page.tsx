@@ -30,21 +30,12 @@ export const metadata: Metadata = {
     title: "기관소개 | 설립이념 · 교육철학 | PLS영재교육",
     description:
       "PLS영재교육(피엘에스영재교육, PLS프렙) 기관소개입니다. RIIE 교수법으로 초등레테·게이트입시·에디센·피아이(PI) 합격을 설계하는 영재교육센터의 설립이념과 교육철학을 확인하세요.",
-    images: [
-      {
-        url: "/images/hero-main-campus.png",
-        width: 1200,
-        height: 630,
-        alt: "PLS영재교육 기관소개",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "기관소개 | 설립이념 · 교육철학 | PLS영재교육",
     description:
       "PLS영재교육(피엘에스영재교육, PLS프렙) 기관소개입니다. RIIE 교수법으로 초등레테·게이트입시·에디센·피아이(PI) 합격을 설계하는 영재교육센터의 설립이념과 교육철학을 확인하세요.",
-    images: ["/images/hero-main-campus.png"],
   },
   alternates: {
     canonical: "/about/intro",
