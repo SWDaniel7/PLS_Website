@@ -11,7 +11,7 @@ const linkItems = [
     href: "https://blog.naver.com/PostList.naver?blogId=ym_career&from=postList&categoryNo=16",
   },
   { label: "인스타그램", href: "https://www.instagram.com/pls_eng_prep/" },
-  { label: "오시는 길", href: "https://vide-coding-website.vercel.app/about/location" },
+  { label: "오시는 길", href: "/about/location" },
 ];
 
 export default function Footer() {
@@ -64,7 +64,7 @@ export default function Footer() {
 
             <nav className="grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-6 sm:gap-y-3">
               {linkItems.map((link) =>
-                isExternalLink(link.href) && link.label !== "오시는 길" ? (
+                isExternalLink(link.href) ? (
                   <a
                     key={link.label}
                     href={link.href}
