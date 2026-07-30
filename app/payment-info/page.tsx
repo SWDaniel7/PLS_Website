@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 export const metadata: Metadata = {
   title: "결제 안내",
   description:
-    "피엘에스(PLS)영재교육학원 수강 서비스 결제 안내 페이지입니다. 상품 정보, 환불 규정, 사업자 정보를 안내합니다.",
+    "피엘에스(PLS)영재교육 수강 서비스 결제 안내 페이지입니다. 상품 정보, 환불 규정, 사업자 정보를 안내합니다.",
   // 심사자만 URL 직접 접근하는 페이지 — 검색엔진 비색인 (최고가·환불규정·사업자정보 검색노출 방지).
   robots: {
     index: false,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 // 환불규정 정본 (기획서 §2). 바이트 단위 그대로 렌더 — 윤문·수정·재배치 금지.
 const REFUND_POLICY = `[환불 규정]
 
-피엘에스(PLS)영재교육학원의 환불 기준은 「학원의 설립·운영 및 과외교습에 관한 법률」
+피엘에스(PLS)영재교육의 환불 기준은 「학원의 설립·운영 및 과외교습에 관한 법률」
 및 동 시행령 [별표 4] '교습비 등의 반환 기준'에 따릅니다.
 
 ■ 교습 시작 전
@@ -35,7 +35,7 @@ const REFUND_POLICY = `[환불 규정]
 
 // 사업자정보 6종 (기획서 §3). 사업자등록증 표기 그대로. 학원등록번호와 별개.
 const BUSINESS_INFO: { label: string; value: string }[] = [
-  { label: "상호명", value: "피엘에스(PLS)영재교육학원" },
+  { label: "상호명", value: "피엘에스(PLS)영재교육" },
   { label: "대표자명", value: "김슬우" },
   { label: "사업자등록번호", value: "816-34-01637" },
   { label: "통신판매업신고번호", value: "(PG 계약 후 신고·기재 예정)" },
@@ -64,7 +64,7 @@ export default function PaymentInfoPage() {
             결제 안내
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-[14px] leading-[1.7] text-[var(--text-slate)] md:text-[15px]">
-            피엘에스(PLS)영재교육학원 수강 서비스의 상품 정보, 환불 규정,
+            피엘에스(PLS)영재교육 수강 서비스의 상품 정보, 환불 규정,
             사업자 정보를 안내합니다.
           </p>
         </div>
@@ -193,7 +193,7 @@ export default function PaymentInfoPage() {
             ))}
           </dl>
           <p className="mt-8 text-[12px] leading-[1.7] text-white/45">
-            피엘에스(PLS)영재교육학원
+            피엘에스(PLS)영재교육
           </p>
         </div>
       </section>
