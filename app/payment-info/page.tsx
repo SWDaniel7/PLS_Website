@@ -38,7 +38,7 @@ const BUSINESS_INFO: { label: string; value: string }[] = [
   { label: "상호명", value: "피엘에스(PLS)영재교육" },
   { label: "대표자명", value: "김슬우" },
   { label: "사업자등록번호", value: "816-34-01637" },
-  { label: "통신판매업신고번호", value: "(PG 계약 후 신고·기재 예정)" },
+  { label: "통신판매업신고번호", value: "제2026-서울강남-04311호" },
   {
     label: "사업장주소",
     value: "서울특별시 강남구 논현로10길 16, 영재빌딩 4층 (개포동)",
