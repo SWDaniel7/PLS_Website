@@ -64,12 +64,12 @@ export default function FinalCTASection() {
         </p>
 
         <Link
-          href="http://pf.kakao.com/_xdIwEn"
+          href="https://smore.im/form/O9ojDtkDhP"
           target="_blank"
           rel="noreferrer"
           className="cta-button reveal-body"
         >
-          <span>상담 신청하기</span>
+          <span>진단 신청</span>
           <ArrowRight
             className="h-5 w-5"
             aria-hidden
