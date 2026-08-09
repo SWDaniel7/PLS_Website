@@ -76,12 +76,12 @@ export default function Hero() {
               </p>
               <a
                 ref={buttonRef}
-                href="http://pf.kakao.com/_xdIwEn"
+                href="https://smore.im/form/O9ojDtkDhP"
                 target="_blank"
                 rel="noreferrer"
                 className="reveal-body group inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 bg-[var(--accent-gold)] text-[var(--primary-navy-dark)] rounded-full font-semibold text-xs sm:text-sm shadow-[0_4px_12px_rgba(11,28,57,0.18)] transition-all duration-300 hover:bg-[#c9a673] hover:shadow-[0_10px_24px_rgba(212,180,131,0.45)] hover:tracking-[0.02em] active:bg-[#b8985a] active:translate-y-[1px] active:scale-[0.98] active:shadow-[0_3px_10px_rgba(11,28,57,0.22)]"
               >
-                대기 상담
+                진단 신청
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-0" />
               </a>
               <p
@@ -93,7 +93,7 @@ export default function Hero() {
                   className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full"
                   style={{ background: "var(--accent-gold)" }}
                 />
-                잔여 TO는 접수 순서대로 우선 안내드립니다
+                수업 등록과 상담은 진단에서 시작됩니다
               </p>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function Hero() {
 
       {/* Primary CTA — mid-right floating */}
       <a
-        href="http://pf.kakao.com/_xdIwEn"
+        href="https://smore.im/form/O9ojDtkDhP"
         target="_blank"
         rel="noreferrer"
         className={`group fixed right-4 md:right-6 z-50 inline-flex items-center gap-2 md:gap-2.5 rounded-full bg-[var(--accent-gold)] text-[var(--primary-navy-dark)] font-semibold px-5 py-3 text-sm md:px-7 md:py-4 md:text-[15px] shadow-[0_14px_36px_rgba(11,28,57,0.32)] ring-2 ring-[var(--primary-navy)]/25 transition-[opacity,transform,background-color,box-shadow,letter-spacing] duration-300 md:hover:bg-[#c9a673] md:hover:shadow-[0_18px_44px_rgba(212,180,131,0.55)] md:hover:tracking-[0.02em] md:hover:-translate-y-0.5 active:bg-[#c9a673] active:translate-y-[1px] active:scale-[0.98] active:shadow-[0_8px_20px_rgba(11,28,57,0.22)] ${
@@ -125,7 +125,7 @@ export default function Hero() {
           className="floating-cta-halo pointer-events-none absolute -inset-2 rounded-full -z-10"
         />
         <MessageCircle className="w-4 h-4 md:w-[18px] md:h-[18px]" strokeWidth={2.2} />
-        대기 상담
+        진단 신청
         <ArrowRight className="w-3.5 h-3.5 md:w-[18px] md:h-[18px] transition-transform duration-300 group-hover:translate-x-1" />
       </a>
 
