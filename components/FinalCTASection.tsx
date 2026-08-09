@@ -59,8 +59,8 @@ export default function FinalCTASection() {
             wordBreak: "keep-all",
           }}
         >
-          등록 대기 문의가 많아서 접수 순으로 순차 상담 진행 도움드리는 점 양해
-          부탁드립니다.
+          수업 등록과 상담은 진단에서 시작됩니다. 진단 결과를 바탕으로 한 분 한 분
+          정확히 안내드립니다.
         </p>
 
         <Link
