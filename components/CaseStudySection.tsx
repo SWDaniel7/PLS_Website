@@ -34,15 +34,15 @@ const resultCards = [
   },
   {
     tag: "Final Pass",
-    big: "최종합격",
-    label: "에디센(EDISEN)",
-    sub: "",
+    big: "에디센",
+    label: "에디센(EDISEN) 레벨테스트 최종 합격",
+    sub: "인터뷰 최종 통과",
   },
   {
     tag: "Final Pass",
-    big: "최종합격",
-    label: "렉스킴(Lex Kim)",
-    sub: "재원생 복수",
+    big: "렉스킴",
+    label: "렉스킴(Lex Kim) 레벨테스트 최종 합격",
+    sub: "재원생 복수 · 나란히 합격",
   },
 ];
 const reportCaptures = [
