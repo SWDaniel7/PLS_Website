@@ -48,8 +48,8 @@ export default function FinalCTASection() {
             wordBreak: "keep-all",
           }}
         >
-          아이의 현재 위치와 다음 단계가 궁금하시다면, 사전 상담을 통해 정확히
-          진단받아보세요.
+          아이의 현재 위치와 다음 단계가 궁금하시다면, 리딩·라이팅 진단으로
+          정확히 확인해보세요.
         </p>
         <p
           className="reveal-body mb-14"

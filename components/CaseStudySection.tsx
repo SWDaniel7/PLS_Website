@@ -25,31 +25,27 @@ type CaseStudy = {
   proofCaption: string;
 };
 
-const heroStats = [
-  { value: "100%", label: "26년 인사이트 프렙 응시생 합격" },
-  { value: "88%", label: "3개월 이상 수강생 탑반(ENSIGHT) 석권" },
+const resultCards = [
+  {
+    tag: "Acceptance",
+    name: "인사이트프렙",
+    fact: "응시생 전원 합격 · 탑반(ENSIGHT) 배정 다수",
+  },
+  {
+    tag: "Final Pass",
+    name: "에디센(EDISEN)",
+    fact: "최종 합격",
+  },
+  {
+    tag: "Final Pass",
+    name: "렉스킴(Lex Kim)",
+    fact: "최종 합격 · 재원생 복수",
+  },
 ];
-const riieBars = [
-  { label: "R", value: 82 },
-  { label: "I", value: 71 },
-  { label: "I", value: 76 },
-  { label: "E", value: 64 },
+const reportCaptures = [
+  { src: "/images/report-capture-1.png", w: 1960, h: 2730 },
+  { src: "/images/report-capture-2.png", w: 1960, h: 1550 },
 ];
-const sparklinePoints = [
-  { x: 0, y: 32 },
-  { x: 30, y: 28 },
-  { x: 60, y: 24 },
-  { x: 90, y: 22 },
-  { x: 120, y: 16 },
-  { x: 150, y: 18 },
-  { x: 180, y: 11 },
-  { x: 210, y: 8 },
-  { x: 240, y: 5 },
-];
-const sparklinePath = sparklinePoints.map((p) => `${p.x},${p.y}`).join(" ");
-const sparklineFill = `M0,40 L${sparklinePath
-  .split(" ")
-  .join(" L")} L240,40 Z`;
 
 const caseStudies: CaseStudy[] = [
   {
@@ -72,18 +68,18 @@ const caseStudies: CaseStudy[] = [
     proofs: [
       {
         type: "score",
-        label: "에디* Academy",
+        label: "에디센(EDISEN)",
         bars: [82, 70, 88, 76, 92],
-        imageSrc: "/images/case-score-left.png",
+        imageSrc: "/images/case-edisen-pass.png",
       },
       {
         type: "score",
-        label: "아이* Academy",
+        label: "렉스킴(Lex Kim)",
         bars: [78, 84, 90, 72, 86],
-        imageSrc: "/images/case-score-right.png",
+        imageSrc: "/images/case-lexkim-pass.png",
       },
     ],
-    proofCaption: "Score Report · 초시 지필테스트",
+    proofCaption: "합격 소식 · 에디센 · 렉스킴",
   },
   {
     tag: "6세 사례",
@@ -128,13 +124,13 @@ const caseStudies: CaseStudy[] = [
 function ScoreProof({ proof }: { proof: ScoreCard }) {
   if (proof.imageSrc) {
     return (
-      <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-[var(--border-hairline)] bg-white shadow-[0_8px_24px_rgba(18,44,81,0.08)]">
+      <div className="relative aspect-[210/297] overflow-hidden rounded-xl border border-[var(--border-hairline)] bg-white shadow-[0_8px_24px_rgba(18,44,81,0.08)]">
         <Image
           src={proof.imageSrc}
-          alt={`${proof.label} score report`}
-          width={720}
-          height={960}
-          className="h-full w-full object-cover object-top"
+          alt={`${proof.label} 합격 소식`}
+          width={1588}
+          height={2246}
+          className="h-full w-full object-cover object-center"
         />
       </div>
     );
@@ -261,7 +257,7 @@ export default function CaseStudySection() {
             className="reveal-title mb-5 text-[28px] font-semibold leading-[1.3] tracking-[-0.02em] text-[var(--text-ink)] md:text-[44px]"
             style={{ wordBreak: "keep-all" }}
           >
-            문해력이 성장하면 3개월 만에도,
+            문해력이 성장하면,
             <br className="hidden sm:block" />
             아이의 초등 어학원 결과가 달라집니다.
           </h2>
@@ -269,7 +265,7 @@ export default function CaseStudySection() {
             className="mb-0 text-base leading-relaxed text-[var(--text-slate)] md:text-lg"
             style={{ wordBreak: "keep-all" }}
           >
-            결과로 증명하는 PLS영재교육의 압도적 성취
+            결과로 증명하는 PLS영재교육
           </p>
         </div>
 
@@ -320,51 +316,48 @@ export default function CaseStudySection() {
                 className="mb-4 text-[15px] leading-relaxed text-[var(--text-charcoal)] md:text-base"
                 style={{ wordBreak: "keep-all" }}
               >
-                26년 인사이트 프렙 응시생{" "}
-                <span className="highlight highlight-light">100% 합격</span> 및
-                3개월 이상 수강생{" "}
-                <span className="highlight highlight-light">
-                  88% 탑반(ENSIGHT) 석권
-                </span>
-                이라는 압도적 결과를 만들어냈습니다. 이는 단순 리딩서 풀이를
-                넘어, 텍스트의 행간을 읽어내는{" "}
+                26년 인사이트프렙 응시생{" "}
+                <span className="highlight highlight-light">전원 합격</span>에
+                이어, 에디센·렉스킴 레벨테스트{" "}
+                <span className="highlight highlight-light">최종 합격</span>까지
+                — 서로 다른 사고를 요구하는 세 시험을 같은 수업의 아이들이
+                통과했습니다. 단순 리딩서 풀이를 넘어, 텍스트의 행간을 읽어내는{" "}
                 <span className="highlight highlight-light font-semibold text-[var(--text-ink)]">
-                  &lsquo;통합사고형 원서 수업&rsquo;
+                  &lsquo;통합사고형 원서수업&rsquo;
                 </span>
-                으로 최상위권 추론 능력을 완성한 결과입니다.
+                으로 만들어진 결과입니다.
               </p>
               <p
                 className="mb-0 text-[15px] leading-relaxed text-[var(--text-charcoal)] md:text-base"
                 style={{ wordBreak: "keep-all" }}
               >
-                기계적 암기가 아닌 깊이 있는 원서 정독을 통해 고난도 문장 구조와
-                정교한 어휘 활용을 자연스럽게 체득하며, 최상위권 원들의 변별력을
-                결정짓는 다면적 사고력과 자기표현 역량을 완벽히 갖추게 됩니다.
+                기계적 암기가 아닌 깊이 있는 원서 정독을 통해, 최상위권 원들의
+                변별력을 결정짓는 다면적 사고력과 자기표현 역량을 기릅니다.
               </p>
             </div>
 
             <div className="lg:col-span-5">
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                {heroStats.map((stat, i) => (
+                {resultCards.map((card) => (
                   <div
-                    key={stat.label}
+                    key={card.name}
                     className="rounded-2xl border border-[var(--border-hairline)] bg-white p-6 md:p-7"
                   >
                     <p className="mb-2 text-[11px] font-semibold tracking-[0.18em] text-[var(--accent-gold)] uppercase">
-                      {i === 0 ? "Acceptance" : "Top Class"}
+                      {card.tag}
                     </p>
                     <p
-                      className="mb-2 text-[44px] font-semibold leading-none text-[var(--primary-navy)] md:text-[56px]"
-                      style={{ letterSpacing: "-0.03em" }}
+                      className="mb-2 text-[21px] font-semibold leading-tight text-[var(--primary-navy)] md:text-[24px]"
+                      style={{ letterSpacing: "-0.01em" }}
                     >
-                      {stat.value}
+                      {card.name}
                     </p>
                     <div className="mb-3 h-px w-10 bg-[var(--accent-gold)]" />
                     <p
                       className="mb-0 text-[13px] leading-relaxed text-[var(--text-slate)] md:text-sm"
                       style={{ wordBreak: "keep-all" }}
                     >
-                      {stat.label}
+                      {card.fact}
                     </p>
                   </div>
                 ))}
@@ -435,175 +428,50 @@ export default function CaseStudySection() {
               </div>
               {cs.tag === "7세 사례" ? (
                 <div className="mt-auto pt-6">
-                  <div className="reveal-body relative">
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute -right-4 -top-4 hidden h-24 w-24 opacity-40 md:block"
-                      style={{
-                        backgroundImage:
-                          "radial-gradient(rgba(18, 44, 81, 0.18) 1px, transparent 1.4px)",
-                        backgroundSize: "10px 10px",
-                        maskImage:
-                          "radial-gradient(circle at top right, black 30%, transparent 75%)",
-                        WebkitMaskImage:
-                          "radial-gradient(circle at top right, black 30%, transparent 75%)",
-                      }}
-                    />
-                    <div className="relative rounded-3xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] p-4 shadow-[0_12px_32px_rgba(18,44,81,0.08)] md:p-5">
-                      <div className="mb-4 flex items-center justify-between px-1">
-                        <p className="mb-0 text-[11px] font-semibold tracking-[0.18em] text-[var(--text-steel)] uppercase">
-                          Student Insight Dashboard
-                        </p>
-                        <span className="inline-flex items-center gap-1.5">
-                          <span className="status-dot" />
-                          <span className="text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--accent-gold)]">
-                            Live · 2026
-                          </span>
-                        </span>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="rounded-2xl bg-white p-4 shadow-[0_4px_14px_rgba(18,44,81,0.04)] ring-1 ring-[var(--border-hairline)]">
-                          <div className="mb-3 flex items-center justify-between">
-                            <p className="mb-0 text-[12.5px] font-semibold text-[var(--text-ink)]">
-                              RIIE Skills Profile
-                            </p>
-                            <span className="text-[10px] tabular-nums text-[var(--text-steel)]">
-                              Cohort avg
-                            </span>
-                          </div>
-                          <div className="flex h-[88px] items-end gap-2.5">
-                            {riieBars.map((bar, idx) => (
-                              <div
-                                key={`${bar.label}-${idx}`}
-                                className="flex flex-1 flex-col items-center gap-1.5"
-                              >
-                                <div className="relative flex w-full flex-1 items-end overflow-hidden rounded-md bg-[var(--bg-surface-soft)]">
-                                  <div
-                                    className="w-full rounded-md"
-                                    style={{
-                                      height: `${bar.value}%`,
-                                      background:
-                                        idx === 1
-                                          ? "linear-gradient(180deg, var(--accent-gold) 0%, #C9A266 100%)"
-                                          : "linear-gradient(180deg, #1B3056 0%, #0C1D38 100%)",
-                                    }}
-                                  />
-                                </div>
-                                <span className="text-[10.5px] font-semibold tabular-nums tracking-tight text-[var(--text-steel)]">
-                                  {bar.value}
-                                </span>
-                                <span className="text-[11px] font-semibold text-[var(--primary-navy)]">
-                                  {bar.label}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                        <div className="rounded-2xl bg-white p-4 shadow-[0_4px_14px_rgba(18,44,81,0.04)] ring-1 ring-[var(--border-hairline)]">
-                          <div className="mb-2 flex items-center justify-between">
-                            <p className="mb-0 text-[12.5px] font-semibold text-[var(--text-ink)]">
-                              Reading Level Index
-                            </p>
-                            <span className="text-[10px] text-[var(--text-steel)]">
-                              Last 6 months
-                            </span>
-                          </div>
-                          <div className="mb-2 flex items-baseline gap-2">
-                            <span
-                              className="text-[26px] font-semibold leading-none tabular-nums text-[var(--primary-navy)]"
-                              style={{ fontFeatureSettings: "'tnum'" }}
-                            >
-                              5.8
-                            </span>
-                            <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[var(--accent-gold)]">
-                              +1.1
-                              <svg
-                                aria-hidden
-                                width="9"
-                                height="9"
-                                viewBox="0 0 9 9"
-                                fill="none"
-                              >
-                                <path
-                                  d="M4.5 1.5L7.5 5.5H1.5L4.5 1.5Z"
-                                  fill="currentColor"
-                                />
-                              </svg>
-                            </span>
-                          </div>
-                          <svg
-                            viewBox="0 0 240 40"
-                            preserveAspectRatio="none"
-                            className="h-10 w-full"
-                            aria-hidden
-                          >
-                            <defs>
-                              <linearGradient id="sparkFillCase" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor="#1B3056" stopOpacity="0.18" />
-                                <stop offset="100%" stopColor="#1B3056" stopOpacity="0" />
-                              </linearGradient>
-                            </defs>
-                            <path d={sparklineFill} fill="url(#sparkFillCase)" />
-                            <polyline
-                              fill="none"
-                              stroke="var(--primary-navy)"
-                              strokeWidth="1.8"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              points={sparklinePath}
-                            />
-                            {sparklinePoints.map((p, i) => (
-                              <circle
-                                key={i}
-                                cx={p.x}
-                                cy={p.y}
-                                r={i === sparklinePoints.length - 1 ? 2.5 : 1.4}
-                                fill={
-                                  i === sparklinePoints.length - 1
-                                    ? "var(--accent-gold)"
-                                    : "var(--primary-navy)"
-                                }
-                              />
-                            ))}
-                          </svg>
-                        </div>
-                        <div className="rounded-2xl bg-white p-4 shadow-[0_4px_14px_rgba(18,44,81,0.04)] ring-1 ring-[var(--border-hairline)]">
-                          <div className="mb-2 flex items-center justify-between">
-                            <p className="mb-0 text-[12.5px] font-semibold text-[var(--text-ink)]">
-                              Pattern Analysis
-                            </p>
-                            <span className="text-[10px] tracking-[0.14em] uppercase text-[var(--accent-gold)]">
-                              Auto
-                            </span>
-                          </div>
-                          <p
-                            className="mb-3 text-[12.5px] leading-[1.65] text-[var(--text-slate)]"
-                            style={{ wordBreak: "keep-all" }}
-                          >
-                            지문 핵심을 빠르게 찾고 근거 문장을 정확히 짚는 힘이
-                            좋아졌습니다. 긴 문장에서도 의미 단위를 끊어 읽는
-                            습관이 자리 잡았고, 서술형에서는 답의 논리 순서를 더
-                            안정적으로 구성하고 있습니다.
-                          </p>
-                          <div className="flex flex-wrap gap-1">
-                            {["Inference 강세", "Detail 보강", "Sequence 안정"].map(
-                              (tag) => (
-                                <span
-                                  key={tag}
-                                  className="rounded-full border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] px-2 py-0.5 text-[10.5px] font-medium text-[var(--text-charcoal)]"
-                                >
-                                  {tag}
-                                </span>
-                              )
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="mt-4 flex items-center justify-between px-1 text-[10px] tracking-[0.12em] uppercase text-[var(--text-steel)]">
-                        <span>Source · Cohort 2026</span>
-                        <span className="tabular-nums">N = 127</span>
-                      </div>
+                  <div className="reveal-body">
+                    <div className="mb-4 px-1">
+                      <p className="mb-2 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] text-[var(--accent-gold)] uppercase">
+                        <span
+                          aria-hidden
+                          className="inline-block h-px w-6"
+                          style={{ background: "var(--accent-gold)" }}
+                        />
+                        Diagnostic Report
+                      </p>
+                      <h4
+                        className="mb-2 text-[17px] font-semibold leading-snug text-[var(--text-ink)] md:text-[19px]"
+                        style={{ wordBreak: "keep-all" }}
+                      >
+                        진단 후, 이런 판독 리포트를 돌려드립니다
+                      </h4>
+                      <p
+                        className="mb-0 text-[13px] leading-relaxed text-[var(--text-slate)] md:text-[13.5px]"
+                        style={{ wordBreak: "keep-all" }}
+                      >
+                        실제 제공된 리딩 진단 리포트입니다. 아이가 어디에서
+                        막히고 무엇을 보완해야 하는지 — 결과만 통보하는 테스트와
+                        다른 이유입니다.
+                      </p>
                     </div>
+                    <div className="space-y-3">
+                      {reportCaptures.map((cap) => (
+                        <div
+                          key={cap.src}
+                          className="overflow-hidden rounded-2xl border border-[var(--border-hairline)] bg-white shadow-[0_4px_14px_rgba(18,44,81,0.06)]"
+                        >
+                          <Image
+                            src={cap.src}
+                            alt="리딩 진단 판독 리포트"
+                            width={cap.w}
+                            height={cap.h}
+                            className="h-auto w-full"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <p className="mt-3 px-1 text-[11px] leading-relaxed text-[var(--text-steel)]">
+                      학생 정보와 정량 수치는 가렸습니다.
+                    </p>
                   </div>
                 </div>
               ) : null}

@@ -65,14 +65,14 @@ export default function Hero() {
                 className="reveal-title text-[26px] sm:text-3xl md:text-4xl lg:text-[44px] font-semibold text-white leading-[1.25] tracking-[-0.02em] mb-4 md:mb-6"
                 style={{ wordBreak: "keep-all" }}
               >
-                어머님, 지금까지
+                읽고, 생각하고,
                 <br />
-                혼자 고민 많으셨죠?
+                자기 문장으로 씁니다.
               </h1>
               <p className="reveal-body text-sm sm:text-base md:text-lg text-white/80 mb-6 md:mb-8 leading-relaxed">
-                이제 우리 아이의 초등 어학원 준비,
+                우리 아이의 초등 어학원 준비,
                 <br />
-                저희가 부모님과 함께하겠습니다.
+                그 시작은 정확한 판독입니다.
               </p>
               <a
                 ref={buttonRef}
