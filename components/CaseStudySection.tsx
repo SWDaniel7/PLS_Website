@@ -28,23 +28,26 @@ type CaseStudy = {
 const resultCards = [
   {
     tag: "Acceptance",
-    name: "인사이트프렙",
-    fact: "응시생 전원 합격 · 탑반(ENSIGHT) 배정 다수",
+    big: "100%",
+    label: "26년 인사이트프렙 응시생 전원 합격",
+    sub: "탑반(ENSIGHT) 배정 다수",
   },
   {
     tag: "Final Pass",
-    name: "에디센(EDISEN)",
-    fact: "최종 합격",
+    big: "최종합격",
+    label: "에디센(EDISEN)",
+    sub: "",
   },
   {
     tag: "Final Pass",
-    name: "렉스킴(Lex Kim)",
-    fact: "최종 합격 · 재원생 복수",
+    big: "최종합격",
+    label: "렉스킴(Lex Kim)",
+    sub: "재원생 복수",
   },
 ];
 const reportCaptures = [
-  { src: "/images/report-capture-1.png", w: 1960, h: 2730 },
-  { src: "/images/report-capture-2.png", w: 1960, h: 1550 },
+  { src: "/images/report-capture-1.png", w: 861, h: 1200 },
+  { src: "/images/report-capture-2.png", w: 1200, h: 949 },
 ];
 
 const caseStudies: CaseStudy[] = [
@@ -340,25 +343,33 @@ export default function CaseStudySection() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
                 {resultCards.map((card) => (
                   <div
-                    key={card.name}
+                    key={card.label}
                     className="rounded-2xl border border-[var(--border-hairline)] bg-white p-6 md:p-7"
                   >
                     <p className="mb-2 text-[11px] font-semibold tracking-[0.18em] text-[var(--accent-gold)] uppercase">
                       {card.tag}
                     </p>
                     <p
-                      className="mb-2 text-[21px] font-semibold leading-tight text-[var(--primary-navy)] md:text-[24px]"
-                      style={{ letterSpacing: "-0.01em" }}
+                      className="mb-2 whitespace-nowrap text-[38px] font-semibold leading-none text-[var(--primary-navy)] md:text-[48px]"
+                      style={{ letterSpacing: "-0.02em" }}
                     >
-                      {card.name}
+                      {card.big}
                     </p>
                     <div className="mb-3 h-px w-10 bg-[var(--accent-gold)]" />
                     <p
                       className="mb-0 text-[13px] leading-relaxed text-[var(--text-slate)] md:text-sm"
                       style={{ wordBreak: "keep-all" }}
                     >
-                      {card.fact}
+                      {card.label}
                     </p>
+                    {card.sub ? (
+                      <p
+                        className="mb-0 mt-1 text-[12px] leading-relaxed text-[var(--text-steel)]"
+                        style={{ wordBreak: "keep-all" }}
+                      >
+                        {card.sub}
+                      </p>
+                    ) : null}
                   </div>
                 ))}
               </div>
@@ -470,7 +481,8 @@ export default function CaseStudySection() {
                       ))}
                     </div>
                     <p className="mt-3 px-1 text-[11px] leading-relaxed text-[var(--text-steel)]">
-                      학생 정보와 정량 수치는 가렸습니다.
+                      학생 정보와 상세 분석 내용은 가렸습니다. 전문은 진단 후
+                      리포트로 제공됩니다.
                     </p>
                   </div>
                 </div>
