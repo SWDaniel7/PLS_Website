@@ -23,8 +23,8 @@ const cards: ProcessCard[] = [
     badge: "Diagnostic",
     icon: Activity,
     title: "구조적 진단 — 아이의 사고 흐름을 '구조'로 읽습니다.",
-    body: "상담 후 트라이얼 클래스를 통해 Recognition-Inference-Integration-Expression 네 영역별 사고 단계를 분석합니다. 단순 점수가 아닌, 어디서 사고가 멈추는지 명확히 파악합니다.",
-    keywords: ["트라이얼 클래스", "RIIE 4영역 분석", "사고 단계 파악"],
+    body: "리딩·라이팅 진단을 통해 Recognition-Inference-Integration-Expression 네 영역별 사고 단계를 분석합니다. 단순 점수가 아닌, 어디서 사고가 멈추는지 명확히 파악합니다.",
+    keywords: ["리딩·라이팅 진단", "RIIE 4영역 분석", "사고 단계 파악"],
   },
   {
     number: "02",
