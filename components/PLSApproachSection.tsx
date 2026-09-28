@@ -24,7 +24,7 @@ const cards: ProcessCard[] = [
     icon: Activity,
     title: "구조적 판독 — 아이의 사고 흐름을 '구조'로 읽습니다.",
     body: "리딩·라이팅 판독을 통해 Recognition-Inference-Integration-Expression 네 영역별 사고 단계를 분석합니다. 단순 점수가 아닌, 어디서 사고가 멈추는지 명확히 파악합니다.",
-    keywords: ["리딩·라이팅 판독","RIIE 4영역 분석", "사고 단계 파악"],
+    keywords: ["리딩·라이팅 판독", "RIIE 4영역 분석", "사고 단계 파악"],
   },
   {
     number: "02",
