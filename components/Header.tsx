@@ -33,7 +33,7 @@ const menuItems = [
     submenus: [],
   },
   {
-    label: "진단 신청",
+    label: "판독 신청",
     href: "https://smore.im/form/O9ojDtkDhP",
     submenus: [],
   },
@@ -124,14 +124,14 @@ export default function Header() {
             rel="noopener noreferrer"
             tabIndex={isStatusBarVisible ? 0 : -1}
             suppressHydrationWarning
-            aria-label="「레테 좌표 판독」 접수 신청하기"
+            aria-label="「초등 레테 좌표 판독」 접수 신청하기"
             className="group relative block w-full cursor-pointer overflow-hidden bg-[var(--accent-slate)] text-white [touch-action:manipulation] transition-[filter,box-shadow,transform] duration-300 ease-out before:pointer-events-none before:absolute before:inset-0 before:z-0 before:bg-gradient-to-b before:from-white/[0.22] before:via-white/[0.06] before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-y-0 after:left-0 after:z-[1] after:h-full after:w-[55%] after:max-w-[min(420px,55vw)] after:-translate-x-[130%] after:skew-x-[-18deg] after:bg-gradient-to-r after:from-transparent after:via-white/50 after:to-transparent after:opacity-0 after:shadow-[0_0_40px_rgba(255,255,255,0.35)] after:transition-[transform,opacity] after:duration-700 after:ease-out hover:after:translate-x-[240%] hover:after:opacity-100 hover:brightness-[1.14] hover:saturate-110 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-2px_0_rgba(212,180,131,0.35),0_0_0_1px_rgba(212,180,131,0.45),0_18px_44px_-10px_rgba(11,28,57,0.62),0_0_48px_-12px_rgba(212,180,131,0.28)] hover:[transform:translateZ(0)] active:brightness-[0.88] active:shadow-[inset_0_4px_20px_rgba(0,0,0,0.35)] active:before:opacity-35 active:after:opacity-0 active:duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-gold)]/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--accent-slate)]"
           >
             <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-0.5 px-4 py-2 md:gap-1 md:py-2.5">
               <div className="flex items-center justify-center gap-2">
                 <span className="status-dot" aria-hidden />
                 <span className="text-[11.5px] font-semibold tracking-[-0.005em] text-[var(--accent-gold)] md:text-[12.5px]">
-                  {currentMonth}월 「레테 좌표 판독」
+                  {currentMonth}월 「초등 레테 좌표 판독」
                 </span>
               </div>
               <p
