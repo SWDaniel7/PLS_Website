@@ -24,7 +24,7 @@ const profiles: FacultyProfile[] = [
     role: "PLS영재교육 대표이사",
     highlights: [
       "게이트 입시",
-      "예비초레테 입시",
+      "초등 레테 입시",
       "Google",
       "연세대학교",
       "스탠퍼드대학교",
@@ -51,7 +51,7 @@ const profiles: FacultyProfile[] = [
     role: "PLS영재교육 이사",
     highlights: [
       "게이트 입시",
-      "예비초레테 입시",
+      "초등 레테 입시",
       "Google",
       "압구정영어",
       "미국걸스카우트",
@@ -75,7 +75,7 @@ const profiles: FacultyProfile[] = [
     name: "Sally",
     role: "PLS영재교육 수석강사",
     highlights: [
-      "예비초레테 입시",
+      "초등 레테 입시",
       "게이트 입시",
       "이중언어자",
       "성균관대학교",
@@ -103,7 +103,7 @@ const profiles: FacultyProfile[] = [
     role: "PLS영재교육 부원장",
     highlights: [
       "게이트 입시",
-      "예비초레테 입시",
+      "초등 레테 입시",
       "이중언어자",
       "미국사립학교",
       "대형어학원강사",
@@ -287,7 +287,7 @@ export default function FacultySection() {
             PLS영재교육은
             <br />
             언어를 통해 직접{" "}
-            <span className="highlight highlight-light">최상위 1%의 문</span>을
+            <span className="highlight highlight-light">그 문</span>을
             열어본 강사들이 이끌어갑니다.
           </h2>
           <p

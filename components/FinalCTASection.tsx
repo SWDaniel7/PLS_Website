@@ -48,7 +48,7 @@ export default function FinalCTASection() {
             wordBreak: "keep-all",
           }}
         >
-          아이의 현재 위치와 다음 단계가 궁금하시다면, 리딩·라이팅 진단으로
+          아이의 현재 위치와 다음 단계가 궁금하시다면, 리딩·라이팅 판독으로
           정확히 확인해보세요.
         </p>
         <p
@@ -59,7 +59,7 @@ export default function FinalCTASection() {
             wordBreak: "keep-all",
           }}
         >
-          수업 등록과 상담은 진단에서 시작됩니다. 진단 결과를 바탕으로 한 분 한 분
+          수업 등록과 상담은 리딩·라이팅 판독에서 시작됩니다. 판독 결과를 바탕으로 한 분 한 분
           정확히 안내드립니다.
         </p>
 
@@ -69,7 +69,7 @@ export default function FinalCTASection() {
           rel="noreferrer"
           className="cta-button reveal-body"
         >
-          <span>진단 신청</span>
+          <span>판독 신청</span>
           <ArrowRight
             className="h-5 w-5"
             aria-hidden

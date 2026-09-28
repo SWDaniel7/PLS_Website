@@ -1,6 +1,6 @@
 "use client";
 
-// About PLS 하위 페이지에서 메인과 동일한 진단 신청 플로팅 버튼을 표시합니다.
+// About PLS 하위 페이지에서 메인과 동일한 판독 신청 플로팅 버튼을 표시합니다.
 
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -56,7 +56,7 @@ export default function FloatingConsultCTA() {
         className="floating-cta-halo pointer-events-none absolute -inset-2 rounded-full -z-10"
       />
       <MessageCircle className="h-4 w-4 md:h-[18px] md:w-[18px]" strokeWidth={2.2} />
-      진단 신청
+      판독 신청
       <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 md:h-[18px] md:w-[18px]" />
     </a>
   );

@@ -81,7 +81,7 @@ export default function Hero() {
                 rel="noreferrer"
                 className="reveal-body group inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 bg-[var(--accent-gold)] text-[var(--primary-navy-dark)] rounded-full font-semibold text-xs sm:text-sm shadow-[0_4px_12px_rgba(11,28,57,0.18)] transition-all duration-300 hover:bg-[#c9a673] hover:shadow-[0_10px_24px_rgba(212,180,131,0.45)] hover:tracking-[0.02em] active:bg-[#b8985a] active:translate-y-[1px] active:scale-[0.98] active:shadow-[0_3px_10px_rgba(11,28,57,0.22)]"
               >
-                진단 신청
+                판독 신청
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-0" />
               </a>
               <p
@@ -93,7 +93,7 @@ export default function Hero() {
                   className="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full"
                   style={{ background: "var(--accent-gold)" }}
                 />
-                수업 등록과 상담은 진단에서 시작됩니다
+                수업 등록과 상담은 리딩·라이팅 판독에서 시작됩니다
               </p>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Hero() {
           className="floating-cta-halo pointer-events-none absolute -inset-2 rounded-full -z-10"
         />
         <MessageCircle className="w-4 h-4 md:w-[18px] md:h-[18px]" strokeWidth={2.2} />
-        진단 신청
+        판독 신청
         <ArrowRight className="w-3.5 h-3.5 md:w-[18px] md:h-[18px] transition-transform duration-300 group-hover:translate-x-1" />
       </a>
 

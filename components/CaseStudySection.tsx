@@ -28,9 +28,8 @@ type CaseStudy = {
 const resultCards = [
   {
     tag: "Acceptance",
-    big: "100%",
+    big: "전원",
     label: "26년 인사이트프렙 응시생 전원 합격",
-    sub: "탑반(ENSIGHT) 배정 다수",
   },
   {
     tag: "Final Pass",
@@ -52,7 +51,7 @@ const reportCaptures = [
 
 const caseStudies: CaseStudy[] = [
   {
-    tag: "7세 사례",
+    tag: "사례 1",
     title: (
       <>
         재시 목표였던 아이가 초시 지필에서{" "}
@@ -62,8 +61,8 @@ const caseStudies: CaseStudy[] = [
       </>
     ),
     body: [
-      "다른 프렙들에서는 “초시 합격은 어렵다”는 평가를 받았던 아동, 재시를 목표로 7세 중반에 PLS영재교육에서 학습 시작",
-      "12주 집중 과정에서 Reading(Integration·Inference) 영역 급성장",
+      "다른 프렙들에서는 “초시 합격은 어렵다”는 평가를 받았던 아동, 재시를 목표로 PLS영재교육에서 학습 시작",
+      "집중 과정에서 Reading(Integration·Inference) 영역 급성장",
       "10월 초시에서 지원했던 에디*·아이* 두 원 지필테스트 모두 합격",
       "단순 암기 중심이 아닌 이해·사고·표현 중심 수업을 통해 실력 안정화",
       "Writing 자신감과 학습 태도의 ‘내적 변화’까지 동반된 성장 사례",
@@ -85,24 +84,24 @@ const caseStudies: CaseStudy[] = [
     proofCaption: "합격 소식 · 에디센 · 렉스킴",
   },
   {
-    tag: "6세 사례",
+    tag: "사례 2",
     title: (
       <>
-        문법 오류가 많던 150단어 글에서{" "}
+        문법 오류가 많던 글에서{" "}
         <span className="highlight highlight-light">
-          250단어 수준의 완성형 Writing
+          두 배 가까운 분량의 완성형 Writing
         </span>
         으로
       </>
     ),
     subtitle:
-      "12주 만에 글의 양뿐 아니라 문장 구성력과 스토리 전개력까지 6세 완성형으로 성장",
+      "글의 양뿐 아니라 문장 구성력과 스토리 전개력까지 완성형으로 성장",
     body: [
-      "12주 만에 Word Count 150 → 250 수준으로 확장, 글의 길이뿐 아니라 내용 완성도 향상",
+      "한 편의 글이 두 배 가까이 길어지고, 문장 구성과 내용 완성도 함께 향상",
       "기초 문장 오류와 시제 혼용 감소, 문장 연결어와 구문 사용 능력 강화",
       "5문단 스토리 구조가 잡히며 이야기 전개가 자연스러워짐",
       "단순 사건 나열에서 벗어나 감정·상황 묘사 중심의 글쓰기로 발전",
-      "아이디어 구체화 및 문장 표현 다양화로 자기표현력 향상 - 에디*·아이* 등 상위 원에서 중점 평가하는 핵심 역량 강화",
+      "아이디어 구체화 및 문장 표현 다양화로 자기표현력 향상",
     ],
     proofs: [
       {
@@ -120,7 +119,7 @@ const caseStudies: CaseStudy[] = [
         imageSrc: "/images/writing-before.png",
       },
     ],
-    proofCaption: "Writing Sample · Before / After 12 weeks",
+    proofCaption: "Writing Sample · Before / After",
   },
 ];
 
@@ -218,9 +217,6 @@ function ManuscriptProof({ proof }: { proof: ManuscriptCard }) {
         >
           {proof.label}
         </p>
-        <p className="mb-0 text-[10px] font-medium text-[var(--text-slate)]">
-          {proof.words} words
-        </p>
       </div>
 
       <div className="flex flex-1 flex-col justify-start space-y-2 p-3">
@@ -232,14 +228,6 @@ function ManuscriptProof({ proof }: { proof: ManuscriptCard }) {
           />
         ))}
       </div>
-
-      {isAfter && (
-        <div className="absolute right-3 bottom-3">
-          <span className="rotate-[-6deg] rounded-md bg-[var(--accent-gold)]/15 px-2 py-1 text-[9px] font-bold tracking-[0.18em] text-[var(--accent-gold)] uppercase">
-            +100w
-          </span>
-        </div>
-      )}
     </div>
   );
 }
@@ -437,7 +425,7 @@ export default function CaseStudySection() {
                   ))}
                 </ul>
               </div>
-              {cs.tag === "7세 사례" ? (
+              {cs.tag === "사례 1" ? (
                 <div className="mt-auto pt-6">
                   <div className="reveal-body">
                     <div className="mb-4 px-1">
@@ -453,13 +441,13 @@ export default function CaseStudySection() {
                         className="mb-2 text-[17px] font-semibold leading-snug text-[var(--text-ink)] md:text-[19px]"
                         style={{ wordBreak: "keep-all" }}
                       >
-                        진단 후, 이런 판독 리포트를 돌려드립니다
+                        판독 후, 이런 리포트를 돌려드립니다
                       </h4>
                       <p
                         className="mb-0 text-[13px] leading-relaxed text-[var(--text-slate)] md:text-[13.5px]"
                         style={{ wordBreak: "keep-all" }}
                       >
-                        실제 제공된 리딩 진단 리포트입니다. 아이가 어디에서
+                        실제 제공된 리딩 판독 리포트입니다. 아이가 어디에서
                         막히고 무엇을 보완해야 하는지 — 결과만 통보하는 테스트와
                         다른 이유입니다.
                       </p>
@@ -472,7 +460,7 @@ export default function CaseStudySection() {
                         >
                           <Image
                             src={cap.src}
-                            alt="리딩 진단 판독 리포트"
+                            alt="리딩 판독 리포트"
                             width={cap.w}
                             height={cap.h}
                             className="h-auto w-full"
@@ -481,7 +469,7 @@ export default function CaseStudySection() {
                       ))}
                     </div>
                     <p className="mt-3 px-1 text-[11px] leading-relaxed text-[var(--text-steel)]">
-                      학생 정보와 상세 분석 내용은 가렸습니다. 전문은 진단 후
+                      학생 정보와 상세 분석 내용은 가렸습니다. 전문은 판독 후
                       리포트로 제공됩니다.
                     </p>
                   </div>
