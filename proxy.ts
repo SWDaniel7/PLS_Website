@@ -13,12 +13,20 @@ const MAINTENANCE_HTML = `<!doctype html>
 html,body{margin:0;height:100%}
 body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:0 16px;box-sizing:border-box;background:#F5F0E4;color:#0D0F36;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;text-align:center;word-break:keep-all}
 .main{margin:0;font-size:19px;font-weight:700;line-height:1.5}
-.sub{margin:12px 0 0;font-size:14px;opacity:0.7}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:440px;margin:24px 0 0}
+.btn{display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 16px;box-sizing:border-box;background:#0D0F36;color:#F5F0E4;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none}
+@media (max-width:360px){.btns{grid-template-columns:1fr}}
+.sub{margin:20px 0 0;font-size:14px;opacity:0.7}
+.sub a{color:inherit;text-decoration:underline}
 </style>
 </head>
 <body>
 <p class="main">PLS영재교육 홈페이지는 더 나은 안내를 위해 리뉴얼 중입니다.</p>
-<p class="sub">수업 문의 · 카카오톡 채널 「PLS영재교육」</p>
+<div class="btns">
+<a class="btn" href="https://smore.im/form/O9ojDtkDhP" target="_blank" rel="noopener">초등부 판독 신청</a>
+<a class="btn" href="https://smore.im/form/zEkmY69tY7" target="_blank" rel="noopener">미취학 체험수업 신청</a>
+</div>
+<p class="sub"><a href="http://pf.kakao.com/_xdIwEn" target="_blank" rel="noopener">수업 문의 · 카카오톡 채널 「PLS영재교육」</a></p>
 </body>
 </html>
 `
