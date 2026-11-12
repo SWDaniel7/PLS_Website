@@ -18,6 +18,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 @media (max-width:360px){.btns{grid-template-columns:1fr}}
 .sub{margin:20px 0 0;font-size:14px;opacity:0.7}
 .sub a{color:inherit;text-decoration:underline}
+.reg{margin:28px 0 0;font-size:12px;line-height:1.7;opacity:0.55}
 </style>
 </head>
 <body>
@@ -27,6 +28,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 <a class="btn" href="https://smore.im/form/zEkmY69tY7" target="_blank" rel="noopener">미취학 체험수업 신청</a>
 </div>
 <p class="sub"><a href="http://pf.kakao.com/_xdIwEn" target="_blank" rel="noopener">수업 문의 · 카카오톡 채널 「PLS영재교육」</a></p>
+<p class="reg">서울특별시 강남구 논현로10길 16 영재센터빌딩 4층<br>서울특별시강남서초교육지원청 등록 제 15022호 피엘에스(PLS)영재교육학원</p>
 </body>
 </html>
 `
@@ -44,5 +46,5 @@ export function proxy() {
 }
 
 export const config = {
-  matcher: ['/((?!_next/|api/|favicon\\.ico$|robots\\.txt$|sitemap\\.xml$|.*\\.[^/]+$).*)'],
+  matcher: ['/((?!_next/|api/|research/?$|favicon\\.ico$|robots\\.txt$|sitemap\\.xml$|.*\\.[^/]+$).*)'],
 }
