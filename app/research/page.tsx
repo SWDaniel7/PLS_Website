@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   description: "PLS영재교육이 초등 영어 원장님께 여쭙는 운영 인터뷰 조사 안내입니다.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/research" },
+  openGraph: {
+    title: "PLS영재교육 조사 안내",
+    description: "PLS영재교육이 초등 영어 원장님께 여쭙는 운영 인터뷰 조사 안내입니다.",
+    type: "website",
+    locale: "ko_KR",
+    siteName: "PLS영재교육",
+    url: "/research",
+  },
+  twitter: {
+    card: "summary",
+    title: "PLS영재교육 조사 안내",
+    description: "PLS영재교육이 초등 영어 원장님께 여쭙는 운영 인터뷰 조사 안내입니다.",
+  },
 };
 
 export const viewport: Viewport = {
