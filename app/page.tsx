@@ -1,6 +1,7 @@
 // plsprep.com 첫 화면 «한 판» (2026-11-13 원장 결정) — 기존 홈페이지 구성 요소의 꼴을 그대로 씁니다.
 import type { Metadata } from "next";
 import Image from "next/image";
+import HomeScrollTop from "@/components/HomeScrollTop";
 import {
   BookOpen,
   MessagesSquare,
@@ -167,7 +168,7 @@ export default function HomePage() {
             />
             <a
               href="#apply"
-              className="flex items-center gap-1.5 py-2 text-sm font-medium text-white drop-shadow-[0_1px_2px_rgba(11,28,57,0.45)]"
+              className="flex items-center gap-1.5 rounded-full border border-white/45 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition-colors duration-300 hover:border-[var(--accent-gold)] hover:text-[var(--accent-gold)]"
             >
               신청 안내
               <ArrowDown className="w-3.5 h-3.5" />
@@ -440,8 +441,8 @@ export default function HomePage() {
             <div className="lg:col-span-2">
               <div className="grid gap-4">
                 {[
-                  { src: "/images/writing-after.png", cap: "같은 아이의 글 · 먼저 쓴 것" },
-                  { src: "/images/writing-before.png", cap: "같은 아이의 글 · 나중에 쓴 것" },
+                  { src: "/images/writing-after.png", tag: "Before", cap: "수업을 시작할 무렵 쓴 글" },
+                  { src: "/images/writing-before.png", tag: "After", cap: "같은 아이가 3개월 뒤 쓴 글" },
                 ].map((w) => (
                   <figure
                     key={w.src}
@@ -450,11 +451,15 @@ export default function HomePage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={w.src} alt="아이가 손으로 쓴 영어 이야기 원고" className="block w-full h-auto" />
                     <figcaption className="border-t border-[var(--border-hairline)] px-5 py-3 text-[13px] text-[var(--text-slate)]">
+                      <span className="mr-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--accent-gold)]">{w.tag}</span>
                       {w.cap}
                     </figcaption>
                   </figure>
                 ))}
               </div>
+              <p className="mt-4 mb-0 text-[13px] leading-[1.7] text-[var(--text-slate)]" style={{ wordBreak: "keep-all" }}>
+                연필 글씨는 아이가 쓴 그대로입니다. 빨간 펜은 수업에서 글 안의 그래머와 보카를 함께 고친 흔적입니다.
+              </p>
             </div>
           </div>
         </div>
@@ -547,6 +552,15 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+          <p className="mt-10 mb-0 text-center">
+            <a
+              href="#apply"
+              className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[var(--primary-navy)] underline decoration-[var(--accent-gold)] decoration-2 underline-offset-[6px]"
+            >
+              신청 안내 보기
+              <ArrowDown className="h-4 w-4" />
+            </a>
+          </p>
         </div>
       </section>
 
@@ -604,8 +618,8 @@ export default function HomePage() {
 
           <div className="mx-auto grid max-w-3xl gap-4 text-left sm:grid-cols-2">
             {[
-              { who: "영유 재원생", line: "아이를 평가하지 않습니다.", btn: "영유 재원생 체험수업 신청", href: "https://smore.im/form/zEkmY69tY7" },
-              { who: "초등부", line: "초등부 대상 1:1 프로그램입니다.", btn: "초등부 판독 신청", href: "https://smore.im/form/O9ojDtkDhP" },
+              { who: "영유 재원생", line: "아이를 평가하지 않습니다. 수업을 직접 경험해 보는 시간입니다.", btn: "영유 재원생 체험수업 신청", href: "https://smore.im/form/zEkmY69tY7" },
+              { who: "초등부", line: "아이의 리딩과 라이팅을 1:1로 읽고, 리포트로 돌려드립니다.", btn: "초등부 판독 신청", href: "https://smore.im/form/O9ojDtkDhP" },
             ].map((c) => (
               <div key={c.btn} className="flex flex-col rounded-2xl bg-white/[0.04] p-6 ring-1 ring-white/10">
                 <div className="mb-2 flex items-center gap-2">
@@ -671,6 +685,7 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+      <HomeScrollTop />
     </main>
   );
 }
